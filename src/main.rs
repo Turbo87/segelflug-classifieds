@@ -53,6 +53,12 @@ async fn main() -> Result<()> {
 async fn run() -> Result<()> {
     let resp = reqwest::get(FEED_URL).await?.bytes().await?;
     let channel = Channel::read_from(&resp[..])?;
-    println!("{:#?}", channel);
+
+    let total = channel.items.len();
+    for (index, item) in channel.items.iter().enumerate() {
+        if let Some(title) = &item.title {
+            println!("- [{}/{}] {}", index + 1, total, title);
+        }
+    }
     Ok(())
 }
