@@ -881,7 +881,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "segelflug-classifieds-bot"
+name = "segelflug-classifieds"
 version = "0.0.0"
 dependencies = [
  "anyhow",

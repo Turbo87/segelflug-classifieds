@@ -1,5 +1,5 @@
 [package]
-name = "segelflug-classifieds-bot"
+name = "segelflug-classifieds"
 version = "0.0.0"
 authors = ["Tobias Bieniek <tobias@bieniek.cloud>"]
 edition = "2018"
