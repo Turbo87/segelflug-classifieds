@@ -1,9 +1,12 @@
 #[macro_use]
 extern crate tracing;
+#[macro_use]
+extern crate lazy_static;
 
 use anyhow::Result;
 use clap::Clap;
 use rand::Rng;
+use regex::Regex;
 use rss::Channel;
 use std::collections::HashSet;
 use tokio::time::{sleep, Duration};
@@ -61,6 +64,7 @@ async fn run() -> Result<()> {
             println!("- [{}/{}] {}", index + 1, total, title);
         }
         if let Some(description) = &item.description {
+            println!("{:?}", find_image_url(description));
             println!("{}", sanitize_description(description));
         }
     }
@@ -88,4 +92,14 @@ fn sanitize_description(value: &str) -> String {
     } else {
         format!("{}…", &text[..LENGTH_LIMIT - 1])
     }
+}
+
+fn find_image_url(description: &str) -> Option<&str> {
+    lazy_static! {
+        static ref RE: Regex = Regex::new(r#" src="([^"]+)""#).unwrap();
+    }
+
+    RE.captures(description)
+        .and_then(|captures| captures.get(1))
+        .map(|m| m.as_str())
 }
