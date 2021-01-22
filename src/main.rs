@@ -5,6 +5,7 @@ use anyhow::Result;
 use clap::Clap;
 use rand::Rng;
 use rss::Channel;
+use std::collections::HashSet;
 use tokio::time::{sleep, Duration};
 
 const FEED_URL: &'static str = "https://www.segelflug.de/osclass/index.php?page=search&sFeed=rss";
@@ -59,6 +60,32 @@ async fn run() -> Result<()> {
         if let Some(title) = &item.title {
             println!("- [{}/{}] {}", index + 1, total, title);
         }
+        if let Some(description) = &item.description {
+            println!("{}", sanitize_description(description));
+        }
     }
     Ok(())
+}
+
+fn sanitize_description(value: &str) -> String {
+    const LENGTH_LIMIT: usize = 3500;
+
+    // strip HTML tags
+    let text = ammonia::Builder::new()
+        .tags(HashSet::new())
+        .clean(value)
+        .to_string();
+
+    // replace HTML entities (only &nbsp; for now...)
+    let text = text.replace("&nbsp;", " ");
+
+    // trim surrounding whitespace
+    let text = text.trim();
+
+    // limit to `LENGTH_LIMIT` characters
+    if text.len() < LENGTH_LIMIT {
+        text.to_string()
+    } else {
+        format!("{}…", &text[..LENGTH_LIMIT - 1])
+    }
 }
