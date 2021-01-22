@@ -1,3 +1,6 @@
+#[macro_use]
+extern crate tracing;
+
 use anyhow::Result;
 use clap::Clap;
 use rand::Rng;
@@ -6,7 +9,7 @@ use tokio::time::{sleep, Duration};
 
 const FEED_URL: &'static str = "https://www.segelflug.de/osclass/index.php?page=search&sFeed=rss";
 
-#[derive(Clap)]
+#[derive(Clap, Debug)]
 struct Opts {
     /// Run continuously and poll the server in random intervals
     #[clap(short, long)]
@@ -23,7 +26,10 @@ struct Opts {
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    tracing_subscriber::fmt::init();
+
     let opts: Opts = Opts::parse();
+    debug!("parsed options: {:#?}", opts);
     if opts.min_time > opts.max_time {
         let description = String::from("--min-time must not be larger than --max-time");
         clap::Error::with_description(description, clap::ErrorKind::ValueValidation).exit();
