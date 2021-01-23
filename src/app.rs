@@ -95,6 +95,12 @@ impl App {
             text += &format!("\n{}", link);
 
             telegram.send_message(&text).await?;
+
+            if let Some(image_url) = &item.image_url() {
+                if let Err(error) = telegram.send_photo(image_url).await {
+                    warn!("Failed to send photo {} to Telegram: {}", image_url, error);
+                }
+            }
         }
 
         Ok(())
