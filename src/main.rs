@@ -8,7 +8,7 @@ use crate::classifieds::ClassifiedsApi;
 use crate::telegram::TelegramApi;
 use anyhow::Result;
 use clap::Clap;
-use tokio::time::{sleep, Duration};
+use tokio::time::Duration;
 
 mod app;
 mod classifieds;
