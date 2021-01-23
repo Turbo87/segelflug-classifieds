@@ -104,7 +104,7 @@ impl App {
         Ok(())
     }
 
-    pub async fn watch(&self, min_time: f32, max_time: f32) -> () {
+    pub async fn watch(&self, min_time: f32, max_time: f32) {
         loop {
             if let Err(error) = self.run().await {
                 warn!("{}", error);
