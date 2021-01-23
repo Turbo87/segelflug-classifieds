@@ -1,30 +1,32 @@
-use rand::Rng;
-use std::time::Duration;
-use tokio::time::sleep;
-
 use crate::classifieds::ClassifiedsApi;
 use crate::guids;
 use crate::telegram::TelegramApi;
+use rand::Rng;
+use std::path::PathBuf;
+use std::time::Duration;
+use tokio::time::sleep;
 
 pub struct App {
     classifieds: ClassifiedsApi,
+    guids_path: PathBuf,
     telegram: Option<TelegramApi>,
 }
 
 impl App {
-    pub fn new(classifieds: ClassifiedsApi, telegram: Option<TelegramApi>) -> Self {
+    pub fn new(
+        classifieds: ClassifiedsApi,
+        guids_path: PathBuf,
+        telegram: Option<TelegramApi>,
+    ) -> Self {
         Self {
             classifieds,
+            guids_path,
             telegram,
         }
     }
 
     pub async fn run(&self) -> anyhow::Result<()> {
-        let cwd = std::env::current_dir()?;
-        debug!("running in {:?}", cwd);
-
-        let guids_path = cwd.join("last_guids.json");
-        let mut guids = guids::read_guids_file(&guids_path).unwrap_or_default();
+        let mut guids = guids::read_guids_file(&self.guids_path).unwrap_or_default();
         trace!("guids = {:#?}", guids);
 
         let items = self.classifieds.load_feed().await?;
@@ -60,7 +62,7 @@ impl App {
             guids.insert(guid.to_string());
         }
 
-        guids::write_guids_file(&guids_path, &guids)?;
+        guids::write_guids_file(&self.guids_path, &guids)?;
         Ok(())
     }
 

@@ -64,12 +64,18 @@ async fn main() -> Result<()> {
 
     let classifieds = ClassifiedsApi::new(FEED_URL, client.clone());
 
+    let cwd = std::env::current_dir()?;
+    debug!("running in {:?}", cwd);
+
+    let guids_path = cwd.join("last_guids.json");
+    trace!("guids_path = {:?}", guids_path);
+
     let telegram = opts
         .telegram_token
         .as_ref()
         .map(|token| TelegramApi::new(token, &opts.telegram_chat_id, client));
 
-    let app = App::new(classifieds, telegram);
+    let app = App::new(classifieds, guids_path, telegram);
     if opts.watch {
         app.watch(opts.min_time, opts.max_time).await;
     } else {
