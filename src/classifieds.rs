@@ -50,6 +50,10 @@ impl ClassifiedsItem {
         let description = self.item.description.as_ref();
         description.and_then(|it| find_image_url(&it).map(str::to_string))
     }
+
+    pub async fn load_price(&self, api: &ClassifiedsApi) -> Result<String> {
+        api.load_price(self.link()).await
+    }
 }
 
 pub struct ClassifiedsApi {

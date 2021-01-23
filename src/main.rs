@@ -115,7 +115,7 @@ async fn run() -> Result<()> {
     for item in new_items.iter() {
         let title = item.title();
         let link = item.link();
-        let price = classifieds.load_price(&link).await?;
+        let price = item.load_price(&classifieds).await?;
 
         println!(" - {}", title);
         println!("   💶  {}", price);
