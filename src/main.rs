@@ -35,7 +35,7 @@ async fn main() -> Result<()> {
     tracing_subscriber::fmt::init();
 
     let opts: Opts = Opts::parse();
-    debug!("parsed options: {:#?}", opts);
+    trace!("opts = {:#?}", opts);
     if opts.min_time > opts.max_time {
         let description = String::from("--min-time must not be larger than --max-time");
         clap::Error::with_description(description, clap::ErrorKind::ValueValidation).exit();
