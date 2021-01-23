@@ -95,8 +95,6 @@ async fn run() -> Result<()> {
         .filter(|it| !guids.contains(&it.guid.as_ref().unwrap().value))
         .collect();
 
-    let new_items = &new_items[..3]; // TODO
-
     println!(
         "✈️  Found {} new classifieds on Segelflug.de",
         new_items.len()
