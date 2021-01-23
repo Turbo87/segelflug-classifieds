@@ -3,6 +3,7 @@ extern crate tracing;
 #[macro_use]
 extern crate lazy_static;
 
+use crate::price::get_price;
 use anyhow::{Context, Result};
 use clap::Clap;
 use rand::Rng;
@@ -11,6 +12,7 @@ use tokio::time::{sleep, Duration};
 
 mod descriptions;
 mod guids;
+mod price;
 
 const FEED_URL: &'static str = "https://www.segelflug.de/osclass/index.php?page=search&sFeed=rss";
 
@@ -102,6 +104,9 @@ async fn run() -> Result<()> {
 
         let link = item.link.as_ref().unwrap();
         info!("    {}", link);
+
+        let price = get_price(link).await?;
+        info!("    {}", price);
 
         if let Some(description) = &item.description {
             info!("{:?}", descriptions::find_image_url(description));
