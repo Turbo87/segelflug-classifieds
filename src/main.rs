@@ -47,7 +47,8 @@ async fn main() -> Result<()> {
             run().await?;
 
             let mins = rand::thread_rng().gen_range(opts.min_time..opts.max_time);
-            debug!("running again in {:.1} minutes…", mins);
+            println!("⏳  Running again in {:.1} minutes", mins);
+            println!();
             let secs = mins * 60.;
             sleep(Duration::from_secs_f32(secs)).await;
         }
@@ -96,21 +97,21 @@ async fn run() -> Result<()> {
 
     let new_items = &new_items[..3]; // TODO
 
-    info!("found {} new items in the RSS feed", new_items.len());
+    println!(
+        "✈️  Found {} new classifieds on Segelflug.de",
+        new_items.len()
+    );
+    println!();
 
-    for (index, item) in new_items.iter().enumerate() {
+    for item in new_items.iter() {
         let title = item.title.as_ref().unwrap();
-        info!("- [{}/{}] {}", index + 1, new_items.len(), title);
-
         let link = item.link.as_ref().unwrap();
-        info!("    {}", link);
-
         let price = get_price(link).await?;
-        info!("    {}", price);
 
-        if let Some(description) = &item.description {
-            info!("{:?}", descriptions::find_image_url(description));
-        }
+        println!(" - {}", title);
+        println!("   💶  {}", price);
+        println!("   {}", link);
+        println!();
 
         let guid = item.guid.as_ref().unwrap();
         guids.insert(guid.value.clone());
