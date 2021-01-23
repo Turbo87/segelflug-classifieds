@@ -48,6 +48,9 @@ struct Opts {
 async fn main() -> Result<()> {
     tracing_subscriber::fmt::init();
 
+    let sentry_dsn = std::env::var("SENTRY_DSN");
+    let _guard = sentry_dsn.map(sentry::init);
+
     let opts: Opts = Opts::parse();
     trace!("opts = {:#?}", opts);
     if opts.min_time > opts.max_time {
