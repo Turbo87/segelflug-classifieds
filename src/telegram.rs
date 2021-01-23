@@ -82,14 +82,12 @@ impl TelegramApi {
 
                 let retry_after = Duration::from_secs(retry_after);
 
-                sleep(retry_after).await;
-
                 debug!(
                     "Retrying Telegram action in {} seconds",
                     retry_after.as_secs()
                 );
 
-                continue;
+                sleep(retry_after).await;
             } else {
                 let description = json
                     .get("description")
