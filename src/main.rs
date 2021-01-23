@@ -3,13 +3,15 @@ extern crate tracing;
 #[macro_use]
 extern crate lazy_static;
 
-use anyhow::Result;
+use anyhow::{Context, Result};
 use clap::Clap;
 use rand::Rng;
 use regex::Regex;
 use rss::Channel;
 use std::collections::HashSet;
 use tokio::time::{sleep, Duration};
+
+mod guids;
 
 const FEED_URL: &'static str = "https://www.segelflug.de/osclass/index.php?page=search&sFeed=rss";
 
@@ -44,6 +46,7 @@ async fn main() -> Result<()> {
             run().await?;
 
             let mins = rand::thread_rng().gen_range(opts.min_time..opts.max_time);
+            debug!("running again in {:.1} minutes…", mins);
             let secs = mins * 60.;
             sleep(Duration::from_secs_f32(secs)).await;
         }
@@ -55,19 +58,58 @@ async fn main() -> Result<()> {
 }
 
 async fn run() -> Result<()> {
-    let resp = reqwest::get(FEED_URL).await?.bytes().await?;
-    let channel = Channel::read_from(&resp[..])?;
+    let cwd = std::env::current_dir()?;
+    debug!("running in {:?}", cwd);
 
-    let total = channel.items.len();
-    for (index, item) in channel.items.iter().enumerate() {
-        if let Some(title) = &item.title {
-            println!("- [{}/{}] {}", index + 1, total, title);
-        }
+    let guids_path = cwd.join("last_guids.json");
+    let mut guids = guids::read_guids_file(&guids_path).unwrap_or_default();
+    trace!("guids = {:#?}", guids);
+
+    debug!("downloading RSS feed from {}", FEED_URL);
+    let response = reqwest::get(FEED_URL)
+        .await
+        .context("Failed to download RSS feed")?;
+
+    let bytes = response
+        .bytes()
+        .await
+        .context("Failed to read response bytes")?;
+
+    debug!("parsing response as RSS feed");
+    let channel =
+        Channel::read_from(&bytes[..]).context("Failed to parse HTTP response as RSS feed")?;
+
+    let items: Vec<_> = channel
+        .items
+        .iter()
+        .filter(|it| it.guid.is_some() && it.title.is_some())
+        .rev()
+        .collect();
+
+    debug!("found {} items in the RSS feed", items.len());
+
+    let new_items: Vec<_> = items
+        .iter()
+        .filter(|it| !guids.contains(&it.guid.as_ref().unwrap().value))
+        .collect();
+
+    let new_items = &new_items[..3]; // TODO
+
+    info!("found {} new items in the RSS feed", new_items.len());
+
+    for (index, item) in new_items.iter().enumerate() {
+        let title = item.title.as_ref().unwrap();
+        info!("- [{}/{}] {}", index + 1, new_items.len(), title);
+
         if let Some(description) = &item.description {
-            println!("{:?}", find_image_url(description));
-            println!("{}", sanitize_description(description));
+            info!("{:?}", find_image_url(description));
         }
+
+        let guid = item.guid.as_ref().unwrap();
+        guids.insert(guid.value.clone());
     }
+
+    guids::write_guids_file(&guids_path, &guids)?;
     Ok(())
 }
 
