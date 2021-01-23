@@ -81,7 +81,7 @@ async fn run() -> Result<()> {
     let items: Vec<_> = channel
         .items
         .iter()
-        .filter(|it| it.guid.is_some() && it.title.is_some())
+        .filter(|it| it.guid.is_some() && it.title.is_some() && it.link.is_some())
         .rev()
         .collect();
 
@@ -99,6 +99,9 @@ async fn run() -> Result<()> {
     for (index, item) in new_items.iter().enumerate() {
         let title = item.title.as_ref().unwrap();
         info!("- [{}/{}] {}", index + 1, new_items.len(), title);
+
+        let link = item.link.as_ref().unwrap();
+        info!("    {}", link);
 
         if let Some(description) = &item.description {
             info!("{:?}", descriptions::find_image_url(description));
