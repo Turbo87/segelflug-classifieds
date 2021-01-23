@@ -5,20 +5,22 @@ use tokio::time::sleep;
 
 pub struct TelegramApi {
     client: Client,
+    chat_id: String,
     token: String,
 }
 
 impl TelegramApi {
-    pub fn new<S: Into<String>>(token: S, client: Client) -> Self {
+    pub fn new<S: Into<String>>(token: S, chat_id: S, client: Client) -> Self {
         TelegramApi {
             client,
+            chat_id: chat_id.into(),
             token: token.into(),
         }
     }
 
-    pub async fn send_message(&self, chat_id: &str, text: &str) -> Result<()> {
+    pub async fn send_message(&self, text: &str) -> Result<()> {
         let params = serde_urlencoded::to_string(&[
-            ("chat_id", chat_id),
+            ("chat_id", self.chat_id.as_str()),
             ("parse_mode", "html"),
             ("disable_web_page_preview", "true"),
             ("text", text),
@@ -30,9 +32,10 @@ impl TelegramApi {
         self.send_request(&action).await
     }
 
-    pub async fn send_photo(&self, chat_id: &str, url: &str) -> Result<()> {
-        let params = serde_urlencoded::to_string(&[("chat_id", chat_id), ("photo", url)])
-            .context("Failed to serialize query parameters")?;
+    pub async fn send_photo(&self, url: &str) -> Result<()> {
+        let params =
+            serde_urlencoded::to_string(&[("chat_id", self.chat_id.as_str()), ("photo", url)])
+                .context("Failed to serialize query parameters")?;
 
         let action = format!("sendPhoto?{}", params);
 

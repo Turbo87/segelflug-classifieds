@@ -63,8 +63,8 @@ async fn main() -> Result<()> {
             .timeout(Duration::from_secs(10))
             .build()?;
 
-        TelegramApi::new(token, client)
-            .send_message(&opts.telegram_chat_id, "test")
+        TelegramApi::new(token, &opts.telegram_chat_id, client)
+            .send_message("test")
             .await?;
     }
 
