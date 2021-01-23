@@ -11,7 +11,6 @@ use rand::Rng;
 use tokio::time::{sleep, Duration};
 
 mod classifieds;
-mod descriptions;
 mod guids;
 mod telegram;
 
