@@ -70,7 +70,9 @@ async fn main() -> Result<()> {
 
     if opts.watch {
         loop {
-            run().await?;
+            if let Err(error) = run().await {
+                warn!("{}", error);
+            }
 
             let mins = rand::thread_rng().gen_range(opts.min_time..opts.max_time);
             println!("⏳  Running again in {:.1} minutes", mins);
