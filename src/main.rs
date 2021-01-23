@@ -4,6 +4,7 @@ extern crate tracing;
 extern crate lazy_static;
 
 use crate::price::get_price;
+use crate::telegram::TelegramApi;
 use anyhow::{Context, Result};
 use clap::Clap;
 use rand::Rng;
@@ -13,6 +14,7 @@ use tokio::time::{sleep, Duration};
 mod descriptions;
 mod guids;
 mod price;
+mod telegram;
 
 const FEED_URL: &'static str = "https://www.segelflug.de/osclass/index.php?page=search&sFeed=rss";
 
@@ -29,6 +31,18 @@ struct Opts {
     /// Maximum time to wait between server requests (in minutes)
     #[clap(long, default_value = "30")]
     max_time: f32,
+
+    /// Telegram chat ID
+    #[clap(
+        long,
+        env = "TELEGRAM_CHAT_ID",
+        default_value = "@segelflug_classifieds"
+    )]
+    telegram_chat_id: String,
+
+    /// Telegram bot token
+    #[clap(long, env = "TELEGRAM_TOKEN", hide_env_values = true)]
+    telegram_token: Option<String>,
 }
 
 #[tokio::main]
@@ -40,6 +54,16 @@ async fn main() -> Result<()> {
     if opts.min_time > opts.max_time {
         let description = String::from("--min-time must not be larger than --max-time");
         clap::Error::with_description(description, clap::ErrorKind::ValueValidation).exit();
+    }
+
+    if let Some(token) = &opts.telegram_token {
+        let client = reqwest::Client::builder()
+            .timeout(Duration::from_secs(10))
+            .build()?;
+
+        TelegramApi::new(token, client)
+            .send_message(&opts.telegram_chat_id, "test")
+            .await?;
     }
 
     if opts.watch {
