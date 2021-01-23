@@ -24,3 +24,8 @@ set -o xtrace
 cross build --release --target=${TARGET_ARCH}
 rsync ${SOURCE_PATH} ${TARGET_HOST}:${TARGET_PATH}
 ssh -t ${TARGET_HOST} sudo systemctl restart segelflug-classifieds-bot
+
+if [ -n "$SHOW_LOGS" ]
+then
+    ssh -t ${TARGET_HOST} journalctl -u segelflug-classifieds-bot -f
+fi
