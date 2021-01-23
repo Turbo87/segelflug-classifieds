@@ -6,11 +6,10 @@ extern crate lazy_static;
 use anyhow::{Context, Result};
 use clap::Clap;
 use rand::Rng;
-use regex::Regex;
 use rss::Channel;
-use std::collections::HashSet;
 use tokio::time::{sleep, Duration};
 
+mod descriptions;
 mod guids;
 
 const FEED_URL: &'static str = "https://www.segelflug.de/osclass/index.php?page=search&sFeed=rss";
@@ -102,7 +101,7 @@ async fn run() -> Result<()> {
         info!("- [{}/{}] {}", index + 1, new_items.len(), title);
 
         if let Some(description) = &item.description {
-            info!("{:?}", find_image_url(description));
+            info!("{:?}", descriptions::find_image_url(description));
         }
 
         let guid = item.guid.as_ref().unwrap();
@@ -111,37 +110,4 @@ async fn run() -> Result<()> {
 
     guids::write_guids_file(&guids_path, &guids)?;
     Ok(())
-}
-
-fn sanitize_description(value: &str) -> String {
-    const LENGTH_LIMIT: usize = 3500;
-
-    // strip HTML tags
-    let text = ammonia::Builder::new()
-        .tags(HashSet::new())
-        .clean(value)
-        .to_string();
-
-    // replace HTML entities (only &nbsp; for now...)
-    let text = text.replace("&nbsp;", " ");
-
-    // trim surrounding whitespace
-    let text = text.trim();
-
-    // limit to `LENGTH_LIMIT` characters
-    if text.len() < LENGTH_LIMIT {
-        text.to_string()
-    } else {
-        format!("{}…", &text[..LENGTH_LIMIT - 1])
-    }
-}
-
-fn find_image_url(description: &str) -> Option<&str> {
-    lazy_static! {
-        static ref RE: Regex = Regex::new(r#" src="([^"]+)""#).unwrap();
-    }
-
-    RE.captures(description)
-        .and_then(|captures| captures.get(1))
-        .map(|m| m.as_str())
 }
