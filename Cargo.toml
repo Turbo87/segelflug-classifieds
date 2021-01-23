@@ -3,6 +3,7 @@ name = "segelflug-classifieds"
 version = "0.0.0"
 authors = ["Tobias Bieniek <tobias@bieniek.cloud>"]
 edition = "2018"
+build = "build.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -24,3 +25,6 @@ serde_urlencoded = "0.7.0"
 tokio = { version = "1", features = ["full"] }
 tracing = "0.1.22"
 tracing-subscriber = "0.2.15"
+
+[build-dependencies]
+vergen = "3.1.0"

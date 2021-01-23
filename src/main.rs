@@ -48,8 +48,17 @@ struct Opts {
 async fn main() -> Result<()> {
     tracing_subscriber::fmt::init();
 
+    let sha = env!("VERGEN_SHA_SHORT");
+    debug!("running revision: {}", sha);
+
     let sentry_dsn = std::env::var("SENTRY_DSN");
-    let _guard = sentry_dsn.map(sentry::init);
+    let _guard = sentry_dsn.map(|dsn| {
+        let options = sentry::ClientOptions {
+            release: Some(sha.into()),
+            ..Default::default()
+        };
+        sentry::init((dsn, options))
+    });
 
     let opts: Opts = Opts::parse();
     trace!("opts = {:#?}", opts);
