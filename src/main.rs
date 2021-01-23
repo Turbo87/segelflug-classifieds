@@ -67,7 +67,7 @@ async fn main() -> Result<()> {
     let cwd = std::env::current_dir()?;
     debug!("running in {:?}", cwd);
 
-    let guids_path = cwd.join("last_guids.json");
+    let guids_path = cwd.join("last-guids.json");
     trace!("guids_path = {:?}", guids_path);
 
     let telegram = opts
