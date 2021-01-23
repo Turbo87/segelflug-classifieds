@@ -3,17 +3,16 @@ extern crate tracing;
 #[macro_use]
 extern crate lazy_static;
 
-use crate::price::get_price;
+use crate::classifieds::ClassifiedsApi;
 use crate::telegram::TelegramApi;
-use anyhow::{Context, Result};
+use anyhow::Result;
 use clap::Clap;
 use rand::Rng;
-use rss::Channel;
 use tokio::time::{sleep, Duration};
 
+mod classifieds;
 mod descriptions;
 mod guids;
-mod price;
 mod telegram;
 
 const FEED_URL: &'static str = "https://www.segelflug.de/osclass/index.php?page=search&sFeed=rss";
@@ -91,19 +90,12 @@ async fn run() -> Result<()> {
     let mut guids = guids::read_guids_file(&guids_path).unwrap_or_default();
     trace!("guids = {:#?}", guids);
 
-    debug!("downloading RSS feed from {}", FEED_URL);
-    let response = reqwest::get(FEED_URL)
-        .await
-        .context("Failed to download RSS feed")?;
+    let client = reqwest::Client::builder()
+        .timeout(Duration::from_secs(10))
+        .build()?;
 
-    let bytes = response
-        .bytes()
-        .await
-        .context("Failed to read response bytes")?;
-
-    debug!("parsing response as RSS feed");
-    let channel =
-        Channel::read_from(&bytes[..]).context("Failed to parse HTTP response as RSS feed")?;
+    let classifieds = ClassifiedsApi::new(FEED_URL, client);
+    let channel = classifieds.load_feed().await?;
 
     let items: Vec<_> = channel
         .items
@@ -128,7 +120,7 @@ async fn run() -> Result<()> {
     for item in new_items.iter() {
         let title = item.title.as_ref().unwrap();
         let link = item.link.as_ref().unwrap();
-        let price = get_price(link).await?;
+        let price = classifieds.load_price(link).await?;
 
         println!(" - {}", title);
         println!("   💶  {}", price);
