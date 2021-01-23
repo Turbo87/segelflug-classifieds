@@ -15,7 +15,7 @@ mod descriptions;
 mod guids;
 mod telegram;
 
-const FEED_URL: &'static str = "https://www.segelflug.de/osclass/index.php?page=search&sFeed=rss";
+const FEED_URL: &str = "https://www.segelflug.de/osclass/index.php?page=search&sFeed=rss";
 
 #[derive(Clap, Debug)]
 struct Opts {
