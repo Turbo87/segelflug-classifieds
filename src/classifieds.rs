@@ -91,7 +91,7 @@ impl ClassifiedsApi {
         let items = channel
             .items
             .into_iter()
-            .map(|item| ClassifiedsItem::try_from(item))
+            .map(ClassifiedsItem::try_from)
             .collect();
 
         Ok(items)
