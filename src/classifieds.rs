@@ -1,9 +1,56 @@
-use crate::descriptions::strip_html;
+use crate::descriptions::{find_image_url, sanitize_description, strip_html};
 use anyhow::{anyhow, Context, Result};
 use reqwest::Client;
-use rss::Channel;
+use rss::{Channel, Item};
 use scraper::{Html, Selector};
 use selectors::Element;
+use std::convert::TryFrom;
+
+pub struct ClassifiedsItem {
+    item: rss::Item,
+}
+
+impl TryFrom<rss::Item> for ClassifiedsItem {
+    type Error = anyhow::Error;
+
+    fn try_from(item: Item) -> Result<Self, Self::Error> {
+        if item.guid.is_none() {
+            return Err(anyhow!("Missing `guid` element"));
+        }
+        if item.title.is_none() {
+            return Err(anyhow!("Missing `title` element"));
+        }
+        if item.link.is_none() {
+            return Err(anyhow!("Missing `link` element"));
+        }
+
+        Ok(ClassifiedsItem { item })
+    }
+}
+
+impl ClassifiedsItem {
+    pub fn guid(&self) -> &str {
+        &self.item.guid.as_ref().unwrap().value
+    }
+
+    pub fn title(&self) -> &str {
+        &self.item.title.as_ref().unwrap()
+    }
+
+    pub fn link(&self) -> &str {
+        &self.item.link.as_ref().unwrap()
+    }
+
+    pub fn description(&self) -> Option<String> {
+        let description = self.item.description.as_ref();
+        description.map(|it| sanitize_description(&it))
+    }
+
+    pub fn image_url(&self) -> Option<String> {
+        let description = self.item.description.as_ref();
+        description.and_then(|it| find_image_url(&it).map(str::to_string))
+    }
+}
 
 pub struct ClassifiedsApi {
     client: Client,
@@ -18,7 +65,7 @@ impl ClassifiedsApi {
         }
     }
 
-    pub async fn load_feed(&self) -> Result<Channel> {
+    pub async fn load_feed(&self) -> Result<Vec<Result<ClassifiedsItem>>> {
         debug!("downloading RSS feed from {}", self.feed_url);
         let response = self
             .client
@@ -36,7 +83,13 @@ impl ClassifiedsApi {
         let channel =
             Channel::read_from(&bytes[..]).context("Failed to parse HTTP response as RSS feed")?;
 
-        Ok(channel)
+        let items = channel
+            .items
+            .into_iter()
+            .map(|item| ClassifiedsItem::try_from(item))
+            .collect();
+
+        Ok(items)
     }
 
     pub async fn load_price(&self, url: &str) -> Result<String> {

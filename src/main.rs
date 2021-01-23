@@ -95,20 +95,15 @@ async fn run() -> Result<()> {
         .build()?;
 
     let classifieds = ClassifiedsApi::new(FEED_URL, client);
-    let channel = classifieds.load_feed().await?;
-
-    let items: Vec<_> = channel
-        .items
-        .iter()
-        .filter(|it| it.guid.is_some() && it.title.is_some() && it.link.is_some())
-        .rev()
-        .collect();
+    let items = classifieds.load_feed().await?;
+    let items: Vec<_> = items.into_iter().filter_map(|result| result.ok()).collect();
 
     debug!("found {} items in the RSS feed", items.len());
 
     let new_items: Vec<_> = items
         .iter()
-        .filter(|it| !guids.contains(&it.guid.as_ref().unwrap().value))
+        .rev()
+        .filter(|it| !guids.contains(it.guid()))
         .collect();
 
     println!(
@@ -118,17 +113,17 @@ async fn run() -> Result<()> {
     println!();
 
     for item in new_items.iter() {
-        let title = item.title.as_ref().unwrap();
-        let link = item.link.as_ref().unwrap();
-        let price = classifieds.load_price(link).await?;
+        let title = item.title();
+        let link = item.link();
+        let price = classifieds.load_price(&link).await?;
 
         println!(" - {}", title);
         println!("   💶  {}", price);
         println!("   {}", link);
         println!();
 
-        let guid = item.guid.as_ref().unwrap();
-        guids.insert(guid.value.clone());
+        let guid = item.guid();
+        guids.insert(guid.to_string());
     }
 
     guids::write_guids_file(&guids_path, &guids)?;
