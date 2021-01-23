@@ -41,8 +41,6 @@ impl App {
             .filter(|it| !guids.contains(it.guid()))
             .collect();
 
-        let new_items = &new_items[..1]; // TODO
-
         println!(
             "✈️  Found {} new classifieds on Segelflug.de",
             new_items.len()
