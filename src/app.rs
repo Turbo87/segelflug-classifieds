@@ -35,8 +35,8 @@ impl App {
 
         debug!("found {} items in the RSS feed", items.len());
 
-        let new_items: Vec<_> = items
-            .iter()
+        let mut new_items: Vec<_> = items
+            .into_iter()
             .rev()
             .filter(|it| !guids.contains(it.guid()))
             .collect();
@@ -47,7 +47,7 @@ impl App {
         );
         println!();
 
-        for item in new_items.iter() {
+        for item in new_items.iter_mut() {
             match self.handle_item(item).await {
                 Ok(_) => {
                     guids.insert(item.guid().to_string());
@@ -62,19 +62,21 @@ impl App {
         Ok(())
     }
 
-    async fn handle_item(&self, item: &ClassifiedsItem) -> Result<()> {
+    async fn handle_item(&self, item: &mut ClassifiedsItem) -> Result<()> {
+        if let Err(error) = item.load_details(&self.classifieds).await {
+            warn!("Failed to load details for {}: {}", item.link(), error);
+        }
+
         let title = item.title();
         let link = item.link();
         let description = item.description();
-        let price = item.load_price(&self.classifieds).await;
-        if let Err(error) = &price {
-            warn!("Failed to load price for {}: {}", link, error);
-        }
+
+        let price = item.details().and_then(|details| details.price.as_ref());
 
         // print item to the console
 
         println!(" - {}", title);
-        if let Ok(price) = &price {
+        if let Some(price) = &price {
             println!("   💶  {}", price);
         }
         println!("   {}", link);
@@ -84,7 +86,7 @@ impl App {
 
         if let Some(telegram) = &self.telegram {
             let mut text = format!("<b>{}</b>\n", title);
-            if let Ok(price) = price {
+            if let Some(price) = price {
                 text += &format!("<b>💶  {}</b>\n", price);
             }
             if let Some(description) = description {

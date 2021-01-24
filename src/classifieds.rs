@@ -9,6 +9,7 @@ use std::convert::TryFrom;
 
 pub struct ClassifiedsItem {
     rss_item: rss::Item,
+    details: Option<ClassifiedsDetails>,
 }
 
 impl TryFrom<rss::Item> for ClassifiedsItem {
@@ -25,7 +26,10 @@ impl TryFrom<rss::Item> for ClassifiedsItem {
             return Err(anyhow!("Missing `link` element"));
         }
 
-        Ok(ClassifiedsItem { rss_item: item })
+        Ok(ClassifiedsItem {
+            rss_item: item,
+            details: None,
+        })
     }
 }
 
@@ -52,20 +56,19 @@ impl ClassifiedsItem {
         description.and_then(|it| find_image_url(&it).map(str::to_string))
     }
 
-    pub async fn load_price(&self, api: &ClassifiedsApi) -> Result<String> {
+    pub fn details(&self) -> Option<&ClassifiedsDetails> {
+        self.details.as_ref()
+    }
+
+    pub async fn load_details(&mut self, api: &ClassifiedsApi) -> Result<()> {
         let link = self.link();
-        ClassifiedsDetails::from_url(link, api)
-            .await
-            .and_then(|details| {
-                details
-                    .price
-                    .ok_or_else(|| anyhow!("Failed to find price on {}", link))
-            })
+        self.details = Some(ClassifiedsDetails::from_url(link, api).await?);
+        Ok(())
     }
 }
 
 pub struct ClassifiedsDetails {
-    price: Option<String>,
+    pub price: Option<String>,
 }
 
 impl ClassifiedsDetails {
