@@ -113,7 +113,7 @@ impl App {
         // send item to Telegram
 
         if let Some(telegram) = &self.telegram {
-            let mut text = format!("<b>{}</b>\n", title);
+            let mut text = format!("<a href=\"{}\"><b>{}</b></a>\n", link, title);
             if let Some(price) = price {
                 text += &format!("<b>💶  {}</b>\n", price);
             }
