@@ -10,6 +10,7 @@ use std::convert::TryFrom;
 pub struct ClassifiedsItem {
     rss_item: rss::Item,
     details: Option<ClassifiedsDetails>,
+    user: Option<ClassifiedsUser>,
 }
 
 impl TryFrom<rss::Item> for ClassifiedsItem {
@@ -29,6 +30,7 @@ impl TryFrom<rss::Item> for ClassifiedsItem {
         Ok(ClassifiedsItem {
             rss_item: item,
             details: None,
+            user: None,
         })
     }
 }
@@ -65,6 +67,27 @@ impl ClassifiedsItem {
         self.details = Some(ClassifiedsDetails::from_url(link, api).await?);
         Ok(())
     }
+
+    pub fn user_link(&self) -> Option<&String> {
+        self.details()
+            .and_then(|details| details.user_link.as_ref())
+    }
+
+    pub fn can_load_user(&self) -> bool {
+        self.user_link().is_some()
+    }
+
+    pub fn user(&self) -> Option<&ClassifiedsUser> {
+        self.user.as_ref()
+    }
+
+    pub async fn load_user(&mut self, api: &ClassifiedsApi) -> Result<()> {
+        assert!(self.can_load_user());
+        let user_link = self.user_link().unwrap();
+
+        self.user = Some(ClassifiedsUser::from_url(user_link, api).await?);
+        Ok(())
+    }
 }
 
 pub struct ClassifiedsDetails {
@@ -75,6 +98,19 @@ pub struct ClassifiedsDetails {
 impl ClassifiedsDetails {
     pub async fn from_url(url: &str, api: &ClassifiedsApi) -> Result<ClassifiedsDetails> {
         api.load_details(url).await
+    }
+}
+
+pub struct ClassifiedsUser {
+    pub name: Option<String>,
+    pub address: Option<String>,
+    pub location: Option<String>,
+    pub website: Option<String>,
+}
+
+impl ClassifiedsUser {
+    pub async fn from_url(url: &str, api: &ClassifiedsApi) -> Result<ClassifiedsUser> {
+        api.load_user(url).await
     }
 }
 
@@ -156,6 +192,70 @@ impl ClassifiedsApi {
         debug!("user_link = {:?}", user_link);
 
         Ok(ClassifiedsDetails { price, user_link })
+    }
+
+    pub async fn load_user(&self, url: &str) -> Result<ClassifiedsUser> {
+        lazy_static! {
+            static ref NAME_SELECTOR: Selector = Selector::parse("li.name").unwrap();
+            static ref ADDRESS_SELECTOR: Selector = Selector::parse("li.address").unwrap();
+            static ref LOCATION_SELECTOR: Selector = Selector::parse("li.location").unwrap();
+            static ref WEBSITE_SELECTOR: Selector = Selector::parse("li.website").unwrap();
+        }
+
+        debug!("downloading HTML file from {}", url);
+        let response = self.client.get(url).send().await;
+        let response = response.context("Failed to download HTML file")?;
+
+        let text = response.text().await;
+        let text = text.context("Failed to read response text")?;
+
+        trace!("text = {:?}", text);
+
+        let html = Html::parse_document(&text);
+        if !html.errors.is_empty() {
+            debug!("found HTML parsing errors: {:?}", html.errors);
+        }
+
+        let name = html
+            .select(&NAME_SELECTOR)
+            .next()
+            .map(|element| element.inner_html())
+            .map(|html| strip_html(&html))
+            .map(|text| text.trim().to_string());
+        debug!("name = {:?}", name);
+
+        let address = html
+            .select(&ADDRESS_SELECTOR)
+            .next()
+            .map(|element| element.inner_html())
+            .map(|html| strip_html(&html))
+            .map(|text| text.replace("Adresse:", ""))
+            .map(|text| text.trim().to_string());
+        debug!("address = {:?}", address);
+
+        let location = html
+            .select(&LOCATION_SELECTOR)
+            .next()
+            .map(|element| element.inner_html())
+            .map(|html| strip_html(&html))
+            .map(|text| text.replace("Standort:", ""))
+            .map(|text| text.trim().to_string());
+        debug!("location = {:?}", location);
+
+        let website = html
+            .select(&WEBSITE_SELECTOR)
+            .next()
+            .map(|element| element.inner_html())
+            .map(|html| strip_html(&html))
+            .map(|text| text.trim().to_string());
+        debug!("website = {:?}", website);
+
+        Ok(ClassifiedsUser {
+            name,
+            address,
+            location,
+            website,
+        })
     }
 }
 
