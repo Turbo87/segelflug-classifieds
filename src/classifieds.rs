@@ -91,6 +91,7 @@ impl ClassifiedsItem {
 }
 
 pub struct ClassifiedsDetails {
+    pub photo_url: Option<String>,
     pub price: Option<String>,
     pub user_link: Option<String>,
 }
@@ -157,6 +158,7 @@ impl ClassifiedsApi {
     pub async fn load_details(&self, url: &str) -> Result<ClassifiedsDetails> {
         lazy_static! {
             static ref ICON_SELECTOR: Selector = Selector::parse(".fa-money").unwrap();
+            static ref PHOTOS_SELECTOR: Selector = Selector::parse(".item-photos img").unwrap();
             static ref PUB_PROFILE_SELECTOR: Selector =
                 Selector::parse("a[href*=\"action=pub_profile\"]").unwrap();
         }
@@ -184,6 +186,13 @@ impl ClassifiedsApi {
             .map(|price_text| price_text.replace("Euro €", "€").trim().to_string());
         debug!("price = {:?}", price);
 
+        let photo_url = html
+            .select(&PHOTOS_SELECTOR)
+            .next()
+            .and_then(|element| element.value().attr("src"))
+            .map(|src| src.to_string());
+        debug!("photo_url = {:?}", photo_url);
+
         let user_link = html
             .select(&PUB_PROFILE_SELECTOR)
             .next()
@@ -191,7 +200,11 @@ impl ClassifiedsApi {
             .map(|link| link.to_string());
         debug!("user_link = {:?}", user_link);
 
-        Ok(ClassifiedsDetails { price, user_link })
+        Ok(ClassifiedsDetails {
+            photo_url,
+            price,
+            user_link,
+        })
     }
 
     pub async fn load_user(&self, url: &str) -> Result<ClassifiedsUser> {
