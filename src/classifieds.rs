@@ -53,8 +53,17 @@ impl ClassifiedsItem {
     }
 
     pub async fn load_price(&self, api: &ClassifiedsApi) -> Result<String> {
-        api.load_price(self.link()).await
+        let link = self.link();
+        api.load_details(link).await.and_then(|details| {
+            details
+                .price
+                .ok_or_else(|| anyhow!("Failed to find price on {}", link))
+        })
     }
+}
+
+pub struct ClassifiedsDetails {
+    price: Option<String>,
 }
 
 pub struct ClassifiedsApi {
@@ -97,7 +106,7 @@ impl ClassifiedsApi {
         Ok(items)
     }
 
-    pub async fn load_price(&self, url: &str) -> Result<String> {
+    pub async fn load_details(&self, url: &str) -> Result<ClassifiedsDetails> {
         lazy_static! {
             static ref ICON_SELECTOR: Selector = Selector::parse(".fa-money").unwrap();
         }
@@ -116,13 +125,15 @@ impl ClassifiedsApi {
             debug!("found HTML parsing errors: {:?}", html.errors);
         }
 
-        html.select(&ICON_SELECTOR)
+        let price = html
+            .select(&ICON_SELECTOR)
             .next()
             .and_then(|icon_element| icon_element.parent_element())
             .map(|price_element| price_element.inner_html())
             .map(|price_html| strip_html(&price_html))
-            .map(|price_text| price_text.replace("Euro €", "€").trim().to_string())
-            .ok_or_else(|| anyhow!("Failed to find price on {}", url))
+            .map(|price_text| price_text.replace("Euro €", "€").trim().to_string());
+
+        Ok(ClassifiedsDetails { price })
     }
 }
 
