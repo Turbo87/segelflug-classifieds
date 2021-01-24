@@ -35,8 +35,8 @@ impl App {
 
         debug!("found {} items in the RSS feed", items.len());
 
-        let new_items: Vec<_> = items
-            .iter()
+        let mut new_items: Vec<_> = items
+            .into_iter()
             .rev()
             .filter(|it| !guids.contains(it.guid()))
             .collect();
@@ -47,7 +47,7 @@ impl App {
         );
         println!();
 
-        for item in new_items.iter() {
+        for item in new_items.iter_mut() {
             match self.handle_item(item).await {
                 Ok(_) => {
                     guids.insert(item.guid().to_string());
@@ -62,20 +62,50 @@ impl App {
         Ok(())
     }
 
-    async fn handle_item(&self, item: &ClassifiedsItem) -> Result<()> {
+    async fn handle_item(&self, item: &mut ClassifiedsItem) -> Result<()> {
+        if let Err(error) = item.load_details(&self.classifieds).await {
+            warn!("Failed to load details for {}: {}", item.link(), error);
+        }
+
+        if item.can_load_user() {
+            if let Err(error) = item.load_user(&self.classifieds).await {
+                let user_link = item.user_link().unwrap();
+                warn!("Failed to load user details from {}: {}", user_link, error);
+            }
+        }
+
         let title = item.title();
         let link = item.link();
         let description = item.description();
-        let price = item.load_price(&self.classifieds).await;
-        if let Err(error) = &price {
-            warn!("Failed to load price for {}: {}", link, error);
-        }
+
+        let price = item.details().and_then(|details| details.price.as_ref());
+
+        let user = item.user();
+        let user_name = user.and_then(|user| user.name.as_ref());
+        let user_location = user.and_then(|user| user.location.as_ref());
+
+        let user_description = match (user_name, user_location) {
+            (Some(name), Some(location)) => Some(format!("{} ({})", name, location)),
+            (Some(name), None) => Some(name.clone()),
+            (None, Some(location)) => Some(location.clone()),
+            (None, None) => None,
+        };
+
+        let user_emoji = match (user_name, user_location) {
+            (Some(_), Some(_)) => Some("🧑‍✈️"),
+            (Some(_), None) => Some("🧑‍✈️"),
+            (None, Some(_)) => Some("🌍"),
+            (None, None) => None,
+        };
 
         // print item to the console
 
         println!(" - {}", title);
-        if let Ok(price) = &price {
+        if let Some(price) = &price {
             println!("   💶  {}", price);
+        }
+        if let (Some(user), Some(emoji)) = (&user_description, user_emoji) {
+            println!("   {}  {}", emoji, user);
         }
         println!("   {}", link);
         println!();
@@ -84,8 +114,12 @@ impl App {
 
         if let Some(telegram) = &self.telegram {
             let mut text = format!("<b>{}</b>\n", title);
-            if let Ok(price) = price {
+            if let Some(price) = price {
                 text += &format!("<b>💶  {}</b>\n", price);
+            }
+            if let (Some(user), Some(emoji)) = (&user_description, user_emoji) {
+                let user_link = item.user_link().unwrap();
+                text += &format!("{}  <a href=\"{}\"><b>{}</b></a>\n", emoji, user_link, user);
             }
             if let Some(description) = description {
                 text += &format!("\n{}\n", description);

@@ -8,7 +8,9 @@ use std::collections::HashSet;
 use std::convert::TryFrom;
 
 pub struct ClassifiedsItem {
-    item: rss::Item,
+    rss_item: rss::Item,
+    details: Option<ClassifiedsDetails>,
+    user: Option<ClassifiedsUser>,
 }
 
 impl TryFrom<rss::Item> for ClassifiedsItem {
@@ -25,35 +27,90 @@ impl TryFrom<rss::Item> for ClassifiedsItem {
             return Err(anyhow!("Missing `link` element"));
         }
 
-        Ok(ClassifiedsItem { item })
+        Ok(ClassifiedsItem {
+            rss_item: item,
+            details: None,
+            user: None,
+        })
     }
 }
 
 impl ClassifiedsItem {
     pub fn guid(&self) -> &str {
-        &self.item.guid.as_ref().unwrap().value
+        &self.rss_item.guid.as_ref().unwrap().value
     }
 
     pub fn title(&self) -> &str {
-        &self.item.title.as_ref().unwrap()
+        &self.rss_item.title.as_ref().unwrap()
     }
 
     pub fn link(&self) -> &str {
-        &self.item.link.as_ref().unwrap()
+        &self.rss_item.link.as_ref().unwrap()
     }
 
     pub fn description(&self) -> Option<String> {
-        let description = self.item.description.as_ref();
+        let description = self.rss_item.description.as_ref();
         description.map(|it| sanitize_description(&it))
     }
 
     pub fn image_url(&self) -> Option<String> {
-        let description = self.item.description.as_ref();
+        let description = self.rss_item.description.as_ref();
         description.and_then(|it| find_image_url(&it).map(str::to_string))
     }
 
-    pub async fn load_price(&self, api: &ClassifiedsApi) -> Result<String> {
-        api.load_price(self.link()).await
+    pub fn details(&self) -> Option<&ClassifiedsDetails> {
+        self.details.as_ref()
+    }
+
+    pub async fn load_details(&mut self, api: &ClassifiedsApi) -> Result<()> {
+        let link = self.link();
+        self.details = Some(ClassifiedsDetails::from_url(link, api).await?);
+        Ok(())
+    }
+
+    pub fn user_link(&self) -> Option<&String> {
+        self.details()
+            .and_then(|details| details.user_link.as_ref())
+    }
+
+    pub fn can_load_user(&self) -> bool {
+        self.user_link().is_some()
+    }
+
+    pub fn user(&self) -> Option<&ClassifiedsUser> {
+        self.user.as_ref()
+    }
+
+    pub async fn load_user(&mut self, api: &ClassifiedsApi) -> Result<()> {
+        assert!(self.can_load_user());
+        let user_link = self.user_link().unwrap();
+
+        self.user = Some(ClassifiedsUser::from_url(user_link, api).await?);
+        Ok(())
+    }
+}
+
+pub struct ClassifiedsDetails {
+    pub price: Option<String>,
+    pub user_link: Option<String>,
+}
+
+impl ClassifiedsDetails {
+    pub async fn from_url(url: &str, api: &ClassifiedsApi) -> Result<ClassifiedsDetails> {
+        api.load_details(url).await
+    }
+}
+
+pub struct ClassifiedsUser {
+    pub name: Option<String>,
+    pub address: Option<String>,
+    pub location: Option<String>,
+    pub website: Option<String>,
+}
+
+impl ClassifiedsUser {
+    pub async fn from_url(url: &str, api: &ClassifiedsApi) -> Result<ClassifiedsUser> {
+        api.load_user(url).await
     }
 }
 
@@ -97,9 +154,11 @@ impl ClassifiedsApi {
         Ok(items)
     }
 
-    pub async fn load_price(&self, url: &str) -> Result<String> {
+    pub async fn load_details(&self, url: &str) -> Result<ClassifiedsDetails> {
         lazy_static! {
             static ref ICON_SELECTOR: Selector = Selector::parse(".fa-money").unwrap();
+            static ref PUB_PROFILE_SELECTOR: Selector =
+                Selector::parse("a[href*=\"action=pub_profile\"]").unwrap();
         }
 
         debug!("downloading HTML file from {}", url);
@@ -116,13 +175,87 @@ impl ClassifiedsApi {
             debug!("found HTML parsing errors: {:?}", html.errors);
         }
 
-        html.select(&ICON_SELECTOR)
+        let price = html
+            .select(&ICON_SELECTOR)
             .next()
             .and_then(|icon_element| icon_element.parent_element())
             .map(|price_element| price_element.inner_html())
             .map(|price_html| strip_html(&price_html))
-            .map(|price_text| price_text.replace("Euro €", "€").trim().to_string())
-            .ok_or_else(|| anyhow!("Failed to find price on {}", url))
+            .map(|price_text| price_text.replace("Euro €", "€").trim().to_string());
+        debug!("price = {:?}", price);
+
+        let user_link = html
+            .select(&PUB_PROFILE_SELECTOR)
+            .next()
+            .and_then(|link_element| link_element.value().attr("href"))
+            .map(|link| link.to_string());
+        debug!("user_link = {:?}", user_link);
+
+        Ok(ClassifiedsDetails { price, user_link })
+    }
+
+    pub async fn load_user(&self, url: &str) -> Result<ClassifiedsUser> {
+        lazy_static! {
+            static ref NAME_SELECTOR: Selector = Selector::parse("li.name").unwrap();
+            static ref ADDRESS_SELECTOR: Selector = Selector::parse("li.address").unwrap();
+            static ref LOCATION_SELECTOR: Selector = Selector::parse("li.location").unwrap();
+            static ref WEBSITE_SELECTOR: Selector = Selector::parse("li.website").unwrap();
+        }
+
+        debug!("downloading HTML file from {}", url);
+        let response = self.client.get(url).send().await;
+        let response = response.context("Failed to download HTML file")?;
+
+        let text = response.text().await;
+        let text = text.context("Failed to read response text")?;
+
+        trace!("text = {:?}", text);
+
+        let html = Html::parse_document(&text);
+        if !html.errors.is_empty() {
+            debug!("found HTML parsing errors: {:?}", html.errors);
+        }
+
+        let name = html
+            .select(&NAME_SELECTOR)
+            .next()
+            .map(|element| element.inner_html())
+            .map(|html| strip_html(&html))
+            .map(|text| text.trim().to_string());
+        debug!("name = {:?}", name);
+
+        let address = html
+            .select(&ADDRESS_SELECTOR)
+            .next()
+            .map(|element| element.inner_html())
+            .map(|html| strip_html(&html))
+            .map(|text| text.replace("Adresse:", ""))
+            .map(|text| text.trim().to_string());
+        debug!("address = {:?}", address);
+
+        let location = html
+            .select(&LOCATION_SELECTOR)
+            .next()
+            .map(|element| element.inner_html())
+            .map(|html| strip_html(&html))
+            .map(|text| text.replace("Standort:", ""))
+            .map(|text| text.trim().to_string());
+        debug!("location = {:?}", location);
+
+        let website = html
+            .select(&WEBSITE_SELECTOR)
+            .next()
+            .map(|element| element.inner_html())
+            .map(|html| strip_html(&html))
+            .map(|text| text.trim().to_string());
+        debug!("website = {:?}", website);
+
+        Ok(ClassifiedsUser {
+            name,
+            address,
+            location,
+            website,
+        })
     }
 }
 
