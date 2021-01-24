@@ -128,14 +128,32 @@ impl App {
 
             telegram.send_message(&text).await?;
 
-            if let Some(image_url) = &item.image_url() {
-                if let Err(error) = telegram.send_photo(image_url).await {
-                    warn!("Failed to send photo {} to Telegram: {}", image_url, error);
-                }
+            if let Err(error) = self.send_photo_for_item(item).await {
+                warn!("Failed to send photo to Telegram: {}", error);
             }
         }
 
         Ok(())
+    }
+
+    async fn send_photo_for_item(&self, item: &ClassifiedsItem) -> Result<()> {
+        assert!(self.telegram.is_some());
+        let telegram = self.telegram.as_ref().unwrap();
+
+        let photo_url = item
+            .details()
+            .and_then(|details| details.photo_url.as_ref());
+        if let Some(photo_url) = photo_url {
+            if telegram.send_photo(photo_url).await.is_ok() {
+                return Ok(());
+            }
+        }
+
+        if let Some(image_url) = &item.image_url() {
+            telegram.send_photo(image_url).await
+        } else {
+            Ok(())
+        }
     }
 
     pub async fn watch(&self, min_time: f32, max_time: f32) {
