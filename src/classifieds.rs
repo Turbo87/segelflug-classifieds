@@ -8,7 +8,7 @@ use std::collections::HashSet;
 use std::convert::TryFrom;
 
 pub struct ClassifiedsItem {
-    item: rss::Item,
+    rss_item: rss::Item,
 }
 
 impl TryFrom<rss::Item> for ClassifiedsItem {
@@ -25,30 +25,30 @@ impl TryFrom<rss::Item> for ClassifiedsItem {
             return Err(anyhow!("Missing `link` element"));
         }
 
-        Ok(ClassifiedsItem { item })
+        Ok(ClassifiedsItem { rss_item: item })
     }
 }
 
 impl ClassifiedsItem {
     pub fn guid(&self) -> &str {
-        &self.item.guid.as_ref().unwrap().value
+        &self.rss_item.guid.as_ref().unwrap().value
     }
 
     pub fn title(&self) -> &str {
-        &self.item.title.as_ref().unwrap()
+        &self.rss_item.title.as_ref().unwrap()
     }
 
     pub fn link(&self) -> &str {
-        &self.item.link.as_ref().unwrap()
+        &self.rss_item.link.as_ref().unwrap()
     }
 
     pub fn description(&self) -> Option<String> {
-        let description = self.item.description.as_ref();
+        let description = self.rss_item.description.as_ref();
         description.map(|it| sanitize_description(&it))
     }
 
     pub fn image_url(&self) -> Option<String> {
-        let description = self.item.description.as_ref();
+        let description = self.rss_item.description.as_ref();
         description.and_then(|it| find_image_url(&it).map(str::to_string))
     }
 
