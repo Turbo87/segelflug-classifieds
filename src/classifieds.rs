@@ -54,16 +54,24 @@ impl ClassifiedsItem {
 
     pub async fn load_price(&self, api: &ClassifiedsApi) -> Result<String> {
         let link = self.link();
-        api.load_details(link).await.and_then(|details| {
-            details
-                .price
-                .ok_or_else(|| anyhow!("Failed to find price on {}", link))
-        })
+        ClassifiedsDetails::from_url(link, api)
+            .await
+            .and_then(|details| {
+                details
+                    .price
+                    .ok_or_else(|| anyhow!("Failed to find price on {}", link))
+            })
     }
 }
 
 pub struct ClassifiedsDetails {
     price: Option<String>,
+}
+
+impl ClassifiedsDetails {
+    pub async fn from_url(url: &str, api: &ClassifiedsApi) -> Result<ClassifiedsDetails> {
+        api.load_details(url).await
+    }
 }
 
 pub struct ClassifiedsApi {
