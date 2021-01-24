@@ -143,6 +143,7 @@ impl ClassifiedsApi {
             .map(|price_element| price_element.inner_html())
             .map(|price_html| strip_html(&price_html))
             .map(|price_text| price_text.replace("Euro €", "€").trim().to_string());
+        debug!("price = {:?}", price);
 
         Ok(ClassifiedsDetails { price })
     }
