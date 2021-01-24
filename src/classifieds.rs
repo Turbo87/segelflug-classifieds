@@ -69,6 +69,7 @@ impl ClassifiedsItem {
 
 pub struct ClassifiedsDetails {
     pub price: Option<String>,
+    pub user_link: Option<String>,
 }
 
 impl ClassifiedsDetails {
@@ -120,6 +121,8 @@ impl ClassifiedsApi {
     pub async fn load_details(&self, url: &str) -> Result<ClassifiedsDetails> {
         lazy_static! {
             static ref ICON_SELECTOR: Selector = Selector::parse(".fa-money").unwrap();
+            static ref PUB_PROFILE_SELECTOR: Selector =
+                Selector::parse("a[href*=\"action=pub_profile\"]").unwrap();
         }
 
         debug!("downloading HTML file from {}", url);
@@ -145,7 +148,14 @@ impl ClassifiedsApi {
             .map(|price_text| price_text.replace("Euro €", "€").trim().to_string());
         debug!("price = {:?}", price);
 
-        Ok(ClassifiedsDetails { price })
+        let user_link = html
+            .select(&PUB_PROFILE_SELECTOR)
+            .next()
+            .and_then(|link_element| link_element.value().attr("href"))
+            .map(|link| link.to_string());
+        debug!("user_link = {:?}", user_link);
+
+        Ok(ClassifiedsDetails { price, user_link })
     }
 }
 
