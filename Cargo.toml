@@ -2,6 +2,7 @@
 name = "segelflug-classifieds"
 version = "0.0.0"
 authors = ["Tobias Bieniek <tobias@bieniek.cloud>"]
+license = "MIT OR Apache-2.0"
 edition = "2018"
 build = "build.rs"
 
