@@ -1,6 +1,7 @@
 use crate::classifieds::utils::strip_html;
 use scraper::{Html, Selector};
 
+#[derive(Debug)]
 pub struct ClassifiedsUser {
     pub name: Option<String>,
     pub address: Option<String>,

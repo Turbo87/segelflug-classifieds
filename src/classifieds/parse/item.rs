@@ -2,6 +2,7 @@ use crate::classifieds::utils::strip_html;
 use scraper::{Html, Selector};
 use selectors::Element;
 
+#[derive(Debug)]
 pub struct ClassifiedsDetails {
     pub photo_url: Option<String>,
     pub price: Option<String>,

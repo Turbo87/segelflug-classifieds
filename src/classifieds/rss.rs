@@ -5,6 +5,7 @@ use anyhow::anyhow;
 use regex::Regex;
 use std::convert::TryFrom;
 
+#[derive(Debug)]
 pub struct ClassifiedsItem {
     rss_item: rss::Item,
     details: Option<ClassifiedsDetails>,
