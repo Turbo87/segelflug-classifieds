@@ -68,7 +68,7 @@ impl ClassifiedsItem {
 
     pub async fn load_details(&mut self, api: &ClassifiedsApi) -> Result<()> {
         let link = self.link();
-        self.details = Some(ClassifiedsDetails::from_url(link, api).await?);
+        self.details = Some(api.load_details(link).await?);
         Ok(())
     }
 
@@ -89,7 +89,7 @@ impl ClassifiedsItem {
         assert!(self.can_load_user());
         let user_link = self.user_link().unwrap();
 
-        self.user = Some(ClassifiedsUser::from_url(user_link, api).await?);
+        self.user = Some(api.load_user(user_link).await?);
         Ok(())
     }
 }

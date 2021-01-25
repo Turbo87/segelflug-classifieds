@@ -1,4 +1,4 @@
-use crate::classifieds::{strip_html, ClassifiedsApi};
+use crate::classifieds::strip_html;
 use scraper::{Html, Selector};
 use selectors::Element;
 
@@ -6,12 +6,6 @@ pub struct ClassifiedsDetails {
     pub photo_url: Option<String>,
     pub price: Option<String>,
     pub user_link: Option<String>,
-}
-
-impl ClassifiedsDetails {
-    pub async fn from_url(url: &str, api: &ClassifiedsApi) -> anyhow::Result<ClassifiedsDetails> {
-        api.load_details(url).await
-    }
 }
 
 impl From<&str> for ClassifiedsDetails {
