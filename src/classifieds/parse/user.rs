@@ -65,3 +65,18 @@ impl From<&str> for ClassifiedsUser {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::ClassifiedsUser;
+    use std::fs;
+
+    #[test]
+    fn parse_test() {
+        glob!("test-input/user/*.html", |path| {
+            let text = fs::read_to_string(path).unwrap();
+            let user = ClassifiedsUser::from(text.as_str());
+            assert_debug_snapshot!(user);
+        });
+    }
+}

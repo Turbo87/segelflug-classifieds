@@ -27,5 +27,8 @@ tokio = { version = "1", features = ["full"] }
 tracing = "0.1.22"
 tracing-subscriber = "0.2.15"
 
+[dev-dependencies]
+insta = { version = "1.5.3", features = ["glob"] }
+
 [build-dependencies]
 vergen = "3.1.0"
