@@ -4,6 +4,9 @@ expression: user
 input_file: src/classifieds/parse/test-input/item/basic.html
 ---
 ClassifiedsDetails {
+    location: Some(
+        "Aachen, Germany",
+    ),
     photo_url: Some(
         "https://www.segelflug.de/osclass/oc-content/uploads/505/125034.jpg",
     ),

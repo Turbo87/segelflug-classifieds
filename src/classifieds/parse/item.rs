@@ -4,6 +4,7 @@ use selectors::Element;
 
 #[derive(Debug)]
 pub struct ClassifiedsDetails {
+    pub location: Option<String>,
     pub photo_url: Option<String>,
     pub price: Option<String>,
     pub user_link: Option<String>,
@@ -16,6 +17,7 @@ impl From<&str> for ClassifiedsDetails {
             static ref PHOTOS_SELECTOR: Selector = Selector::parse(".item-photos img").unwrap();
             static ref PUB_PROFILE_SELECTOR: Selector =
                 Selector::parse("a[href*=\"action=pub_profile\"]").unwrap();
+            static ref LOCATION_SELECTOR: Selector = Selector::parse("#item_location").unwrap();
         }
 
         let html = Html::parse_document(text);
@@ -46,7 +48,15 @@ impl From<&str> for ClassifiedsDetails {
             .map(|link| link.to_string());
         debug!("user_link = {:?}", user_link);
 
+        let location = html
+            .select(&LOCATION_SELECTOR)
+            .next()
+            .map(|element| element.inner_html())
+            .map(|html| strip_html(&html).trim().to_string());
+        debug!("location = {:?}", location);
+
         Self {
+            location,
             photo_url,
             price,
             user_link,
