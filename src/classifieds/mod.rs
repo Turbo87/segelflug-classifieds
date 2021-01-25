@@ -1,4 +1,3 @@
-use std::collections::HashSet;
 use std::convert::TryFrom;
 
 use anyhow::{anyhow, Result};
@@ -10,6 +9,7 @@ pub use parse::{ClassifiedsDetails, ClassifiedsUser};
 
 mod api;
 mod parse;
+pub mod utils;
 
 pub struct ClassifiedsItem {
     rss_item: rss::Item,
@@ -94,18 +94,11 @@ impl ClassifiedsItem {
     }
 }
 
-fn strip_html(value: &str) -> String {
-    ammonia::Builder::new()
-        .tags(HashSet::new())
-        .clean(value)
-        .to_string()
-}
-
 fn sanitize_description(value: &str) -> String {
     const LENGTH_LIMIT: usize = 3500;
 
     // strip HTML tags
-    let text = strip_html(value);
+    let text = utils::strip_html(value);
 
     // replace HTML entities (only &nbsp; for now...)
     let text = text.replace("&nbsp;", " ");

@@ -1,4 +1,4 @@
-use crate::classifieds::strip_html;
+use crate::classifieds::utils::strip_html;
 use scraper::{Html, Selector};
 
 pub struct ClassifiedsUser {
