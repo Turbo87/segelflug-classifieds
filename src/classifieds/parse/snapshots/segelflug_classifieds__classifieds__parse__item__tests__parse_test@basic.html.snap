@@ -1,0 +1,16 @@
+---
+source: src/classifieds/parse/item.rs
+expression: user
+input_file: src/classifieds/parse/test-input/item/basic.html
+---
+ClassifiedsDetails {
+    photo_url: Some(
+        "https://www.segelflug.de/osclass/oc-content/uploads/505/125034.jpg",
+    ),
+    price: Some(
+        "250,00 €",
+    ),
+    user_link: Some(
+        "https://www.segelflug.de/osclass/index.php?page=user&action=pub_profile&id=7164",
+    ),
+}
