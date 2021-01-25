@@ -2,6 +2,7 @@ use crate::classifieds::utils::strip_html;
 use scraper::{Html, Selector};
 use selectors::Element;
 
+#[derive(Debug)]
 pub struct ClassifiedsDetails {
     pub photo_url: Option<String>,
     pub price: Option<String>,
@@ -50,5 +51,20 @@ impl From<&str> for ClassifiedsDetails {
             price,
             user_link,
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::ClassifiedsDetails;
+    use std::fs;
+
+    #[test]
+    fn parse_test() {
+        glob!("test-input/item/*.html", |path| {
+            let text = fs::read_to_string(path).unwrap();
+            let user = ClassifiedsDetails::from(text.as_str());
+            assert_debug_snapshot!(user);
+        });
     }
 }

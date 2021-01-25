@@ -1,3 +1,6 @@
+#[cfg(test)]
+#[macro_use]
+extern crate insta;
 #[macro_use]
 extern crate tracing;
 #[macro_use]

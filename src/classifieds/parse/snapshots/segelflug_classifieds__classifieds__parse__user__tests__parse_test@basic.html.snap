@@ -1,0 +1,15 @@
+---
+source: src/classifieds/parse/user.rs
+expression: user
+input_file: src/classifieds/parse/test-input/user/basic.html
+---
+ClassifiedsUser {
+    name: Some(
+        "Raatz",
+    ),
+    address: None,
+    location: Some(
+        "Germany",
+    ),
+    website: None,
+}
