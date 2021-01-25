@@ -142,7 +142,7 @@ impl App {
 
         let photo_url = item
             .details()
-            .and_then(|details| details.photo_url.as_ref());
+            .and_then(|details| details.photo_urls.first());
         if let Some(photo_url) = photo_url {
             if telegram.send_photo(photo_url).await.is_ok() {
                 return Ok(());

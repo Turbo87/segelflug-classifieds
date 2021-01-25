@@ -7,9 +7,10 @@ ClassifiedsDetails {
     location: Some(
         "Aachen, Germany",
     ),
-    photo_url: Some(
+    photo_urls: [
         "https://www.segelflug.de/osclass/oc-content/uploads/505/125034.jpg",
-    ),
+        "https://www.segelflug.de/osclass/oc-content/uploads/505/125035.jpg",
+    ],
     price: Some(
         "250,00 €",
     ),
