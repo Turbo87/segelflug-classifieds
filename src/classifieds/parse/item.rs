@@ -4,7 +4,8 @@ use selectors::Element;
 
 #[derive(Debug)]
 pub struct ClassifiedsDetails {
-    pub photo_url: Option<String>,
+    pub location: Option<String>,
+    pub photo_urls: Vec<String>,
     pub price: Option<String>,
     pub user_link: Option<String>,
 }
@@ -13,9 +14,11 @@ impl From<&str> for ClassifiedsDetails {
     fn from(text: &str) -> Self {
         lazy_static! {
             static ref ICON_SELECTOR: Selector = Selector::parse(".fa-money").unwrap();
-            static ref PHOTOS_SELECTOR: Selector = Selector::parse(".item-photos img").unwrap();
+            static ref PHOTO_LINKS_SELECTOR: Selector =
+                Selector::parse(".item-photos .thumbs a").unwrap();
             static ref PUB_PROFILE_SELECTOR: Selector =
                 Selector::parse("a[href*=\"action=pub_profile\"]").unwrap();
+            static ref LOCATION_SELECTOR: Selector = Selector::parse("#item_location").unwrap();
         }
 
         let html = Html::parse_document(text);
@@ -32,12 +35,12 @@ impl From<&str> for ClassifiedsDetails {
             .map(|price_text| price_text.replace("Euro €", "€").trim().to_string());
         debug!("price = {:?}", price);
 
-        let photo_url = html
-            .select(&PHOTOS_SELECTOR)
-            .next()
-            .and_then(|element| element.value().attr("src"))
-            .map(|src| src.to_string());
-        debug!("photo_url = {:?}", photo_url);
+        let photo_urls = html
+            .select(&PHOTO_LINKS_SELECTOR)
+            .filter_map(|element| element.value().attr("href"))
+            .map(|src| src.to_string())
+            .collect();
+        debug!("photo_urls = {:?}", photo_urls);
 
         let user_link = html
             .select(&PUB_PROFILE_SELECTOR)
@@ -46,8 +49,16 @@ impl From<&str> for ClassifiedsDetails {
             .map(|link| link.to_string());
         debug!("user_link = {:?}", user_link);
 
+        let location = html
+            .select(&LOCATION_SELECTOR)
+            .next()
+            .map(|element| element.inner_html())
+            .map(|html| strip_html(&html).trim().to_string());
+        debug!("location = {:?}", location);
+
         Self {
-            photo_url,
+            location,
+            photo_urls,
             price,
             user_link,
         }

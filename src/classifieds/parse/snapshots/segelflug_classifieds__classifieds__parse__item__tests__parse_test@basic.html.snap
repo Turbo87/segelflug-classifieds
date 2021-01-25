@@ -4,9 +4,13 @@ expression: user
 input_file: src/classifieds/parse/test-input/item/basic.html
 ---
 ClassifiedsDetails {
-    photo_url: Some(
-        "https://www.segelflug.de/osclass/oc-content/uploads/505/125034.jpg",
+    location: Some(
+        "Aachen, Germany",
     ),
+    photo_urls: [
+        "https://www.segelflug.de/osclass/oc-content/uploads/505/125034.jpg",
+        "https://www.segelflug.de/osclass/oc-content/uploads/505/125035.jpg",
+    ],
     price: Some(
         "250,00 €",
     ),
