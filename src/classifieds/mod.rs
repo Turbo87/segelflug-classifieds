@@ -1,11 +1,15 @@
-use anyhow::{anyhow, Context, Result};
-use regex::Regex;
-use reqwest::Client;
-use rss::{Channel, Item};
-use scraper::{Html, Selector};
-use selectors::Element;
 use std::collections::HashSet;
 use std::convert::TryFrom;
+
+use anyhow::{anyhow, Result};
+use regex::Regex;
+use rss::Item;
+use scraper::{Html, Selector};
+use selectors::Element;
+
+pub use api::ClassifiedsApi;
+
+mod api;
 
 pub struct ClassifiedsItem {
     rss_item: rss::Item,
@@ -214,73 +218,6 @@ impl From<&str> for ClassifiedsUser {
             location,
             website,
         }
-    }
-}
-
-pub struct ClassifiedsApi {
-    client: Client,
-    feed_url: String,
-}
-
-impl ClassifiedsApi {
-    pub fn new<S: Into<String>>(feed_url: S, client: Client) -> Self {
-        ClassifiedsApi {
-            client,
-            feed_url: feed_url.into(),
-        }
-    }
-
-    pub async fn load_feed(&self) -> Result<Vec<Result<ClassifiedsItem>>> {
-        debug!("downloading RSS feed from {}", self.feed_url);
-        let response = self
-            .client
-            .get(&self.feed_url)
-            .send()
-            .await
-            .context("Failed to download RSS feed")?;
-
-        let bytes = response
-            .bytes()
-            .await
-            .context("Failed to read response bytes")?;
-
-        debug!("parsing response as RSS feed");
-        let channel =
-            Channel::read_from(&bytes[..]).context("Failed to parse HTTP response as RSS feed")?;
-
-        let items = channel
-            .items
-            .into_iter()
-            .map(ClassifiedsItem::try_from)
-            .collect();
-
-        Ok(items)
-    }
-
-    pub async fn load_details(&self, url: &str) -> Result<ClassifiedsDetails> {
-        debug!("downloading HTML file from {}", url);
-        let response = self.client.get(url).send().await;
-        let response = response.context("Failed to download HTML file")?;
-
-        let text = response.text().await;
-        let text = text.context("Failed to read response text")?;
-
-        trace!("text = {:?}", text);
-
-        Ok(text.as_str().into())
-    }
-
-    pub async fn load_user(&self, url: &str) -> Result<ClassifiedsUser> {
-        debug!("downloading HTML file from {}", url);
-        let response = self.client.get(url).send().await;
-        let response = response.context("Failed to download HTML file")?;
-
-        let text = response.text().await;
-        let text = text.context("Failed to read response text")?;
-
-        trace!("text = {:?}", text);
-
-        Ok(text.as_str().into())
     }
 }
 
