@@ -79,19 +79,22 @@ impl App {
         let description = item.description();
 
         let price = item.details().and_then(|details| details.price.as_ref());
+        let item_location = item.details().and_then(|details| details.location.as_ref());
 
         let user = item.user();
         let user_name = user.and_then(|user| user.name.as_ref());
         let user_location = user.and_then(|user| user.location.as_ref());
 
-        let user_description = match (user_name, user_location) {
+        let location = item_location.or(user_location);
+
+        let user_description = match (user_name, location) {
             (Some(name), Some(location)) => Some(format!("{} ({})", name, location)),
             (Some(name), None) => Some(name.clone()),
             (None, Some(location)) => Some(location.clone()),
             (None, None) => None,
         };
 
-        let user_emoji = match (user_name, user_location) {
+        let user_emoji = match (user_name, location) {
             (Some(_), Some(_)) => Some("🧑‍✈️"),
             (Some(_), None) => Some("🧑‍✈️"),
             (None, Some(_)) => Some("🌍"),
