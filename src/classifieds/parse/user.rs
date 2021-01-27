@@ -10,6 +10,7 @@ pub struct ClassifiedsUser {
 }
 
 impl From<&str> for ClassifiedsUser {
+    #[instrument(name = "ClassifiedsUser::from", skip(text))]
     fn from(text: &str) -> Self {
         lazy_static! {
             static ref NAME_SELECTOR: Selector = Selector::parse("li.name").unwrap();
@@ -29,7 +30,6 @@ impl From<&str> for ClassifiedsUser {
             .map(|element| element.inner_html())
             .map(|html| strip_html(&html))
             .map(|text| text.trim().to_string());
-        debug!("name = {:?}", name);
 
         let address = html
             .select(&ADDRESS_SELECTOR)
@@ -38,7 +38,6 @@ impl From<&str> for ClassifiedsUser {
             .map(|html| strip_html(&html))
             .map(|text| text.replace("Adresse:", ""))
             .map(|text| text.trim().to_string());
-        debug!("address = {:?}", address);
 
         let location = html
             .select(&LOCATION_SELECTOR)
@@ -47,7 +46,6 @@ impl From<&str> for ClassifiedsUser {
             .map(|html| strip_html(&html))
             .map(|text| text.replace("Standort:", ""))
             .map(|text| text.trim().to_string());
-        debug!("location = {:?}", location);
 
         let website = html
             .select(&WEBSITE_SELECTOR)
@@ -55,7 +53,6 @@ impl From<&str> for ClassifiedsUser {
             .map(|element| element.inner_html())
             .map(|html| strip_html(&html))
             .map(|text| text.trim().to_string());
-        debug!("website = {:?}", website);
 
         Self {
             name,

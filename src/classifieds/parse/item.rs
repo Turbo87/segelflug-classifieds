@@ -11,6 +11,7 @@ pub struct ClassifiedsDetails {
 }
 
 impl From<&str> for ClassifiedsDetails {
+    #[instrument(name = "ClassifiedsDetails::from", skip(text))]
     fn from(text: &str) -> Self {
         lazy_static! {
             static ref ICON_SELECTOR: Selector = Selector::parse(".fa-money").unwrap();
@@ -33,28 +34,24 @@ impl From<&str> for ClassifiedsDetails {
             .map(|price_element| price_element.inner_html())
             .map(|price_html| strip_html(&price_html))
             .map(|price_text| price_text.replace("Euro €", "€").trim().to_string());
-        debug!("price = {:?}", price);
 
         let photo_urls = html
             .select(&PHOTO_LINKS_SELECTOR)
             .filter_map(|element| element.value().attr("href"))
             .map(|src| src.to_string())
             .collect();
-        debug!("photo_urls = {:?}", photo_urls);
 
         let user_link = html
             .select(&PUB_PROFILE_SELECTOR)
             .next()
             .and_then(|link_element| link_element.value().attr("href"))
             .map(|link| link.to_string());
-        debug!("user_link = {:?}", user_link);
 
         let location = html
             .select(&LOCATION_SELECTOR)
             .next()
             .map(|element| element.inner_html())
             .map(|html| strip_html(&html).trim().to_string());
-        debug!("location = {:?}", location);
 
         Self {
             location,

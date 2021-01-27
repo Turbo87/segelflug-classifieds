@@ -6,6 +6,7 @@ use rand::Rng;
 use std::path::PathBuf;
 use std::time::Duration;
 use tokio::time::sleep;
+use tracing::Level;
 
 pub struct App {
     classifieds: ClassifiedsApi,
@@ -26,14 +27,14 @@ impl App {
         }
     }
 
+    #[instrument(skip(self))]
     pub async fn run(&self) -> anyhow::Result<()> {
         let mut guids = guids::read_guids_file(&self.guids_path).unwrap_or_default();
-        trace!("guids = {:#?}", guids);
+        event!(Level::TRACE, guids = ?guids);
 
         let items = self.classifieds.load_feed().await?;
         let items: Vec<_> = items.into_iter().filter_map(|result| result.ok()).collect();
-
-        debug!("found {} items in the RSS feed", items.len());
+        event!(Level::DEBUG, num_items = items.len());
 
         let new_items: Vec<_> = items
             .into_iter()
@@ -41,10 +42,10 @@ impl App {
             .filter(|it| !guids.contains(&it.guid))
             .collect();
 
-        println!(
-            "✈️  Found {} new classifieds on Segelflug.de",
-            new_items.len()
-        );
+        let num_new_items = new_items.len();
+        event!(Level::DEBUG, num_new_items = num_new_items);
+
+        println!("✈️  Found {} new items on Segelflug.de", num_new_items);
         println!();
 
         for item in new_items.into_iter() {
@@ -53,7 +54,7 @@ impl App {
                     guids.insert(item.guid);
                 }
                 Err(error) => {
-                    warn!("Failed to handle classifieds item: {}", error);
+                    event!(Level::WARN, error = ?error, "Failed to handle classifieds item");
                 }
             }
         }
@@ -62,13 +63,14 @@ impl App {
         Ok(())
     }
 
+    #[instrument(skip(self))]
     async fn handle_item(&self, item: &ClassifiedsItem) -> Result<()> {
         let link = &item.link;
 
         let details = match self.classifieds.load_details(link).await {
             Ok(details) => Some(details),
             Err(error) => {
-                warn!("Failed to load details for {}: {}", link, error);
+                event!(Level::WARN, error = ?error, "Failed to load details");
                 None
             }
         };
@@ -80,7 +82,7 @@ impl App {
             Some(user_link) => match self.classifieds.load_user(user_link).await {
                 Ok(details) => Some(details),
                 Err(error) => {
-                    warn!("Failed to load user details from {}: {}", user_link, error);
+                    event!(Level::WARN, error = ?error, "Failed to load user details");
                     None
                 }
             },
@@ -145,7 +147,7 @@ impl App {
             telegram.send_message(&text).await?;
 
             if let Err(error) = self.send_photo_for_item(item, details.as_ref()).await {
-                warn!("Failed to send photo to Telegram: {}", error);
+                event!(Level::WARN, error = ?error, "Failed to send photo to Telegram");
             }
         }
 
@@ -177,7 +179,7 @@ impl App {
     pub async fn watch(&self, min_time: f32, max_time: f32) {
         loop {
             if let Err(error) = self.run().await {
-                warn!("{}", error);
+                event!(Level::WARN, error = ?error);
             }
 
             let mins = rand::thread_rng().gen_range(min_time..max_time);
