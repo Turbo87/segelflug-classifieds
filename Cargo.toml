@@ -16,7 +16,7 @@ lazy_static = "1.4.0"
 rand = "0.8.3"
 regex = "1.4.3"
 reqwest = { version = "0.11.0", default-features = false, features = ["rustls-tls"] }
-rss = "1.10.0"
+rss = { version = "1.10.0", default-features = false }
 scraper = "0.12.0"
 selectors = "0.22.0"
 sentry = { version = "0.22.0", default-features = false, features = ["anyhow", "backtrace", "contexts", "panic", "reqwest", "rustls"] }
