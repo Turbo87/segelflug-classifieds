@@ -6,48 +6,37 @@ use std::convert::TryFrom;
 
 #[derive(Debug)]
 pub struct ClassifiedsItem {
-    rss_item: rss::Item,
+    pub guid: String,
+    pub title: String,
+    pub link: String,
+    pub description: Option<String>,
+    pub image_url: Option<String>,
 }
 
 impl TryFrom<rss::Item> for ClassifiedsItem {
     type Error = anyhow::Error;
 
     fn try_from(item: Item) -> anyhow::Result<Self, Self::Error> {
-        if item.guid.is_none() {
-            return Err(anyhow!("Missing `guid` element"));
-        }
-        if item.title.is_none() {
-            return Err(anyhow!("Missing `title` element"));
-        }
-        if item.link.is_none() {
-            return Err(anyhow!("Missing `link` element"));
-        }
+        let guid = item.guid;
+        let guid = guid.ok_or_else(|| anyhow!("Missing `guid` element"))?.value;
 
-        Ok(ClassifiedsItem { rss_item: item })
-    }
-}
+        let title = item.title;
+        let title = title.ok_or_else(|| anyhow!("Missing `title` element"))?;
 
-impl ClassifiedsItem {
-    pub fn guid(&self) -> &str {
-        &self.rss_item.guid.as_ref().unwrap().value
-    }
+        let link = item.link;
+        let link = link.ok_or_else(|| anyhow!("Missing `link` element"))?;
 
-    pub fn title(&self) -> &str {
-        &self.rss_item.title.as_ref().unwrap()
-    }
+        let description = item.description.as_ref();
+        let image_url = description.and_then(|it| find_image_url(&it).map(str::to_string));
+        let description = description.map(|it| sanitize_description(&it));
 
-    pub fn link(&self) -> &str {
-        &self.rss_item.link.as_ref().unwrap()
-    }
-
-    pub fn description(&self) -> Option<String> {
-        let description = self.rss_item.description.as_ref();
-        description.map(|it| sanitize_description(&it))
-    }
-
-    pub fn image_url(&self) -> Option<String> {
-        let description = self.rss_item.description.as_ref();
-        description.and_then(|it| find_image_url(&it).map(str::to_string))
+        Ok(ClassifiedsItem {
+            guid,
+            title,
+            link,
+            description,
+            image_url,
+        })
     }
 }
 

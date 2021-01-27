@@ -38,7 +38,7 @@ impl App {
         let mut new_items: Vec<_> = items
             .into_iter()
             .rev()
-            .filter(|it| !guids.contains(it.guid()))
+            .filter(|it| !guids.contains(&it.guid))
             .collect();
 
         println!(
@@ -50,7 +50,7 @@ impl App {
         for item in new_items.iter_mut() {
             match self.handle_item(item).await {
                 Ok(_) => {
-                    guids.insert(item.guid().to_string());
+                    guids.insert(item.guid.clone());
                 }
                 Err(error) => {
                     warn!("Failed to handle classifieds item: {}", error);
@@ -62,8 +62,8 @@ impl App {
         Ok(())
     }
 
-    async fn handle_item(&self, item: &mut ClassifiedsItem) -> Result<()> {
-        let link = item.link();
+    async fn handle_item(&self, item: &ClassifiedsItem) -> Result<()> {
+        let link = &item.link;
 
         let details = match self.classifieds.load_details(link).await {
             Ok(details) => Some(details),
@@ -87,8 +87,8 @@ impl App {
             None => None,
         };
 
-        let title = item.title();
-        let description = item.description();
+        let title = &item.title;
+        let description = &item.description;
 
         let price = details.as_ref().and_then(|details| details.price.as_ref());
         let item_location = details
@@ -167,7 +167,7 @@ impl App {
             }
         }
 
-        if let Some(image_url) = &item.image_url() {
+        if let Some(image_url) = &item.image_url {
             telegram.send_photo(image_url).await
         } else {
             Ok(())
