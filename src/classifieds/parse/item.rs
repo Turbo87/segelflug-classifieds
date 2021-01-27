@@ -38,6 +38,7 @@ impl From<&str> for ClassifiedsDetails {
         let photo_urls = html
             .select(&PHOTO_LINKS_SELECTOR)
             .filter_map(|element| element.value().attr("href"))
+            .filter(|src| !src.ends_with("/no_photo.gif"))
             .map(|src| src.to_string())
             .collect();
 
