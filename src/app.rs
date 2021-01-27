@@ -35,7 +35,7 @@ impl App {
 
         debug!("found {} items in the RSS feed", items.len());
 
-        let mut new_items: Vec<_> = items
+        let new_items: Vec<_> = items
             .into_iter()
             .rev()
             .filter(|it| !guids.contains(&it.guid))
@@ -47,10 +47,10 @@ impl App {
         );
         println!();
 
-        for item in new_items.iter_mut() {
-            match self.handle_item(item).await {
+        for item in new_items.into_iter() {
+            match self.handle_item(&item).await {
                 Ok(_) => {
-                    guids.insert(item.guid.clone());
+                    guids.insert(item.guid);
                 }
                 Err(error) => {
                     warn!("Failed to handle classifieds item: {}", error);
