@@ -82,3 +82,18 @@ fn find_image_url(description: &str) -> Option<&str> {
         .and_then(|captures| captures.get(1))
         .map(|m| m.as_str())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::parse_feed;
+    use std::fs;
+
+    #[test]
+    fn parse_test() {
+        glob!("test-input/*.rss", |path| {
+            let bytes = fs::read(path).unwrap();
+            let items = parse_feed(bytes.as_slice());
+            assert_debug_snapshot!(items);
+        });
+    }
+}
