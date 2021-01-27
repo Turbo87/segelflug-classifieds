@@ -1,5 +1,4 @@
 use crate::classifieds::utils::strip_html;
-use crate::classifieds::{ClassifiedsApi, ClassifiedsDetails, ClassifiedsUser};
 use ::rss::Item;
 use anyhow::anyhow;
 use regex::Regex;
@@ -8,8 +7,6 @@ use std::convert::TryFrom;
 #[derive(Debug)]
 pub struct ClassifiedsItem {
     rss_item: rss::Item,
-    details: Option<ClassifiedsDetails>,
-    user: Option<ClassifiedsUser>,
 }
 
 impl TryFrom<rss::Item> for ClassifiedsItem {
@@ -26,11 +23,7 @@ impl TryFrom<rss::Item> for ClassifiedsItem {
             return Err(anyhow!("Missing `link` element"));
         }
 
-        Ok(ClassifiedsItem {
-            rss_item: item,
-            details: None,
-            user: None,
-        })
+        Ok(ClassifiedsItem { rss_item: item })
     }
 }
 
@@ -55,37 +48,6 @@ impl ClassifiedsItem {
     pub fn image_url(&self) -> Option<String> {
         let description = self.rss_item.description.as_ref();
         description.and_then(|it| find_image_url(&it).map(str::to_string))
-    }
-
-    pub fn details(&self) -> Option<&ClassifiedsDetails> {
-        self.details.as_ref()
-    }
-
-    pub async fn load_details(&mut self, api: &ClassifiedsApi) -> anyhow::Result<()> {
-        let link = self.link();
-        self.details = Some(api.load_details(link).await?);
-        Ok(())
-    }
-
-    pub fn user_link(&self) -> Option<&String> {
-        self.details()
-            .and_then(|details| details.user_link.as_ref())
-    }
-
-    pub fn can_load_user(&self) -> bool {
-        self.user_link().is_some()
-    }
-
-    pub fn user(&self) -> Option<&ClassifiedsUser> {
-        self.user.as_ref()
-    }
-
-    pub async fn load_user(&mut self, api: &ClassifiedsApi) -> anyhow::Result<()> {
-        assert!(self.can_load_user());
-        let user_link = self.user_link().unwrap();
-
-        self.user = Some(api.load_user(user_link).await?);
-        Ok(())
     }
 }
 

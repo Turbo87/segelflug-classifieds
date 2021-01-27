@@ -1,4 +1,4 @@
-use crate::classifieds::{ClassifiedsApi, ClassifiedsItem};
+use crate::classifieds::{ClassifiedsApi, ClassifiedsDetails, ClassifiedsItem};
 use crate::guids;
 use crate::telegram::TelegramApi;
 use anyhow::Result;
@@ -63,27 +63,40 @@ impl App {
     }
 
     async fn handle_item(&self, item: &mut ClassifiedsItem) -> Result<()> {
-        if let Err(error) = item.load_details(&self.classifieds).await {
-            warn!("Failed to load details for {}: {}", item.link(), error);
-        }
+        let link = item.link();
 
-        if item.can_load_user() {
-            if let Err(error) = item.load_user(&self.classifieds).await {
-                let user_link = item.user_link().unwrap();
-                warn!("Failed to load user details from {}: {}", user_link, error);
+        let details = match self.classifieds.load_details(link).await {
+            Ok(details) => Some(details),
+            Err(error) => {
+                warn!("Failed to load details for {}: {}", link, error);
+                None
             }
-        }
+        };
+
+        let user_link = details
+            .as_ref()
+            .and_then(|details| details.user_link.as_ref());
+        let user = match user_link.as_ref() {
+            Some(user_link) => match self.classifieds.load_user(user_link).await {
+                Ok(details) => Some(details),
+                Err(error) => {
+                    warn!("Failed to load user details from {}: {}", user_link, error);
+                    None
+                }
+            },
+            None => None,
+        };
 
         let title = item.title();
-        let link = item.link();
         let description = item.description();
 
-        let price = item.details().and_then(|details| details.price.as_ref());
-        let item_location = item.details().and_then(|details| details.location.as_ref());
+        let price = details.as_ref().and_then(|details| details.price.as_ref());
+        let item_location = details
+            .as_ref()
+            .and_then(|details| details.location.as_ref());
 
-        let user = item.user();
-        let user_name = user.and_then(|user| user.name.as_ref());
-        let user_location = user.and_then(|user| user.location.as_ref());
+        let user_name = user.as_ref().and_then(|user| user.name.as_ref());
+        let user_location = user.as_ref().and_then(|user| user.location.as_ref());
 
         let location = item_location.or(user_location);
 
@@ -121,7 +134,7 @@ impl App {
                 text += &format!("<b>💶  {}</b>\n", price);
             }
             if let (Some(user), Some(emoji)) = (&user_description, user_emoji) {
-                let user_link = item.user_link().unwrap();
+                let user_link = user_link.unwrap();
                 text += &format!("{}  <a href=\"{}\"><b>{}</b></a>\n", emoji, user_link, user);
             }
             if let Some(description) = description {
@@ -131,7 +144,7 @@ impl App {
 
             telegram.send_message(&text).await?;
 
-            if let Err(error) = self.send_photo_for_item(item).await {
+            if let Err(error) = self.send_photo_for_item(item, details.as_ref()).await {
                 warn!("Failed to send photo to Telegram: {}", error);
             }
         }
@@ -139,13 +152,15 @@ impl App {
         Ok(())
     }
 
-    async fn send_photo_for_item(&self, item: &ClassifiedsItem) -> Result<()> {
+    async fn send_photo_for_item(
+        &self,
+        item: &ClassifiedsItem,
+        details: Option<&ClassifiedsDetails>,
+    ) -> Result<()> {
         assert!(self.telegram.is_some());
         let telegram = self.telegram.as_ref().unwrap();
 
-        let photo_url = item
-            .details()
-            .and_then(|details| details.photo_urls.first());
+        let photo_url = details.and_then(|details| details.photo_urls.first());
         if let Some(photo_url) = photo_url {
             if telegram.send_photo(photo_url).await.is_ok() {
                 return Ok(());
