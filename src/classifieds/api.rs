@@ -18,17 +18,11 @@ impl ClassifiedsApi {
 
     pub async fn load_feed(&self) -> anyhow::Result<Vec<anyhow::Result<ClassifiedsItem>>> {
         debug!("downloading RSS feed from {}", self.feed_url);
-        let response = self
-            .client
-            .get(&self.feed_url)
-            .send()
-            .await
-            .context("Failed to download RSS feed")?;
+        let response = self.client.get(&self.feed_url).send().await;
+        let response = response.context("Failed to download RSS feed")?;
 
-        let bytes = response
-            .bytes()
-            .await
-            .context("Failed to read response bytes")?;
+        let bytes = response.bytes().await;
+        let bytes = bytes.context("Failed to read response bytes")?;
 
         debug!("parsing response as RSS feed");
         parse_feed(&bytes[..]).context("Failed to parse HTTP response as RSS feed")
