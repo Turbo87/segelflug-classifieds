@@ -1,8 +1,7 @@
+use crate::classifieds::rss::parse_feed;
 use crate::classifieds::{ClassifiedsDetails, ClassifiedsItem, ClassifiedsUser};
 use anyhow::Context;
 use reqwest::Client;
-use rss::Channel;
-use std::convert::TryFrom;
 
 pub struct ClassifiedsApi {
     client: Client,
@@ -32,16 +31,7 @@ impl ClassifiedsApi {
             .context("Failed to read response bytes")?;
 
         debug!("parsing response as RSS feed");
-        let channel =
-            Channel::read_from(&bytes[..]).context("Failed to parse HTTP response as RSS feed")?;
-
-        let items = channel
-            .items
-            .into_iter()
-            .map(ClassifiedsItem::try_from)
-            .collect();
-
-        Ok(items)
+        parse_feed(&bytes[..]).context("Failed to parse HTTP response as RSS feed")
     }
 
     pub async fn load_details(&self, url: &str) -> anyhow::Result<ClassifiedsDetails> {

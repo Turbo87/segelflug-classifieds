@@ -1,8 +1,9 @@
 use crate::classifieds::utils::strip_html;
-use ::rss::Item;
-use anyhow::anyhow;
+use ::rss::{Channel, Item};
+use anyhow::{anyhow, Result};
 use regex::Regex;
 use std::convert::TryFrom;
+use std::io::BufRead;
 
 #[derive(Debug)]
 pub struct ClassifiedsItem {
@@ -38,6 +39,18 @@ impl TryFrom<rss::Item> for ClassifiedsItem {
             image_url,
         })
     }
+}
+
+pub fn parse_feed<R: BufRead>(reader: R) -> Result<Vec<Result<ClassifiedsItem>>> {
+    let channel = Channel::read_from(reader)?;
+
+    let items = channel
+        .items
+        .into_iter()
+        .map(ClassifiedsItem::try_from)
+        .collect();
+
+    Ok(items)
 }
 
 fn sanitize_description(value: &str) -> String {
