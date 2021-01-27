@@ -1,92 +1,56 @@
 use crate::classifieds::utils::strip_html;
-use crate::classifieds::{ClassifiedsApi, ClassifiedsDetails, ClassifiedsUser};
-use ::rss::Item;
-use anyhow::anyhow;
+use ::rss::{Channel, Item};
+use anyhow::{anyhow, Result};
 use regex::Regex;
 use std::convert::TryFrom;
+use std::io::BufRead;
 
 #[derive(Debug)]
 pub struct ClassifiedsItem {
-    rss_item: rss::Item,
-    details: Option<ClassifiedsDetails>,
-    user: Option<ClassifiedsUser>,
+    pub guid: String,
+    pub title: String,
+    pub link: String,
+    pub description: Option<String>,
+    pub image_url: Option<String>,
 }
 
 impl TryFrom<rss::Item> for ClassifiedsItem {
     type Error = anyhow::Error;
 
     fn try_from(item: Item) -> anyhow::Result<Self, Self::Error> {
-        if item.guid.is_none() {
-            return Err(anyhow!("Missing `guid` element"));
-        }
-        if item.title.is_none() {
-            return Err(anyhow!("Missing `title` element"));
-        }
-        if item.link.is_none() {
-            return Err(anyhow!("Missing `link` element"));
-        }
+        let guid = item.guid;
+        let guid = guid.ok_or_else(|| anyhow!("Missing `guid` element"))?.value;
+
+        let title = item.title;
+        let title = title.ok_or_else(|| anyhow!("Missing `title` element"))?;
+
+        let link = item.link;
+        let link = link.ok_or_else(|| anyhow!("Missing `link` element"))?;
+
+        let description = item.description.as_ref();
+        let image_url = description.and_then(|it| find_image_url(&it).map(str::to_string));
+        let description = description.map(|it| sanitize_description(&it));
 
         Ok(ClassifiedsItem {
-            rss_item: item,
-            details: None,
-            user: None,
+            guid,
+            title,
+            link,
+            description,
+            image_url,
         })
     }
 }
 
-impl ClassifiedsItem {
-    pub fn guid(&self) -> &str {
-        &self.rss_item.guid.as_ref().unwrap().value
-    }
+pub fn parse_feed<R: BufRead>(reader: R) -> Result<Vec<Result<ClassifiedsItem>>> {
+    let channel = Channel::read_from(reader)?;
 
-    pub fn title(&self) -> &str {
-        &self.rss_item.title.as_ref().unwrap()
-    }
+    let items = channel
+        .items
+        .into_iter()
+        .map(ClassifiedsItem::try_from)
+        .collect();
 
-    pub fn link(&self) -> &str {
-        &self.rss_item.link.as_ref().unwrap()
-    }
-
-    pub fn description(&self) -> Option<String> {
-        let description = self.rss_item.description.as_ref();
-        description.map(|it| sanitize_description(&it))
-    }
-
-    pub fn image_url(&self) -> Option<String> {
-        let description = self.rss_item.description.as_ref();
-        description.and_then(|it| find_image_url(&it).map(str::to_string))
-    }
-
-    pub fn details(&self) -> Option<&ClassifiedsDetails> {
-        self.details.as_ref()
-    }
-
-    pub async fn load_details(&mut self, api: &ClassifiedsApi) -> anyhow::Result<()> {
-        let link = self.link();
-        self.details = Some(api.load_details(link).await?);
-        Ok(())
-    }
-
-    pub fn user_link(&self) -> Option<&String> {
-        self.details()
-            .and_then(|details| details.user_link.as_ref())
-    }
-
-    pub fn can_load_user(&self) -> bool {
-        self.user_link().is_some()
-    }
-
-    pub fn user(&self) -> Option<&ClassifiedsUser> {
-        self.user.as_ref()
-    }
-
-    pub async fn load_user(&mut self, api: &ClassifiedsApi) -> anyhow::Result<()> {
-        assert!(self.can_load_user());
-        let user_link = self.user_link().unwrap();
-
-        self.user = Some(api.load_user(user_link).await?);
-        Ok(())
-    }
+    Ok(items)
 }
 
 fn sanitize_description(value: &str) -> String {
@@ -117,4 +81,19 @@ fn find_image_url(description: &str) -> Option<&str> {
     RE.captures(description)
         .and_then(|captures| captures.get(1))
         .map(|m| m.as_str())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::parse_feed;
+    use std::fs;
+
+    #[test]
+    fn parse_test() {
+        glob!("test-input/*.rss", |path| {
+            let bytes = fs::read(path).unwrap();
+            let items = parse_feed(bytes.as_slice());
+            assert_debug_snapshot!(items);
+        });
+    }
 }
