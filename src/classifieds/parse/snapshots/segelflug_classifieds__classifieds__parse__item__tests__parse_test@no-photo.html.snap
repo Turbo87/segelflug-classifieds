@@ -1,0 +1,17 @@
+---
+source: src/classifieds/parse/item.rs
+expression: user
+input_file: src/classifieds/parse/test-input/item/no-photo.html
+---
+ClassifiedsDetails {
+    location: Some(
+        "Germany",
+    ),
+    photo_urls: [],
+    price: Some(
+        "1.599,00 €",
+    ),
+    user_link: Some(
+        "https://www.segelflug.de/osclass/index.php?page=user&action=pub_profile&id=19322",
+    ),
+}
