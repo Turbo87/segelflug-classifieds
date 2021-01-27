@@ -1469,6 +1469,7 @@ dependencies = [
  "serde_urlencoded",
  "tokio",
  "tracing",
+ "tracing-futures",
  "tracing-subscriber",
  "vergen",
 ]

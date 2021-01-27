@@ -13,7 +13,7 @@ ExecStart=/home/pi/segelflug-classifieds-bot/segelflug-classifieds --watch
 WorkingDirectory=/home/pi/segelflug-classifieds-bot/
 # Environment="SENTRY_DSN=FILLME"
 # Environment="TELEGRAM_TOKEN=FILLME"
-Environment="RUST_LOG=segelflug_classifieds=debug"
+Environment="RUST_LOG=segelflug_classifieds=info"
 
 [Install]
 WantedBy=multi-user.target

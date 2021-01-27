@@ -2,6 +2,7 @@ use anyhow::{anyhow, Context, Result};
 use reqwest::{Client, StatusCode};
 use std::time::Duration;
 use tokio::time::sleep;
+use tracing::Level;
 
 pub struct TelegramApi {
     client: Client,
@@ -18,6 +19,7 @@ impl TelegramApi {
         }
     }
 
+    #[instrument(skip(self))]
     pub async fn send_message(&self, text: &str) -> Result<()> {
         let params = serde_urlencoded::to_string(&[
             ("chat_id", self.chat_id.as_str()),
@@ -32,6 +34,7 @@ impl TelegramApi {
         self.send_request(&action).await
     }
 
+    #[instrument(skip(self))]
     pub async fn send_photo(&self, url: &str) -> Result<()> {
         let params =
             serde_urlencoded::to_string(&[("chat_id", self.chat_id.as_str()), ("photo", url)])
@@ -42,10 +45,11 @@ impl TelegramApi {
         self.send_request(&action).await
     }
 
+    #[instrument(skip(self, action))]
     async fn send_request(&self, action: &str) -> Result<()> {
         const NUM_ATTEMPTS: i32 = 5;
 
-        debug!("sending {} to Telegram", action);
+        debug!("sending request");
         let url = format!("https://api.telegram.org/bot{}/{}", self.token, action);
 
         for i in 0..NUM_ATTEMPTS {
@@ -56,14 +60,14 @@ impl TelegramApi {
             let response = self.client.get(&url).send().await?;
 
             let status = response.status();
-            debug!("Telegram responded with {}", status);
+            event!(Level::DEBUG, status = %status);
             if status.is_success() {
                 return Ok(());
             }
 
             let bytes = response.bytes().await?;
             let json: serde_json::Value = serde_json::from_slice(&bytes)?;
-            trace!("json = {}", json);
+            event!(Level::DEBUG, json = %json);
 
             let json = json
                 .as_object()
@@ -82,10 +86,7 @@ impl TelegramApi {
 
                 let retry_after = Duration::from_secs(retry_after);
 
-                debug!(
-                    "Retrying Telegram action in {} seconds",
-                    retry_after.as_secs()
-                );
+                debug!("retrying in {} seconds", retry_after.as_secs());
 
                 sleep(retry_after).await;
             } else {

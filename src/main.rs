@@ -12,6 +12,9 @@ use crate::telegram::TelegramApi;
 use anyhow::Result;
 use clap::Clap;
 use tokio::time::Duration;
+use tracing::Level;
+use tracing_subscriber::fmt::Subscriber;
+use tracing_subscriber::EnvFilter;
 
 mod app;
 mod classifieds;
@@ -49,10 +52,14 @@ struct Opts {
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    tracing_subscriber::fmt::init();
+    Subscriber::builder()
+        .pretty()
+        .without_time()
+        .with_env_filter(EnvFilter::from_default_env())
+        .init();
 
     let sha = env!("VERGEN_SHA_SHORT");
-    debug!("running revision: {}", sha);
+    event!(Level::INFO, sha = sha);
 
     let sentry_dsn = std::env::var("SENTRY_DSN");
     let _guard = sentry_dsn.map(|dsn| {
@@ -64,7 +71,7 @@ async fn main() -> Result<()> {
     });
 
     let opts: Opts = Opts::parse();
-    trace!("opts = {:#?}", opts);
+    event!(Level::DEBUG, opts = ?opts);
     if opts.min_time > opts.max_time {
         let description = String::from("--min-time must not be larger than --max-time");
         clap::Error::with_description(description, clap::ErrorKind::ValueValidation).exit();
@@ -77,10 +84,9 @@ async fn main() -> Result<()> {
     let classifieds = ClassifiedsApi::new(FEED_URL, client.clone());
 
     let cwd = std::env::current_dir()?;
-    debug!("running in {:?}", cwd);
+    event!(Level::INFO, cwd = ?cwd);
 
     let guids_path = cwd.join("last-guids.json");
-    trace!("guids_path = {:?}", guids_path);
 
     let telegram = opts
         .telegram_token
