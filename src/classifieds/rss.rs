@@ -90,7 +90,7 @@ mod tests {
 
     #[test]
     fn parse_test() {
-        glob!("test-input/*.rss", |path| {
+        glob!("test-input/*.xml", |path| {
             let bytes = fs::read(path).unwrap();
             let items = parse_feed(bytes.as_slice());
             assert_debug_snapshot!(items);
