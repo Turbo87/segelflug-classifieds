@@ -41,8 +41,13 @@ impl TryFrom<rss::Item> for ClassifiedsItem {
     }
 }
 
-pub fn parse_feed<R: BufRead>(reader: R) -> Result<Vec<Result<ClassifiedsItem>>> {
-    let channel = Channel::read_from(reader)?;
+pub fn parse_feed<R: BufRead>(mut reader: R) -> Result<Vec<Result<ClassifiedsItem>>> {
+    let mut buffer = String::new();
+    reader.read_to_string(&mut buffer)?;
+
+    let buffer = buffer.replace("// <![CDATA[", "").replace("// ]]>", "");
+
+    let channel = Channel::read_from(buffer.as_bytes())?;
 
     let items = channel
         .items
@@ -75,7 +80,7 @@ fn sanitize_description(value: &str) -> String {
 
 fn find_image_url(description: &str) -> Option<&str> {
     lazy_static! {
-        static ref RE: Regex = Regex::new(r#" src="([^"]+)""#).unwrap();
+        static ref RE: Regex = Regex::new(r#" src="(https://www\.segelflug\.de/[^"]+)""#).unwrap();
     }
 
     RE.captures(description)
@@ -90,7 +95,7 @@ mod tests {
 
     #[test]
     fn parse_test() {
-        glob!("test-input/*.rss", |path| {
+        glob!("test-input/*.xml", |path| {
             let bytes = fs::read(path).unwrap();
             let items = parse_feed(bytes.as_slice());
             assert_debug_snapshot!(items);

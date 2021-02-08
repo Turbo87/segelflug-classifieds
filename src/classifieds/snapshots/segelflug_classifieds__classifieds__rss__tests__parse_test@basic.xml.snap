@@ -1,7 +1,7 @@
 ---
 source: src/classifieds/rss.rs
 expression: items
-input_file: src/classifieds/test-input/basic.rss
+input_file: src/classifieds/test-input/basic.xml
 ---
 Ok(
     [
