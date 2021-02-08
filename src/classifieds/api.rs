@@ -2,6 +2,7 @@ use crate::classifieds::rss::parse_feed;
 use crate::classifieds::{ClassifiedsDetails, ClassifiedsItem, ClassifiedsUser};
 use anyhow::Context;
 use reqwest::Client;
+use sentry::integrations::anyhow::capture_anyhow;
 use tracing::Level;
 
 pub struct ClassifiedsApi {
@@ -27,7 +28,16 @@ impl ClassifiedsApi {
         let bytes = bytes.context("Failed to read response bytes")?;
 
         debug!("parsing response as RSS feed");
-        parse_feed(&bytes[..]).context("Failed to parse HTTP response as RSS feed")
+        let parse_result =
+            parse_feed(&bytes[..]).context("Failed to parse HTTP response as RSS feed");
+        if let Err(error) = parse_result.as_ref() {
+            sentry::with_scope(
+                |scope| scope.set_level(Some(sentry::Level::Warning)),
+                || capture_anyhow(error),
+            );
+        }
+
+        parse_result
     }
 
     #[instrument(skip(self))]
