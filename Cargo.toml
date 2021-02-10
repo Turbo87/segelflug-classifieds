@@ -23,6 +23,7 @@ sentry = { version = "0.23.0", default-features = false, features = ["anyhow", "
 serde = "1.0.130"
 serde_json = "1.0.68"
 serde_urlencoded = "0.7.0"
+teloxide = { version = "0.5.3", default-features = false, features = ["rustls"] }
 tokio = { version = "1", features = ["full"] }
 tracing = "0.1.29"
 tracing-futures = "0.2.5"
