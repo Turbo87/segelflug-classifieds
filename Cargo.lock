@@ -2099,7 +2099,6 @@ dependencies = [
  "enum-iterator",
  "getset",
  "git2",
- "rustc_version",
  "serde",
  "serde_derive",
 ]
