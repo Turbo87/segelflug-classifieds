@@ -1352,6 +1352,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "rustversion"
+version = "1.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cb5d2a036dc6d2d8fd16fde3498b04306e29bd193bf306a57427019b823d5acd"
+
+[[package]]
 name = "ryu"
 version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2074,15 +2080,17 @@ checksum = "f1bddf1187be692e79c5ffeab891132dfb0f236ed36a43c7ed39f1165ee20191"
 
 [[package]]
 name = "vergen"
-version = "4.2.0"
+version = "5.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "643197d057c6d2f1a8b56edd4ceaa587ff8d98befa6f058e76746c34c38f5a09"
+checksum = "adf0b57f76a4f7e9673db1e7ffa4541d215ae8336fee45f5c1378bdeb22a0314"
 dependencies = [
- "bitflags",
+ "anyhow",
+ "cfg-if",
  "chrono",
  "enum-iterator",
  "getset",
  "git2",
+ "rustversion",
  "thiserror",
 ]
 
