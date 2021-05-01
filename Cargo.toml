@@ -14,7 +14,7 @@ anyhow = "1.0.40"
 clap = "3.0.0-beta.2"
 lazy_static = "1.4.0"
 rand = "0.8.3"
-regex = "1.5.1"
+regex = "1.5.2"
 reqwest = { version = "0.11.3", default-features = false, features = ["rustls-tls"] }
 rss = { version = "1.10.0", default-features = false }
 scraper = { version = "0.12.0", default-features = false }
