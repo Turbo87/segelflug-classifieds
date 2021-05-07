@@ -223,6 +223,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "cssparser"
+version = "0.28.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1db8599a9761b371751fbf13e076fa03c6e1a78f8c5288e6ab9467f10a2322c1"
+dependencies = [
+ "cssparser-macros",
+ "dtoa-short",
+ "itoa",
+ "matches",
+ "phf",
+ "proc-macro2",
+ "quote",
+ "smallvec",
+ "syn",
+]
+
+[[package]]
 name = "cssparser-macros"
 version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1379,11 +1396,11 @@ version = "0.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "48e02aa790c80c2e494130dec6a522033b6a23603ffc06360e9fe6c611ea2c12"
 dependencies = [
- "cssparser",
+ "cssparser 0.27.2",
  "ego-tree",
  "html5ever",
  "matches",
- "selectors",
+ "selectors 0.22.0",
  "smallvec",
  "tendril",
 ]
@@ -1412,7 +1429,7 @@ dependencies = [
  "reqwest",
  "rss",
  "scraper",
- "selectors",
+ "selectors 0.23.0",
  "sentry",
  "serde",
  "serde_json",
@@ -1431,7 +1448,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "df320f1889ac4ba6bc0cdc9c9af7af4bd64bb927bccdf32d81140dc1f9be12fe"
 dependencies = [
  "bitflags",
- "cssparser",
+ "cssparser 0.27.2",
  "derive_more",
  "fxhash",
  "log",
@@ -1442,6 +1459,24 @@ dependencies = [
  "servo_arc",
  "smallvec",
  "thin-slice",
+]
+
+[[package]]
+name = "selectors"
+version = "0.23.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fdea87c686be721aab36607728047801ee21561bfdbd6bf0da7ace2536d5879f"
+dependencies = [
+ "bitflags",
+ "cssparser 0.28.1",
+ "derive_more",
+ "fxhash",
+ "log",
+ "phf",
+ "phf_codegen",
+ "precomputed-hash",
+ "servo_arc",
+ "smallvec",
 ]
 
 [[package]]
