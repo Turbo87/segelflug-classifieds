@@ -1,5 +1,5 @@
-use vergen::ConstantsFlags;
+use vergen::Config;
 
 fn main() {
-    vergen::gen(ConstantsFlags::all()).expect("Unable to generate the cargo keys!");
+    vergen::vergen(Config::default()).expect("Unable to generate the cargo keys!");
 }
