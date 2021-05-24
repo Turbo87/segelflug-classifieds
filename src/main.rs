@@ -58,7 +58,7 @@ async fn main() -> Result<()> {
         .with_env_filter(EnvFilter::from_default_env())
         .init();
 
-    let sha = env!("VERGEN_GIT_SHA_SHORT");
+    let sha = &env!("VERGEN_GIT_SHA")[..7];
     event!(Level::INFO, sha = sha);
 
     let sentry_dsn = std::env::var("SENTRY_DSN");
