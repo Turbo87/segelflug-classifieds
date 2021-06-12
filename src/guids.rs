@@ -1,6 +1,7 @@
 use anyhow::Context;
+use atomicwrites::{AllowOverwrite, AtomicFile};
 use std::collections::HashSet;
-use std::fs::{File, OpenOptions};
+use std::fs::File;
 use std::io::BufReader;
 use std::path::Path;
 use tracing::Level;
@@ -30,14 +31,10 @@ pub fn write_guids_file<P: AsRef<Path> + std::fmt::Debug>(
     guids: &HashSet<String>,
 ) -> anyhow::Result<()> {
     debug!("writing GUIDs");
-    let file = OpenOptions::new()
-        .write(true)
-        .truncate(true)
-        .create(true)
-        .open(&path)
-        .context("Could not open GUIDs file")?;
+    AtomicFile::new(&path, AllowOverwrite)
+        .write(|file| serde_json::to_writer_pretty(file, guids))
+        .context("Could not write GUIDs to file")?;
 
-    serde_json::to_writer_pretty(&file, guids).context("Could not serialize GUIDs to JSON")?;
     debug!("writing GUIDs successful");
     Ok(())
 }
