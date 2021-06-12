@@ -1455,7 +1455,6 @@ dependencies = [
  "reqwest",
  "rss",
  "scraper",
- "selectors",
  "sentry",
  "serde",
  "serde_json",

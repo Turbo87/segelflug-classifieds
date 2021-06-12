@@ -1,6 +1,5 @@
 use crate::classifieds::utils::strip_html;
-use scraper::{Html, Selector};
-use selectors::Element;
+use scraper::{ElementRef, Html, Selector};
 
 #[derive(Debug)]
 pub struct ClassifiedsDetails {
@@ -30,7 +29,8 @@ impl From<&str> for ClassifiedsDetails {
         let price = html
             .select(&ICON_SELECTOR)
             .next()
-            .and_then(|icon_element| icon_element.parent_element())
+            .and_then(|icon_element| icon_element.parent())
+            .and_then(ElementRef::wrap)
             .map(|price_element| price_element.inner_html())
             .map(|price_html| strip_html(&price_html))
             .map(|price_text| price_text.replace("Euro €", "€").trim().to_string());
