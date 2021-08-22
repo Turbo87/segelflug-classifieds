@@ -18,12 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions-rs/toolchain@v1
-        with:
-          profile: minimal
-          toolchain: 1.46.0
-          override: true
-          components: rustfmt, clippy
+      - run: rustup component add clippy rustfmt
 
       - name: cargo fmt
         uses: actions-rs/cargo@v1
