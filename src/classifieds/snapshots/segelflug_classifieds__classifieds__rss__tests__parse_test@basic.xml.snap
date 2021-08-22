@@ -2,6 +2,7 @@
 source: src/classifieds/rss.rs
 expression: items
 input_file: src/classifieds/test-input/basic.xml
+
 ---
 Ok(
     [
@@ -11,7 +12,7 @@ Ok(
                 title: "Wing tip wheels for DISCUS - DISCUS 2",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50814",
                 description: Some(
-                    "I\'m selling two wing tip wheels For DISCUS - DISCUS 2Specially adapted to the wing of the DISCUS - DISCUS 2 • Wheel: diameter 54 mm.• Support: length 187 mm, width 42 mm.• Axis: diameter 6 mm.• Total height: 60 mm.• Weight: 280 g per pair. Price 90 €Shipping :  France 8 €, EU : 15 €\\______( )______/Je vends deux roues de bout d\'aile pour DISCUS - DISCUS 2Spécialement adapté à l\'aile du DISCUS - DISCUS 2 - Roue : diamètre 54 mm.- Support : longueur 187 mm, largeur 42 mm.- Axe : diamètre 6 mm.- Hauteur totale : 60 mm.- Poids : 280 g par paire. Prix 90 €.Frais de port : France 8 €, UE : 15 €.",
+                    "I'm selling two wing tip wheels For DISCUS - DISCUS 2Specially adapted to the wing of the DISCUS - DISCUS 2 • Wheel: diameter 54 mm.• Support: length 187 mm, width 42 mm.• Axis: diameter 6 mm.• Total height: 60 mm.• Weight: 280 g per pair. Price 90 €Shipping :  France 8 €, EU : 15 €\\______( )______/Je vends deux roues de bout d'aile pour DISCUS - DISCUS 2Spécialement adapté à l'aile du DISCUS - DISCUS 2 - Roue : diamètre 54 mm.- Support : longueur 187 mm, largeur 42 mm.- Axe : diamètre 6 mm.- Hauteur totale : 60 mm.- Poids : 280 g par paire. Prix 90 €.Frais de port : France 8 €, UE : 15 €.",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/508/125770_thumbnail.jpg",
@@ -102,7 +103,7 @@ Ok(
                 title: "Wanted: &quot;Seat cushion + back&quot; style parachute  ",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50807",
                 description: Some(
-                    "Mein Deutsch ist schrecklich :)  ..aber ich verstehe was ich verstehen muss! :)   También hablo Castellano (\"Espanyol\") y Catalá. Anche un po\' di Italiano. Looking for \"seat cushion+ back\" style parachute, with a few years of remaining validity AND in truly good condition.  Possible types (see attached photos) : Security 350 or 150ThinbackSlimpack (ParachutesAustralia) GQ650 Silhouette STRONG Parachutes 305 Spekon RE-5L Serie 4 ... or similar.  Price (obviously) depending on remaining years.",
+                    "Mein Deutsch ist schrecklich :)  ..aber ich verstehe was ich verstehen muss! :)   También hablo Castellano (\"Espanyol\") y Catalá. Anche un po' di Italiano. Looking for \"seat cushion+ back\" style parachute, with a few years of remaining validity AND in truly good condition.  Possible types (see attached photos) : Security 350 or 150ThinbackSlimpack (ParachutesAustralia) GQ650 Silhouette STRONG Parachutes 305 Spekon RE-5L Serie 4 ... or similar.  Price (obviously) depending on remaining years.",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/508/125754_thumbnail.jpg",
@@ -115,7 +116,7 @@ Ok(
                 title: "Neue manuelle, leichte Mückenputzer Kurbeln",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50806",
                 description: Some(
-                    "Biete hier einen Satz CNC gefertigte Mückenputzerkurbeln an. \n \nKomplett auf einem hochmodernen Bearbeitungszentrum gefertigt. Grundplatte aus  Luftfahrtaluminium gefäst und schwarz eloxiert.\nEinbaugewicht gerade einmal 350g. \nEinstellbare Bremse mit Rändelmutter. \nFür alle gängigen Seiltypen. \n \nBei Fragen gerne melden,\nBilder gibt\'s per Mail.",
+                    "Biete hier einen Satz CNC gefertigte Mückenputzerkurbeln an. \n \nKomplett auf einem hochmodernen Bearbeitungszentrum gefertigt. Grundplatte aus  Luftfahrtaluminium gefäst und schwarz eloxiert.\nEinbaugewicht gerade einmal 350g. \nEinstellbare Bremse mit Rändelmutter. \nFür alle gängigen Seiltypen. \n \nBei Fragen gerne melden,\nBilder gibt's per Mail.",
                 ),
                 image_url: None,
             },
@@ -398,7 +399,7 @@ Ok(
                 title: "Discus, LS-7, LS-6, DG300, ASW20, Ventus",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50779",
                 description: Some(
-                    "I\'m looking for a courant glider such as: Discus, LS-7, LS-6, DG300, ASW20, Ventus.In good condition, preferably with new PU coating, (almost) ready to fly.Pro\'s:- In good shape- Modern cockpit: nav, Flarm, - 3000h inspection done, included or not in the near future- Trailer in good shape- Privately owned (Club owned only when taken good care of)- WingletsPrice range: 20-35kIf it has a Turbo, price range: 40-60k",
+                    "I'm looking for a courant glider such as: Discus, LS-7, LS-6, DG300, ASW20, Ventus.In good condition, preferably with new PU coating, (almost) ready to fly.Pro's:- In good shape- Modern cockpit: nav, Flarm, - 3000h inspection done, included or not in the near future- Trailer in good shape- Privately owned (Club owned only when taken good care of)- WingletsPrice range: 20-35kIf it has a Turbo, price range: 40-60k",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/507/125690_thumbnail.jpg",
@@ -537,7 +538,7 @@ Ok(
                 title: "SUCHE/LOOKING for DISCUS or ASW20",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50765",
                 description: Some(
-                    "I\'m looking for a competitive club class glider! Offer everything you have.",
+                    "I'm looking for a competitive club class glider! Offer everything you have.",
                 ),
                 image_url: None,
             },
