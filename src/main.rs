@@ -14,6 +14,7 @@ use clap::Clap;
 use tokio::time::Duration;
 use tracing::Level;
 use tracing_subscriber::fmt::Subscriber;
+use tracing_subscriber::prelude::*;
 use tracing_subscriber::EnvFilter;
 
 mod app;
@@ -56,6 +57,8 @@ async fn main() -> Result<()> {
         .pretty()
         .without_time()
         .with_env_filter(EnvFilter::from_default_env())
+        .finish()
+        .with(sentry::integrations::tracing::layer())
         .init();
 
     let sha = &env!("VERGEN_GIT_SHA")[..7];
