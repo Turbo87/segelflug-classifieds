@@ -19,7 +19,7 @@ impl From<&str> for ClassifiedsUser {
             static ref WEBSITE_SELECTOR: Selector = Selector::parse("li.website").unwrap();
         }
 
-        let html = Html::parse_document(&text);
+        let html = Html::parse_document(text);
         if !html.errors.is_empty() {
             debug!("found HTML parsing errors: {:?}", html.errors);
         }

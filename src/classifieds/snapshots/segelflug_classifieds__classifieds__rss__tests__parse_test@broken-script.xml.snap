@@ -2,6 +2,7 @@
 source: src/classifieds/rss.rs
 expression: items
 input_file: src/classifieds/test-input/broken-script.xml
+
 ---
 Ok(
     [
@@ -37,7 +38,7 @@ Ok(
                 title: "Wing tip wheels for ASW 24",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=51221",
                 description: Some(
-                    "I\'m selling two wing tip wheels For ASW 24Specially adapted to the wing of the ASW 24 • Wheel: diameter 54 mm.• Support: length 195 mm, width 42 mm.• Axis: diameter 6 mm.• Total height: 66 mm.• Weight: 295 g per pair. Price 90 €Shipping :  France 8 €, EU : 15 €\\______( )______/Je vends deux roues de bout d\'aile pour ASW 24Spécialement adapté à l\'aile du ASW 24 - Roue : diamètre 54 mm.- Support : longueur 195 mm, largeur 42 mm.- Axe : diamètre 6 mm.- Hauteur totale : 66 mm.- Poids : 295 g par paire. Prix 90 €.Frais de port : France 8 €, UE : 15 €.",
+                    "I'm selling two wing tip wheels For ASW 24Specially adapted to the wing of the ASW 24 • Wheel: diameter 54 mm.• Support: length 195 mm, width 42 mm.• Axis: diameter 6 mm.• Total height: 66 mm.• Weight: 295 g per pair. Price 90 €Shipping :  France 8 €, EU : 15 €\\______( )______/Je vends deux roues de bout d'aile pour ASW 24Spécialement adapté à l'aile du ASW 24 - Roue : diamètre 54 mm.- Support : longueur 195 mm, largeur 42 mm.- Axe : diamètre 6 mm.- Hauteur totale : 66 mm.- Poids : 295 g par paire. Prix 90 €.Frais de port : France 8 €, UE : 15 €.",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/512/126906_thumbnail.jpg",
@@ -334,7 +335,7 @@ Ok(
                 title: "SUCHE/LOOKING for a DISCUS or ASW20",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=51197",
                 description: Some(
-                    "I\'m looking for a competitive club class glider (ASW20, Discus, LS3, MiniNimbus, Mosquito, HPH 304cz, etc.) !  Offer everything you have.ringaudas0329@gmail.com\n\n \n\n\n\n\n\n\n\n\n\n\nOriginal text\n\n \n\nContribute a better translation",
+                    "I'm looking for a competitive club class glider (ASW20, Discus, LS3, MiniNimbus, Mosquito, HPH 304cz, etc.) !  Offer everything you have.ringaudas0329@gmail.com\n\n \n\n\n\n\n\n\n\n\n\n\nOriginal text\n\n \n\nContribute a better translation",
                 ),
                 image_url: None,
             },
@@ -355,10 +356,10 @@ Ok(
         Ok(
             ClassifiedsItem {
                 guid: "https://www.segelflug.de/osclass/index.php?page=item&id=51195",
-                title: "Suche alten  L\'Hotellier- Verschluss",
+                title: "Suche alten  L'Hotellier- Verschluss",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=51195",
                 description: Some(
-                    "Suche für Ausbildungszwecke einen oder gerne auch verschiedene, alte  L\'Hotellier- Verschlüsse, mit Pfanne und Kugelkopf.\nDer Preis sollte idealerweise den Versand nicht übersteigen. Die Schüler werden es Dir danken :)",
+                    "Suche für Ausbildungszwecke einen oder gerne auch verschiedene, alte  L'Hotellier- Verschlüsse, mit Pfanne und Kugelkopf.\nDer Preis sollte idealerweise den Versand nicht übersteigen. Die Schüler werden es Dir danken :)",
                 ),
                 image_url: None,
             },
@@ -421,7 +422,7 @@ Ok(
                 title: "LX8080F(integrated FLARM) + V9+AHRS",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=51190",
                 description: Some(
-                    "I\'m offering LX8080F (Flarm integrated) with V9 Vario and unlocked horizon. All needed cables and accessories included. The device is in very food condition and fully ready for next season. A huge advantage of this device is that it suits perfectly to 80 mm hole. \n \nI can ship device everywhere in EU or you can see it in Brno, Prague or Bratislava. \n \nFor contact please use my phone or email: \n+420 725 746 513, jurdudas@gmail.com",
+                    "I'm offering LX8080F (Flarm integrated) with V9 Vario and unlocked horizon. All needed cables and accessories included. The device is in very food condition and fully ready for next season. A huge advantage of this device is that it suits perfectly to 80 mm hole. \n \nI can ship device everywhere in EU or you can see it in Brno, Prague or Bratislava. \n \nFor contact please use my phone or email: \n+420 725 746 513, jurdudas@gmail.com",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/511/126790_thumbnail.jpg",
@@ -484,7 +485,7 @@ Ok(
                 title: "DG 600 18M",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=51185",
                 description: Some(
-                    "DG 600M / 18m (17m, 15m ) 3000h life extension performed by Güntert&amp;Kohlmetz 2014\nGlider ~4085 FH,~856 TO, Engine 239 hwings, fuselage gelcoat in good conditionEquipment:Radio: KTR 8.33MHz, Transponder TRTBasic Instruments Winter (50 mm)Vario / Calculator ZS1, ZS1R, GPS941 (GPS overhauled) Redboxflarm ENL with bluetooth (file download/upload)\ncg hook\nOxygen bottle and Mountain High regulatorSolarpanel on engine doorsAvionicbatterie LIFEPO (2018), engine batteries new (2016), Avionic can be switched to engine batteries\nNational parachute (TBD), Gadringer belts (new in 2015)\nDust covers (wing, fuselage, tail)\nAnschau trailer (1991), hydraulic ramp with tailwheel rail, solarpanel gnd ventilation fan, trailer cover PU paint in 2014, tyres new in 2015, cover gassprings new in 2017, original one man rigging tool, tow out gear, tail dolly\nThe DG is CAMO monitored by Guntert&amp;Kohlmetz, complete dokumentation, all TM\'s, new fuel pipes, engine maintenance 2020empty weight 334kg, DG service contractThe glider is complete and ready for immediate service.\nARC renewal 04/21",
+                    "DG 600M / 18m (17m, 15m ) 3000h life extension performed by Güntert&amp;Kohlmetz 2014\nGlider ~4085 FH,~856 TO, Engine 239 hwings, fuselage gelcoat in good conditionEquipment:Radio: KTR 8.33MHz, Transponder TRTBasic Instruments Winter (50 mm)Vario / Calculator ZS1, ZS1R, GPS941 (GPS overhauled) Redboxflarm ENL with bluetooth (file download/upload)\ncg hook\nOxygen bottle and Mountain High regulatorSolarpanel on engine doorsAvionicbatterie LIFEPO (2018), engine batteries new (2016), Avionic can be switched to engine batteries\nNational parachute (TBD), Gadringer belts (new in 2015)\nDust covers (wing, fuselage, tail)\nAnschau trailer (1991), hydraulic ramp with tailwheel rail, solarpanel gnd ventilation fan, trailer cover PU paint in 2014, tyres new in 2015, cover gassprings new in 2017, original one man rigging tool, tow out gear, tail dolly\nThe DG is CAMO monitored by Guntert&amp;Kohlmetz, complete dokumentation, all TM's, new fuel pipes, engine maintenance 2020empty weight 334kg, DG service contractThe glider is complete and ready for immediate service.\nARC renewal 04/21",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/511/126782_thumbnail.jpg",
@@ -582,7 +583,7 @@ Ok(
                 title: "Bendix King KT76A inkl. Halterung und ACK A-30 Encoder",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=51177",
                 description: Some(
-                    "Zu verkaufen:Bendix King KT76A Mode C Transponder mit Halterung, Kabel und ACK A-30 Encoder. Lag 12 Jahre im Schrank, funktionierte bis zum Ausbau aus unerem Vereinsmotorsegler einwandfrei. Versand möglich. Bilder folgen...To sell:Bendix Kind KT76A Mode C Transponder including mount, cable and ACK A-30 Encoder. Formerly used in our club\'s touring motor glider, stored since 12 years in a dry place. Worked perfectly until it was replaced and stored. Pictures will follow.",
+                    "Zu verkaufen:Bendix King KT76A Mode C Transponder mit Halterung, Kabel und ACK A-30 Encoder. Lag 12 Jahre im Schrank, funktionierte bis zum Ausbau aus unerem Vereinsmotorsegler einwandfrei. Versand möglich. Bilder folgen...To sell:Bendix Kind KT76A Mode C Transponder including mount, cable and ACK A-30 Encoder. Formerly used in our club's touring motor glider, stored since 12 years in a dry place. Worked perfectly until it was replaced and stored. Pictures will follow.",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/511/126896_thumbnail.jpg",

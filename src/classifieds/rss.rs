@@ -28,8 +28,8 @@ impl TryFrom<rss::Item> for ClassifiedsItem {
         let link = link.ok_or_else(|| anyhow!("Missing `link` element"))?;
 
         let description = item.description.as_ref();
-        let image_url = description.and_then(|it| find_image_url(&it).map(str::to_string));
-        let description = description.map(|it| sanitize_description(&it));
+        let image_url = description.and_then(|it| find_image_url(it).map(str::to_string));
+        let description = description.map(|it| sanitize_description(it));
 
         Ok(ClassifiedsItem {
             guid,
