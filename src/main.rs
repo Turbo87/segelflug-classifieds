@@ -10,7 +10,7 @@ use crate::app::App;
 use crate::classifieds::ClassifiedsApi;
 use crate::telegram::TelegramApi;
 use anyhow::Result;
-use clap::Clap;
+use clap::{IntoApp, Parser};
 use tokio::time::Duration;
 use tracing::Level;
 use tracing_subscriber::fmt::Subscriber;
@@ -24,7 +24,7 @@ mod telegram;
 
 const FEED_URL: &str = "https://www.segelflug.de/osclass/index.php?page=search&sFeed=rss";
 
-#[derive(Clap, Debug)]
+#[derive(clap::Parser, Debug)]
 struct Opts {
     /// Run continuously and poll the server in random intervals
     #[clap(short, long)]
@@ -76,8 +76,12 @@ async fn main() -> Result<()> {
     let opts: Opts = Opts::parse();
     event!(Level::DEBUG, opts = ?opts);
     if opts.min_time > opts.max_time {
-        let description = String::from("--min-time must not be larger than --max-time");
-        clap::Error::with_description(description, clap::ErrorKind::ValueValidation).exit();
+        Opts::into_app()
+            .error(
+                clap::ErrorKind::ValueValidation,
+                "--min-time must not be larger than --max-time",
+            )
+            .exit();
     }
 
     let client = reqwest::Client::builder()
