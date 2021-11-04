@@ -1,7 +1,7 @@
 {
   "extends": [
     "config:base",
-    ":automergePatch",
+    "github>Turbo87/renovate-config:automergeCaretConstraint",
     ":automergeLinters",
     ":automergeTesters",
     ":dependencyDashboard",
@@ -10,11 +10,6 @@
   ],
 
   "packageRules": [
-    {
-      "matchCurrentVersion": ">= 1.0.0",
-      "updateTypes": ["minor"],
-      "automerge": true
-    },
     {
       "depTypeList": ["devDependencies"],
       "automerge": true
