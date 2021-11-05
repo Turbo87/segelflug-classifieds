@@ -1,102 +1,86 @@
-use anyhow::{anyhow, Context, Result};
-use reqwest::{Client, StatusCode};
+use anyhow::{anyhow, Context};
+use reqwest::Client;
 use std::time::Duration;
+use teloxide::prelude::*;
+use teloxide::types::{ChatId, InputFile, ParseMode};
+use teloxide::RequestError;
 use tokio::time::sleep;
-use tracing::Level;
 
+#[derive(Debug)]
 pub struct TelegramApi {
+    bot: Bot,
     client: Client,
-    chat_id: String,
-    token: String,
+    chat_id: ChatId,
 }
 
 impl TelegramApi {
     pub fn new<S: Into<String>>(token: S, chat_id: S, client: Client) -> Self {
+        let bot = Bot::with_client(token, client.clone());
+
         TelegramApi {
+            bot,
             client,
-            chat_id: chat_id.into(),
-            token: token.into(),
+            chat_id: ChatId::ChannelUsername(chat_id.into()),
         }
     }
 
     #[instrument(skip(self))]
-    pub async fn send_message(&self, text: &str) -> Result<()> {
-        let params = serde_urlencoded::to_string(&[
-            ("chat_id", self.chat_id.as_str()),
-            ("parse_mode", "html"),
-            ("disable_web_page_preview", "true"),
-            ("text", text),
-        ])
-        .context("Failed to serialize query parameters")?;
+    pub async fn send_message(&self, text: &str) -> anyhow::Result<()> {
+        let request = self
+            .bot
+            .send_message(self.chat_id.clone(), text)
+            .parse_mode(ParseMode::Html)
+            .disable_web_page_preview(true);
 
-        let action = format!("sendMessage?{}", params);
+        self.send_request(request).await?;
 
-        self.send_request(&action).await
+        Ok(())
     }
 
     #[instrument(skip(self))]
-    pub async fn send_photo(&self, url: &str) -> Result<()> {
-        let params =
-            serde_urlencoded::to_string(&[("chat_id", self.chat_id.as_str()), ("photo", url)])
-                .context("Failed to serialize query parameters")?;
+    pub async fn send_photo(&self, url: &str) -> anyhow::Result<()> {
+        let request = self.client.get(url);
+        let response = request.send().await.context("Failed to request photo")?;
+        let bytes = response.bytes().await.context("Failed to download photo")?;
+        let data = bytes.as_ref().to_owned();
 
-        let action = format!("sendPhoto?{}", params);
+        let request = self
+            .bot
+            .send_photo(self.chat_id.clone(), InputFile::memory("photo.jpg", data));
 
-        self.send_request(&action).await
+        self.send_request(request).await?;
+
+        Ok(())
     }
 
-    #[instrument(skip(self, action))]
-    async fn send_request(&self, action: &str) -> Result<()> {
+    #[instrument(skip(self, request))]
+    async fn send_request<T>(&self, request: T) -> anyhow::Result<()>
+    where
+        T: Request<Err = RequestError>,
+    {
         const NUM_ATTEMPTS: i32 = 5;
 
-        debug!("sending request");
-        let url = format!("https://api.telegram.org/bot{}/{}", self.token, action);
+        debug!("Sending request");
 
         for i in 0..NUM_ATTEMPTS {
             if i > 0 {
-                debug!("Retrying {} ({}/{})", action, i + 1, NUM_ATTEMPTS);
+                debug!("Retrying… ({}/{})", i + 1, NUM_ATTEMPTS);
             }
 
-            let response = self.client.get(&url).send().await?;
+            let response: Result<_, T::Err> = request.send_ref().await;
+            match response {
+                Ok(_) => return Ok(()),
+                Err(RequestError::RetryAfter(retry_after)) => {
+                    let retry_after = Duration::from_secs(retry_after as u64);
 
-            let status = response.status();
-            event!(Level::DEBUG, status = %status);
-            if status.is_success() {
-                return Ok(());
-            }
+                    debug!("retrying in {} seconds", retry_after.as_secs());
 
-            let bytes = response.bytes().await?;
-            let json: serde_json::Value = serde_json::from_slice(&bytes)?;
-            event!(Level::DEBUG, json = %json);
-
-            let json = json
-                .as_object()
-                .ok_or_else(|| anyhow!("Unexpected JSON content"))?;
-
-            if status == StatusCode::TOO_MANY_REQUESTS {
-                let parameters = json
-                    .get("parameters")
-                    .and_then(|value| value.as_object())
-                    .ok_or_else(|| anyhow!("Unexpected JSON content"))?;
-
-                let retry_after = parameters
-                    .get("retry_after")
-                    .and_then(|value| value.as_u64())
-                    .ok_or_else(|| anyhow!("Unexpected JSON content"))?;
-
-                let retry_after = Duration::from_secs(retry_after);
-
-                debug!("retrying in {} seconds", retry_after.as_secs());
-
-                sleep(retry_after).await;
-            } else {
-                let description = json
-                    .get("description")
-                    .and_then(|value| value.as_str())
-                    .ok_or_else(|| anyhow!("Unexpected JSON content"))?;
-
-                return Err(anyhow!("Telegram API Error: {}", description));
-            }
+                    sleep(retry_after).await;
+                }
+                Err(error) => {
+                    return Err(error.into());
+                }
+            };
         }
 
         Err(anyhow!("Maximum number of retries reached"))
