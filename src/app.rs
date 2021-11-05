@@ -86,10 +86,7 @@ impl App {
 
             telegram.send_message(&text).await?;
 
-            if let Err(error) = self
-                .send_photo_for_item(item.item, item.details.as_ref())
-                .await
-            {
+            if let Err(error) = self.send_photo_for_item(&item).await {
                 event!(Level::WARN, error = ?error, "Failed to send photo to Telegram");
             }
         }
@@ -133,22 +130,17 @@ impl App {
         })
     }
 
-    async fn send_photo_for_item(
-        &self,
-        item: &ClassifiedsItem,
-        details: Option<&ClassifiedsDetails>,
-    ) -> Result<()> {
+    async fn send_photo_for_item(&self, item: &ItemWithExtraData<'_>) -> Result<()> {
         assert!(self.telegram.is_some());
         let telegram = self.telegram.as_ref().unwrap();
 
-        let photo_url = details.and_then(|details| details.photo_urls.first());
-        if let Some(photo_url) = photo_url {
+        if let Some(photo_url) = item.photo_url() {
             if telegram.send_photo(photo_url).await.is_ok() {
                 return Ok(());
             }
         }
 
-        if let Some(image_url) = &item.image_url {
+        if let Some(image_url) = item.thumbnail_url() {
             telegram.send_photo(image_url).await
         } else {
             Ok(())
@@ -193,6 +185,17 @@ impl<'a> ItemWithExtraData<'a> {
 
     pub fn description(&self) -> Option<&str> {
         self.item.description.as_deref()
+    }
+
+    pub fn photo_url(&self) -> Option<&str> {
+        self.details
+            .as_ref()
+            .and_then(|details| details.photo_urls.first())
+            .map(|it| it.as_str())
+    }
+
+    pub fn thumbnail_url(&self) -> Option<&str> {
+        self.item.image_url.as_deref()
     }
 
     pub fn location(&self) -> Option<&str> {
