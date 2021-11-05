@@ -2,6 +2,7 @@ use anyhow::{anyhow, Context};
 use reqwest::Client;
 use std::time::Duration;
 use teloxide::prelude::*;
+use teloxide::requests::Output;
 use teloxide::types::{ChatId, InputFile, ParseMode};
 use teloxide::RequestError;
 use tokio::time::sleep;
@@ -25,20 +26,22 @@ impl TelegramApi {
     }
 
     #[instrument(skip(self))]
-    pub async fn send_message(&self, text: &str) -> anyhow::Result<()> {
-        let request = self
+    pub async fn send_message(&self, text: &str, reply_to: Option<i32>) -> anyhow::Result<Message> {
+        let mut request = self
             .bot
             .send_message(self.chat_id.clone(), text)
             .parse_mode(ParseMode::Html)
             .disable_web_page_preview(true);
 
-        self.send_request(request).await?;
+        if let Some(message_id) = reply_to {
+            request = request.reply_to_message_id(message_id)
+        }
 
-        Ok(())
+        self.send_request(request).await
     }
 
     #[instrument(skip(self))]
-    pub async fn send_photo(&self, url: &str) -> anyhow::Result<()> {
+    pub async fn send_photo(&self, url: &str, text: &str) -> anyhow::Result<Message> {
         let request = self.client.get(url);
         let response = request.send().await.context("Failed to request photo")?;
         let bytes = response.bytes().await.context("Failed to download photo")?;
@@ -46,15 +49,15 @@ impl TelegramApi {
 
         let request = self
             .bot
-            .send_photo(self.chat_id.clone(), InputFile::memory("photo.jpg", data));
+            .send_photo(self.chat_id.clone(), InputFile::memory("photo.jpg", data))
+            .caption(text)
+            .parse_mode(ParseMode::Html);
 
-        self.send_request(request).await?;
-
-        Ok(())
+        self.send_request(request).await
     }
 
     #[instrument(skip(self, request))]
-    async fn send_request<T>(&self, request: T) -> anyhow::Result<()>
+    async fn send_request<T>(&self, request: T) -> anyhow::Result<Output<T>>
     where
         T: Request<Err = RequestError>,
     {
@@ -69,7 +72,7 @@ impl TelegramApi {
 
             let response: Result<_, T::Err> = request.send_ref().await;
             match response {
-                Ok(_) => return Ok(()),
+                Ok(response) => return Ok(response),
                 Err(RequestError::RetryAfter(retry_after)) => {
                     let retry_after = Duration::from_secs(retry_after as u64);
 
