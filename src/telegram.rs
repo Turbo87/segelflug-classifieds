@@ -1,4 +1,4 @@
-use anyhow::anyhow;
+use anyhow::{anyhow, Context};
 use reqwest::Client;
 use std::time::Duration;
 use teloxide::prelude::*;
@@ -9,13 +9,17 @@ use tokio::time::sleep;
 #[derive(Debug)]
 pub struct TelegramApi {
     bot: Bot,
+    client: Client,
     chat_id: ChatId,
 }
 
 impl TelegramApi {
     pub fn new<S: Into<String>>(token: S, chat_id: S, client: Client) -> Self {
+        let bot = Bot::with_client(token, client.clone());
+
         TelegramApi {
-            bot: Bot::with_client(token, client),
+            bot,
+            client,
             chat_id: ChatId::ChannelUsername(chat_id.into()),
         }
     }
@@ -35,9 +39,14 @@ impl TelegramApi {
 
     #[instrument(skip(self))]
     pub async fn send_photo(&self, url: &str) -> anyhow::Result<()> {
+        let request = self.client.get(url);
+        let response = request.send().await.context("Failed to request photo")?;
+        let bytes = response.bytes().await.context("Failed to download photo")?;
+        let data = bytes.as_ref().to_owned();
+
         let request = self
             .bot
-            .send_photo(self.chat_id.clone(), InputFile::Url(url.to_string()));
+            .send_photo(self.chat_id.clone(), InputFile::memory("photo.jpg", data));
 
         self.send_request(request).await?;
 
