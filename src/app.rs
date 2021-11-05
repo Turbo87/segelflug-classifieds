@@ -82,18 +82,7 @@ impl App {
         // send item to Telegram
 
         if let Some(telegram) = &self.telegram {
-            let mut text = format!("<a href=\"{}\"><b>{}</b></a>\n", item.link(), item.title());
-            if let Some(price) = item.price() {
-                text += &format!("<b>💶  {}</b>\n", price);
-            }
-            if let (Some(user), Some(emoji)) = (item.user_description(), item.user_emoji()) {
-                let user_link = item.user_link().unwrap();
-                text += &format!("{}  <a href=\"{}\"><b>{}</b></a>\n", emoji, user_link, user);
-            }
-            if let Some(description) = item.description() {
-                text += &format!("\n{}\n", description);
-            }
-            text += &format!("\n{}", item.link());
+            let text = item.telegram_text();
 
             telegram.send_message(&text).await?;
 
@@ -245,5 +234,22 @@ impl<'a> ItemWithExtraData<'a> {
             (None, Some(_)) => Some("🌍"),
             (None, None) => None,
         }
+    }
+
+    pub fn telegram_text(&self) -> String {
+        let mut text = format!("<a href=\"{}\"><b>{}</b></a>\n", self.link(), self.title());
+        if let Some(price) = self.price() {
+            text += &format!("<b>💶  {}</b>\n", price);
+        }
+        if let (Some(user), Some(emoji)) = (self.user_description(), self.user_emoji()) {
+            let user_link = self.user_link().unwrap();
+            text += &format!("{}  <a href=\"{}\"><b>{}</b></a>\n", emoji, user_link, user);
+        }
+        if let Some(description) = self.description() {
+            text += &format!("\n{}\n", description);
+        }
+        text += &format!("\n{}", self.link());
+
+        text
     }
 }
