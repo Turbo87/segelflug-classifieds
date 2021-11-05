@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: Swatinem/rust-cache@v1.3.0
       - run: cargo check --all-targets
         env:
           RUSTFLAGS: "-D warnings"
@@ -24,6 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: Swatinem/rust-cache@v1.3.0
       - run: cargo test
 
   fmt:
@@ -32,6 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: rustup component add rustfmt
+      - uses: Swatinem/rust-cache@v1.3.0
       - run: cargo fmt -- --check
 
   clippy:
@@ -40,4 +43,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: rustup component add clippy
+      - uses: Swatinem/rust-cache@v1.3.0
       - run: cargo clippy -- --deny warnings --allow clippy::unknown-clippy-lints
