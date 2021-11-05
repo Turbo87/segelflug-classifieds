@@ -81,14 +81,8 @@ impl App {
 
         // send item to Telegram
 
-        if let Some(telegram) = &self.telegram {
-            let text = item.telegram_text();
-
-            telegram.send_message(&text).await?;
-
-            if let Err(error) = self.send_photo_for_item(&item).await {
-                event!(Level::WARN, error = ?error, "Failed to send photo to Telegram");
-            }
+        if self.telegram.is_some() {
+            self.send_item(&item).await?;
         }
 
         Ok(())
@@ -130,21 +124,60 @@ impl App {
         })
     }
 
-    async fn send_photo_for_item(&self, item: &ItemWithExtraData<'_>) -> Result<()> {
+    async fn send_item(&self, item: &ItemWithExtraData<'_>) -> Result<()> {
         assert!(self.telegram.is_some());
         let telegram = self.telegram.as_ref().unwrap();
 
         if let Some(photo_url) = item.photo_url() {
-            if telegram.send_photo(photo_url).await.is_ok() {
+            if self.send_item_as_photo(item, photo_url).await.is_ok() {
                 return Ok(());
             }
         }
 
         if let Some(image_url) = item.thumbnail_url() {
-            telegram.send_photo(image_url).await
-        } else {
-            Ok(())
+            match self.send_item_as_photo(item, image_url).await {
+                Ok(_) => return Ok(()),
+                Err(error) => {
+                    event!(Level::WARN, error = ?error, "Failed to send photo to Telegram");
+                }
+            };
         }
+
+        telegram.send_message(&item.telegram_text(), None).await?;
+
+        Ok(())
+    }
+
+    async fn send_item_as_photo(
+        &self,
+        item: &ItemWithExtraData<'_>,
+        photo_url: &str,
+    ) -> Result<()> {
+        assert!(self.telegram.is_some());
+        let telegram = self.telegram.as_ref().unwrap();
+
+        let telegram_text = item.telegram_text();
+        let telegram_short_text = item.telegram_short_text();
+        let needs_extra_message = telegram_text.len() > 900;
+
+        let caption = if needs_extra_message {
+            &telegram_short_text
+        } else {
+            &telegram_text
+        };
+
+        let message = telegram.send_photo(photo_url, caption).await?;
+
+        if needs_extra_message {
+            if let Err(error) = telegram
+                .send_message(&telegram_text, Some(message.id))
+                .await
+            {
+                event!(Level::WARN, error = ?error, "Failed to send reply message to Telegram");
+            }
+        }
+
+        Ok(())
     }
 
     pub async fn watch(&self, min_time: f32, max_time: f32) {
@@ -240,6 +273,14 @@ impl<'a> ItemWithExtraData<'a> {
     }
 
     pub fn telegram_text(&self) -> String {
+        self._telegram_text(self.description())
+    }
+
+    pub fn telegram_short_text(&self) -> String {
+        self._telegram_text(None)
+    }
+
+    fn _telegram_text(&self, description: Option<&str>) -> String {
         let mut text = format!("<a href=\"{}\"><b>{}</b></a>\n", self.link(), self.title());
         if let Some(price) = self.price() {
             text += &format!("<b>💶  {}</b>\n", price);
@@ -248,7 +289,7 @@ impl<'a> ItemWithExtraData<'a> {
             let user_link = self.user_link().unwrap();
             text += &format!("{}  <a href=\"{}\"><b>{}</b></a>\n", emoji, user_link, user);
         }
-        if let Some(description) = self.description() {
+        if let Some(description) = description {
             text += &format!("\n{}\n", description);
         }
         text += &format!("\n{}", self.link());
