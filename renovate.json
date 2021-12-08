@@ -6,6 +6,7 @@
     ":automergeTesters",
     ":dependencyDashboard",
     ":maintainLockFilesWeekly",
+    ":pinAllExceptPeerDependencies",
     ":semanticCommitsDisabled",
     "github>Turbo87/renovate-config//rust/updateToolchain"
   ],
