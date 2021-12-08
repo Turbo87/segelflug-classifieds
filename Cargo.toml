@@ -9,28 +9,28 @@ build = "build.rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-ammonia = "3.1.2"
-anyhow = "1.0.51"
-atomicwrites = "0.3.0"
-clap = { version = "3.0.0-rc.0", features = ["derive", "env", "wrap_help"] }
-lazy_static = "1.4.0"
-rand = "0.8.4"
-regex = "1.5.4"
-reqwest = { version = "0.11.7", default-features = false, features = ["rustls-tls"] }
-rss = { version = "2.0.0", default-features = false }
-scraper = { version = "0.12.0", default-features = false }
-sentry = { version = "0.23.0", default-features = false, features = ["anyhow", "backtrace", "contexts", "panic", "reqwest", "rustls", "tracing"] }
-serde = "1.0.130"
-serde_json = "1.0.72"
-serde_urlencoded = "0.7.0"
-teloxide = { version = "0.5.3", default-features = false, features = ["rustls"] }
-tokio = { version = "1", features = ["full"] }
-tracing = "0.1.29"
-tracing-futures = "0.2.5"
-tracing-subscriber = "0.2.25"
+ammonia = "=3.1.2"
+anyhow = "=1.0.51"
+atomicwrites = "=0.3.0"
+clap = { version = "=3.0.0-rc.0", features = ["derive", "env", "wrap_help"] }
+lazy_static = "=1.4.0"
+rand = "=0.8.4"
+regex = "=1.5.4"
+reqwest = { version = "=0.11.7", default-features = false, features = ["rustls-tls"] }
+rss = { version = "=2.0.0", default-features = false }
+scraper = { version = "=0.12.0", default-features = false }
+sentry = { version = "=0.23.0", default-features = false, features = ["anyhow", "backtrace", "contexts", "panic", "reqwest", "rustls", "tracing"] }
+serde = "=1.0.130"
+serde_json = "=1.0.72"
+serde_urlencoded = "=0.7.0"
+teloxide = { version = "=0.5.3", default-features = false, features = ["rustls"] }
+tokio = { version = "=1.14.0", features = ["full"] }
+tracing = "=0.1.29"
+tracing-futures = "=0.2.5"
+tracing-subscriber = "=0.2.25"
 
 [dev-dependencies]
-insta = { version = "1.8.0", features = ["glob"] }
+insta = { version = "=1.8.0", features = ["glob"] }
 
 [build-dependencies]
-vergen = { version = "5.2.0", default-features = false, features = ["git"] }
+vergen = { version = "=5.2.0", default-features = false, features = ["git"] }
