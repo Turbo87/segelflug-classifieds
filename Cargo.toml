@@ -10,7 +10,7 @@ build = "build.rs"
 
 [dependencies]
 ammonia = "=3.1.2"
-anyhow = "=1.0.51"
+anyhow = "=1.0.52"
 atomicwrites = "=0.3.0"
 clap = { version = "=3.0.0-rc.7", features = ["derive", "env", "wrap_help"] }
 lazy_static = "=1.4.0"
