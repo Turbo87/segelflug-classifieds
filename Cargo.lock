@@ -1648,7 +1648,7 @@ dependencies = [
  "tokio",
  "tracing",
  "tracing-futures",
- "tracing-subscriber",
+ "tracing-subscriber 0.3.11",
  "vergen",
 ]
 
@@ -1765,7 +1765,7 @@ checksum = "d291df287241b0ef97f5bf9e9a595691ef8dfb49bc6acfd55b9dc2ade681f1c9"
 dependencies = [
  "sentry-core",
  "tracing-core",
- "tracing-subscriber",
+ "tracing-subscriber 0.2.25",
 ]
 
 [[package]]
@@ -2331,6 +2331,20 @@ dependencies = [
  "tracing-core",
  "tracing-log",
  "tracing-serde",
+]
+
+[[package]]
+name = "tracing-subscriber"
+version = "0.3.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4bc28f93baff38037f64e6f43d34cfa1605f27a49c34e8a04c5e78b0babf2596"
+dependencies = [
+ "ansi_term",
+ "sharded-slab",
+ "smallvec",
+ "thread_local",
+ "tracing-core",
+ "tracing-log",
 ]
 
 [[package]]
