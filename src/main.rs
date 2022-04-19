@@ -13,9 +13,8 @@ use anyhow::Result;
 use clap::{IntoApp, Parser};
 use tokio::time::Duration;
 use tracing::Level;
-use tracing_subscriber::fmt::Subscriber;
+use tracing_subscriber::filter;
 use tracing_subscriber::prelude::*;
-use tracing_subscriber::EnvFilter;
 
 mod app;
 mod classifieds;
@@ -53,12 +52,22 @@ struct Opts {
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    Subscriber::builder()
+    let log_filter = std::env::var("RUST_LOG")
+        .unwrap_or_default()
+        .parse::<filter::Targets>()
+        .expect("Invalid RUST_LOG value");
+
+    let log_layer = tracing_subscriber::fmt::layer()
         .pretty()
         .without_time()
-        .with_env_filter(EnvFilter::from_default_env())
-        .finish()
-        .with(sentry::integrations::tracing::layer())
+        .with_filter(log_filter);
+
+    let sentry_filter = filter::Targets::new().with_default(Level::INFO);
+    let sentry_layer = sentry::integrations::tracing::layer().with_filter(sentry_filter);
+
+    tracing_subscriber::registry()
+        .with(log_layer)
+        .with(sentry_layer)
         .init();
 
     let sha = &env!("VERGEN_GIT_SHA")[..7];
