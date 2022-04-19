@@ -1,9 +1,8 @@
 use anyhow::{anyhow, Context};
 use reqwest::Client;
-use std::time::Duration;
 use teloxide::prelude::*;
 use teloxide::requests::Output;
-use teloxide::types::{ChatId, InputFile, ParseMode};
+use teloxide::types::{InputFile, ParseMode, Recipient};
 use teloxide::RequestError;
 use tokio::time::sleep;
 
@@ -11,17 +10,17 @@ use tokio::time::sleep;
 pub struct TelegramApi {
     bot: Bot,
     client: Client,
-    chat_id: ChatId,
+    recipient: Recipient,
 }
 
 impl TelegramApi {
-    pub fn new<S: Into<String>>(token: S, chat_id: S, client: Client) -> Self {
+    pub fn new<S: Into<String>>(token: S, recipient: S, client: Client) -> Self {
         let bot = Bot::with_client(token, client.clone());
 
         TelegramApi {
             bot,
             client,
-            chat_id: ChatId::ChannelUsername(chat_id.into()),
+            recipient: Recipient::ChannelUsername(recipient.into()),
         }
     }
 
@@ -29,7 +28,7 @@ impl TelegramApi {
     pub async fn send_message(&self, text: &str, reply_to: Option<i32>) -> anyhow::Result<Message> {
         let mut request = self
             .bot
-            .send_message(self.chat_id.clone(), text)
+            .send_message(self.recipient.clone(), text)
             .parse_mode(ParseMode::Html)
             .disable_web_page_preview(true);
 
@@ -49,7 +48,7 @@ impl TelegramApi {
 
         let request = self
             .bot
-            .send_photo(self.chat_id.clone(), InputFile::memory("photo.jpg", data))
+            .send_photo(self.recipient.clone(), InputFile::memory(data))
             .caption(text)
             .parse_mode(ParseMode::Html);
 
@@ -74,10 +73,7 @@ impl TelegramApi {
             match response {
                 Ok(response) => return Ok(response),
                 Err(RequestError::RetryAfter(retry_after)) => {
-                    let retry_after = Duration::from_secs(retry_after as u64);
-
                     debug!("retrying in {} seconds", retry_after.as_secs());
-
                     sleep(retry_after).await;
                 }
                 Err(error) => {
