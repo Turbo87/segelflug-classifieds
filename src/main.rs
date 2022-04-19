@@ -76,7 +76,7 @@ async fn main() -> Result<()> {
     let opts: Opts = Opts::parse();
     event!(Level::DEBUG, opts = ?opts);
     if opts.min_time > opts.max_time {
-        Opts::into_app()
+        Opts::command()
             .error(
                 clap::ErrorKind::ValueValidation,
                 "--min-time must not be larger than --max-time",
