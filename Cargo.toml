@@ -15,7 +15,7 @@ atomicwrites = "=0.3.1"
 clap = { version = "=3.2.8", features = ["derive", "env", "wrap_help"] }
 lazy_static = "=1.4.0"
 rand = "=0.8.5"
-regex = "=1.5.6"
+regex = "=1.6.0"
 reqwest = { version = "=0.11.11", default-features = false, features = ["rustls-tls"] }
 rss = { version = "=2.0.1", default-features = false }
 scraper = { version = "=0.13.0", default-features = false }
