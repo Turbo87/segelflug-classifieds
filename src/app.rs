@@ -3,6 +3,7 @@ use crate::guids;
 use crate::telegram::TelegramApi;
 use anyhow::Result;
 use rand::Rng;
+use std::fmt::Write;
 use std::path::PathBuf;
 use std::time::Duration;
 use tokio::time::sleep;
@@ -282,17 +283,28 @@ impl<'a> ItemWithExtraData<'a> {
 
     fn _telegram_text(&self, description: Option<&str>) -> String {
         let mut text = format!("<a href=\"{}\"><b>{}</b></a>\n", self.link(), self.title());
+
         if let Some(price) = self.price() {
-            text += &format!("<b>💶  {}</b>\n", price);
+            writeln!(text, "<b>💶  {}</b>", price).unwrap();
         }
+
         if let (Some(user), Some(emoji)) = (self.user_description(), self.user_emoji()) {
             let user_link = self.user_link().unwrap();
-            text += &format!("{}  <a href=\"{}\"><b>{}</b></a>\n", emoji, user_link, user);
+            writeln!(
+                text,
+                "{}  <a href=\"{}\"><b>{}</b></a>",
+                emoji, user_link, user
+            )
+            .unwrap();
         }
+
         if let Some(description) = description {
-            text += &format!("\n{}\n", description);
+            writeln!(text).unwrap();
+            writeln!(text, "{}", description).unwrap();
         }
-        text += &format!("\n{}", self.link());
+
+        writeln!(text).unwrap();
+        write!(text, "{}", self.link()).unwrap();
 
         text
     }
