@@ -1,0 +1,628 @@
+---
+source: src/classifieds/rss.rs
+assertion_line: 103
+expression: items
+input_file: src/classifieds/test-input/umlaut-crash.xml
+---
+Ok(
+    [
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64131",
+                title: "Suche Astir CS",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64131",
+                description: Some(
+                    "Hallo,Suche einen Astir CS.Freue mich auf Angebote",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64130",
+                title: "Taurus 503 Pipistrel ",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64130",
+                description: Some(
+                    "Pipistrel Taurus 503, Bauj. 2008, ca. 300 Flugstunden, 115 Motorstunden, Rotax 503, Top Zustand, LX8000,Funk, Transponder, Deutsche Zulassung, Transportanhänger Spindelberger, nagelneuer Ersatzmotor,1 Man AufrüsthilfeGelebte Freiheit und Unabhängigkeit!MwSt. Nicht ausweisbar, Privatverkauf",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162662_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64129",
+                title: "Suche DG500M",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64129",
+                description: Some(
+                    "Suche DG500M mit oder ohne Anhänger. Instrumentierung egal.",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64128",
+                title: "DG 808b",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64128",
+                description: Some(
+                    "Baujahr 2005, Starts: 283, Flugstunden ca. 1300, SOLO 2625, Zähler ca.46St.FlügelteilungWinglets 18mgetönte HaubeMückenputzer Pirker/Storka, elektrisch, Bügel im Rumpf integriert, fixiertLiFePo-Board-Aku 14Ah, LadegerätHauptbatterien mit Stecker für externen Rumpfanschluss, schaltbarSchwerpunktkupplungelektrische Propellerbremse, EinfahrautomatikSolarzellen auf RumpfrückenInstrumentenbrett (neu2014)Grundinstrumentierung WinterFunk Becker AR6201Kopfhörer (neu 2020)DEIE-Vario V7Transponder Garrecht VT-01Logger NanoOudie IGC (neu 2019)Flarm mit IGC Logger und ENL-SensorButterfly 57mmADS-B Empfänger TRX 1090, Anzeige über ButterflyESA TotalenergiedüseCobra 15 m, Gfk-Deckel, Baujahr 2005, 100km/h Zulassunggroße Unterflur-Schubladehydraulische RampeRentnerschieneAntischlingerkupplungSpornkuller,2x Alu FlächenstützeFlächenrad IMIAlu Schleppstange4x BenzinkanisterEinmann-Aufrüsthilfe CobraAllwetterbezüge Jaxida uncutabletel: +491722865677",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162661_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64127",
+                title: "Brand new JS3 for sale",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64127",
+                description: Some(
+                    "Type:                                 JS-MD 3\nSpan:                                  15m und 18m\nEngine:                              MD-TJ42 (Turbine)\nFHRS ca.:                           \n \nSN. :                                   3.MD152\nProduction year:              2022\n \nEquipment\n\nLX9000 with V8\n\nWifi, Touch, Remote Stick, MOP, Flap-Sensor\n\nFlarm Power Mouse\n\nIncl. RFB + ADSB\n\nFlarm View\nTransponder TRiG TT-21 \nRadio TRiG TY-91\nWinter Airspeed\n\nGroßkinsky Ring\n\nWinter Altmeter\nWinter Variometer\nAirpath Kompass\nSotecc Canopy Strobe\nBug-Wiper-System JS\nParkbrake\nRetractable Tail-wheel\nPitot &amp; Statik for Elevator\nLeather Interieur\nCockpit Handles Leather\nTail-Dolly\n2x LiFePo4 12V 10Ah\nDual-Charger for Battery\nFuel-Filling adapter\n\n \nPainting Cockpit and Outside:\n\nPainted at M&amp;D in Friedeburg\n\nRAL 9003 Standox\n\nRegistration and Competition marking\n\nSticker\n\n\n Price 180000 EUR ex. VAT (z.B. EUSt. für Deutschland: 34.200€)For more info please contact Zoran Frenc at:zoran.frenc@gmail.com+381691210710 Wapp/Viber",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64126",
+                title: "SkyButler Einbauhalterung für Apple iPad mini 4 & 5",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64126",
+                description: Some(
+                    "Angeboten wird eine SkyButler Einbauhalterung für Apple iPad mini 4 &amp; 5.\nSie ist neu und unbenutzt.\n \nProduktbeschreibung\nEinbauhalterung für das Instrumentenbrett eines Ultraleichtflugzeuges.Ausschließlich kompatibel mit dem Apple iPad mini der 4. und 5. Generation.• Integriertes Lightning-Ladekabel: Das Gerät wird automatisch beim Einstecken in die Halterung mit Strom versorgt.2• Aktive Belüftung: Ein elektrischer Lüfter (12V) sorgt besonders an heißen Sommertagen für die Kühlung des Geräts. Das Risiko einer Abschaltung durch Überhitzung wird somit deutlich minimiert.• Einfaches Click-System zum Ein- und Ausbau des iPad oder iPhone: Das Gerät wird durch ein einfaches und sicheres Click-System in der Halterung fixiert. Diese bietet sicheren Halt während des Fluges - auch bei starken Turbulenzen - und eine leichte Demontage nach dem Flug.• Flexible Gestaltung der Montage: Einfacher Einbau im Instrumentenbrett durch die optionale Verwendung eines Aluminiumrahmens1 oder direkte passgenaue Integration in das Panel. Bei der Verwendung des mitgelieferten Rahmens genügt es, die Kontur im Instrumentenbrett grob auszuschneiden. Schnittkanten werden vom Rahmen verdeckt. Haben Sie die Möglichkeit ein passgenauen Ausschnitt im Instrumentenbrett herzustellen, so können Sie auf den Aluminiumrahmen verzichten und sparen Platz.• Hochwertige Materialen: Die Halterung wird aus widerstandsfähigen Polyamid hergestellt. Der Rahmen wird aus Aluminium im Laserschnittverfahren passgenau gefertigt und anschließend im Eloxalverfahren behandelt und schwarz eingefärbt.• Nützliche Unterstützung und schickes Design: Das iPad liefert Ihnen in Verbindung mit den gängigen Navigations-Apps alle notwendigen Informationen für Ihren Flug. In Verbindung mit einer SkyButler-Halterung können Sie Ihr bereits vorhandenes EFIS ergänzen oder sogar komplett ersetzen. Durch das intelligente Design der SkyButler-Halterung schließt die Oberfläche Ihres Gerätes mit der des Instrumentenbretts ab und alles erscheint wie aus einem Guss.Lieferumfang: - Halterung aus Polyamid- Aluminiumrahmen, schwarz eloxiert- Lüfter ( bereits vormontiert )- Lightning-Ladekabel ( bereits vormontiert )- Spannungswandler zum Anschluß an das 12V-Bordnetz- Schrauben und Muttern- Bedienungsanleitung mit SchabloneEin Tablet-PC ist im Lieferumfang nicht enthalten!Da die Produkte individuell gefertigt werden, können die Abbildungen von der Realität abweichen. Wichtiger Hinweis:Die SkyButler-Produkte wurden speziell für den Einbau in das Instrumentenbrett eines Ultraleichtflugzeuges entwickelt. So soll die übliche Einbindung eines Tablet-Computers zur Flugnavigation erleichtert werden. Der Einbau erfolgt eigenverantwortlich vom Endanwender, unter Beachtung der jeweils gültigen, gesetzlichen Bestimmungen. Insbesondere ist darauf zu achten, dass die rechtlichen Vorgaben eines sicheren Flugbetriebs eingehalten werden und der Einbau in das Luftfahrzeug gesetzlich erlaubt ist. Wir weisen darauf hin, dass dies bei bestimmten Luftfahrzeugklassen verboten sein kann oder einer Abnahme durch die zuständige Behörde bedarf. Beachten Sie auch unbedingt die Vorgaben des Luftfahrzeug- bzw. Luftsportgeräteherstellers.",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162655_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64125",
+                title: "JS1 - JS3 fuselage lifting support",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64125",
+                description: Some(
+                    "New fuselage lifting support for JS1 and JS3.\n \n \nThe base material is fiberglass resin - or carbon fiber - or carbon/kevlar.The lifting point can be designed as required for a manual or hydraulic lift, or for a transport trolley, also with screw fixing.\nThe contact surface can be industrial foam or wool felt.\nPrice from 290 euros\n \nContact:\n \nAndrea Weiland\n \n0036307378220\nglidercover@outlook.com",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162647_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64124",
+                title: "Flarm F6 + (IGC&ENL)",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64124",
+                description: Some(
+                    "Flarm, Version 3,  F6….\nIncl. IGC-Logger &amp; ENL- Motorlaufsensor\nZahnstocher,- GPS,- zusätzliche Innen „High Performance“ Antenne, RJ45 Anschlusskabel\nNeue Software 7.07 ist frisch installiert\nGerät ist in einwandfreiem Zustand\nPreis incl. Versand in D",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162644_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64123",
+                title: "DG 300 ELAN for sale",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64123",
+                description: Some(
+                    "DG 300 ELAN\nYear of construction: 1986\nSerial number: 3E213\nTotal hours: 2548 still flying\nLandings: 2017\nARC until 11/2022\nLanding accident by previous owner repaired by Eichelsdörfer Flugzeugbau GmbH\nEmpty weight: 259kg\nCockpit overhauled in 2017\nNew interior\nExterior finish: 9/10\n \nInstrumentation:\nLX 7007\nradio KRT-2\ncompass Airpath\nall other instruments by Winter 80mm\n \nTrailer:\nAnschau Komet II\nlot of storage space\ngood condition\nTÜV\n \nEquipment\nwingwheel IMI\nwingstand IMI\ntowing equipment IMI\n \n \nparachute\nThinpack T104 (5 years left)\n \n \noptional\nOudi 2 (+350€)\n \nAskingprice:\n30500€ ono",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162640_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64122",
+                title: "Compaq IPAQ 3950",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64122",
+                description: Some(
+                    "leider ist der Akku defekt aber in der Bucht läßt sich bestimmt etwas passendes finden.Für die Fotos habe ich das Gerät mit seinem Netzteil unter Strom gesetzt.SeeYou Mobile lief einwandfrei auf diesem Gerät, ist aber aus Lizenzgründen nicht dabei.Das transreflektive Display läßt sich auch im direkten Sonnenlicht noch bestens ablesen.Umfang:- IPAQ 3950 mit Stift (Touchscreen, Rücksteller, Kugelschreiber)- Originalverpackung- Kunststoff-Case- Gürteltasche- Cradel (Ladestation)- Netzteil30 EURO  zzgl. Versand",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162635_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64121",
+                title: "Fliegen wo der Luftraum noch frei und die Thermik gut ist",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64121",
+                description: Some(
+                    "Liebe Pilotinnen und Piloten, liebe Gäste,\nIhr interessiert Euch für ein Fluglager mit Eurem Verein bei uns?\nIhr seid mit einem Motorgleitschirm unterwegs oder macht Wandersegelflug?\nIhr seid Modellflieger und möchtet einmal auf einem anderen Platz fliegen?\n \nDann seid ihr bei uns genau richtig\n- all das ist am Flugplatz Bad Königshofen möglich!\n \n \nHier die wichtigsten Informationen für Euch vorab:\nUnser Flugplatz mit dem treffenden Namen „Am Himmelreich“ ist mit seiner Lage im niederschlagsarmen Gebiet zwischen Rhön, Frankenwald, Thüringer Wald und den Haßbergen der ideale Ausgangspunkt für ausgiebige Thermikflüge. Unser kleiner Verein zeichnet sich durch ein familiäres Miteinander aus und unsere vereinseigenen Flugzeuge (ASK13 und SF25D) können gechartert werden. Zur Verfügung steht eine 700m-Landebahn und eine ca. 800m-Schleppstrecke mit einer Doppeltrommelwinde mit Kunststoffseilen und einem 375 PS Motor, welche auch schwere Kunststoffdoppelsitzer promlemlos schleppt. Die Möglichkeit zum F-Schlepp besteht durch unsere G109 oder die benachbart stationierte DR400. Ihr könnt aber natürlich auch Eure eigene Schleppmaschine mitbringen.\nBad Königshofen im Grabfeld ist ein kleiner Kurort im nördlichsten Unterfranken. Die Frankentherme in Bad Königshofen bietet Deutschlands ersten Heilwassersee und ist bei schlechtem Wetter oder zum Entspannen nach dem Fliegen ein willkommener Ausgleich. Abseits des Fliegens lassen sich von Bad Königshofen aus auch schöne Ausflüge unternehmen z.B in die Domstädte Würzburg, Bamberg und Fulda, zur Wasserkuppe mit dem deutschen Segelflugmuseum, zur Fa. Alexander Schleicher nach Poppenhausen, zur Fa. Binder nach Ostheim v. d. Rhön oder zum Kreuzberg mit seinem Kloster.\nUnser Platz bietet für Gruppen sowie für Piloten mit ihren selbststartenden Seglern oder Gleitschirmen die idealen Voraussetzungen für ein gelungenes Fluglager. Des Weiteren sind bei uns Modelle bis 25kg zugelassen – also auch Modellflieger sind jederzeit herzlich willkommen.\nFür den, der nicht am Flugplatz während des Fluglagers zelten oder campen möchte gibt es in der Umgebung viele Ferienwohnungen, Pensionen und Gasthäuser. (z.B. über booking.com: Hotel Ebner, Hotel Vierjahreszeiten, Sambachshof…)\nDas ca. 5 km entfernte Bad Königshofen bietet sämtliche Einkaufsmöglichkeiten (Supermärkte, Bäcker, Metzger, Baumärkte, Tankstellen, …). Außerdem findet ihr viele leckere Biergärten und Restaurants in und um Bad Königshofen\nGerne könnt Ihr uns mit Motorsegler oder UL besuchen, um den Platz einmal vor Ort zu besichtigen. Ruft uns einfach vorher am Wochenende unter 09761/5055  01714543451an oder nehmt direkt Kontakt mit uns auf.\nViele Informationen sowie Beiträge im Gästebuch findet ihr auf unserer Homepage www.amhimmelreich.com",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162625_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64119",
+                title: "ASG29 15/18m Competition ready condition",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64119",
+                description: Some(
+                    "Selling ASG29 (18 + 15m wingtips) in a competition ready state, great condition. German registration.\n-18m wingtips\n-15m wingtips\n-Removable 40l tank in the fuselage\n-LX9070\n-Flarm Red Box\n-Butterfly flarm display\n-Electric BWS bug wiper system\n-8.33 KRT2 Radio\n \n-JAXIDA Covers\n \n-Towing gear\n \n-Cobra Fiberglass trailer in mint condition",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162600_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64118",
+                title: "LiteFlite MK-4; Top Zustand, nur ein Benutzer",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64118",
+                description: Some(
+                    "Nur im Privatflieger genutzt. Nur ich habe den benutzt. (Kein Vereinsfallshirm).\nHerstellungsjahr 2014.\nGewicht 6,7 Kg.\nBei Nichtgebrauch immer in der Transporttasche verstaut.Im Winter immer drinnen im warmen Haus gelagert.\n \nEiner der kleinsten Rettungsschirme auf dem Markt.\nhttps://www.cahoma.aero/slimfit-mk-4?lang=en\nhttps://www.cahoma.aero/_files/ugd/057121_27e99329fe324f1bb77c576e8c17f28f.pdf",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162590_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64117",
+                title: "Wing stands for sale",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64117",
+                description: Some(
+                    "Wing stands for sale - 50 Euro\nVery light (2.8kg), made of anodized hardened aluminium, steel profiles and special \"fat\" foam on top\nWing support  for standard class and heavy twoseater, open class gliders. The height is smoothly adjustable. The legs fold for convenient storage.\nThe main center part is welded from steel and covered by yellow/orange or red paint. \nHighlights:\n    Extreme \"Fat\" foam\nWing-stand:\n Weight: 2.800 gr\n    Height: min 65ъп – max 145 cm\nFoam:\nWidth: 50 cm\n Thickness: 5 cm",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162658_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64116",
+                title: "ASH 31Mi 21m - Eigenstarter",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64116",
+                description: Some(
+                    "ASH 31 MI  21m - Eigenstarter\n\n \n \n \n\nVollausstattung, fabrikneuer Zustand, penibelst gepflegt und professionell gewartet, Winterlagerung in staubfreier und beheizter Halle, nur vom Eigentümer geflogen, unter 100 Flugstunden seit neu, inklusive frischer Jahresnachprüfung bei Übergabe, sofort verfügbar, gegen Gebot ab 265.000,00 Euro\n\n \nBaujahr:                        2012\nWerknummer:              31057\nLandungen:                 20\nFlugstunden:               97\nMotorstunden:            14,85\n \nAusstattung:\nü  Sonderlackierung mit Acryllack (2-Komponenten-Lack)\nü  Flügelnase mit Schablonen kontrolliert und bearbeitet.\nü  Haube blau getönt\nü  Außenlackierung des Haubenrahmens bündig in den Haubenrahmen einlackiert\nü  Spezielle Mattlackierung (Nextel B 34) auf Haubenrahmen\nü  Halterung für 1 O2-Flasche (3 Liter), für Ø 100 mm oder Mückenputzer\nü  Halterung und Trimmgewichte inkl. Ausgleichsgewichte\nü  Solarzellen (4 Panels), bündig in die Motorraumklappen integriert\nü  Zweite Batterie\nü  Parkbremse\nü  Verzurrösen (abschraubbar) an den Flügelspitzen\nü  Lenkbares Spornrad und feststehendes Rad \nü  Wasserballastsystem (140 Liter)\nü  Zusätzliche Lüftungsklappe im Fenster\nü  Fernbedienung für Hohloch- Mückenputzanlage im Instrumentenbrett\nü  Elektrische Benzin-Betankungsanlage fest im Flugzeug eingebaut\nü  Cockpit-Innenausstattung in Leder\nü  Gepäcksack im Rumpf verbaut (Schleicher)\nü  Spornkuller\nü  Schleppstange \nü  Betankungsanlage (Wasser) mit Überlaufschutz (Schleicher) \n \nInstrumente:\nü  LX 9000\nü  V5 Vario\nü  Fernbedienung für LX 9000 am Steuerknüppel \nü  Flarm\nü  Funk Becker\nü  Transponder Mode-S Becker\n \n \n \nCobra Anhänger: \nü  100km/h Zulassung\nü  Vollausstattung (außer Winde und Innenlicht).\nü  9,95m lang (ca. einen Meter länger für Schleppstange, Bezüge, Stützen etc.) \n \nZubehör:\nü  Mückenputzanlage (Hohloch) \nü  Clouddancers Komplettbezug (UNCUTABLE) mit Kennzeichen und Fenster für Solar \nü  Betankungsanlage (Wasser von Schleicher) \nü  Maßgeschneiderte Schutzbezüge für Cobra Anhänger \nü  Schleppstange mit Hebevorrichtung\nü  Flügelrad und Flügelstütze\n \nBilder:\nhttps://flug.rad.koeln/\n \nExposee:\nhttps://flug.rad.koeln/ASH31_Exposee.pdf\n \n \n \nKontakt:\n+49-173-5409535\np-j.schilling@t-online.de\n \n \n\nASH 31 MI  21m, Self-Launching\nFully equipped, as new out of the showroom, meticulously taken care of and professionally maintained, winter storage in dust-free heated hangar, only flown by single first owner, less than 100 flight hours since new, including fresh ARC upon handover, immediately available, selling on best-offer-basis, minimum asking 265.000,00 Euro\n\n \nManufacture year:             2012\nSerial number:                    31057\nLandings:                            20\nFlight hours:                       97\nEngine Time:                      14,85\n \nEquipment:\nü  Special acrylic lacquer coating (2-component-lacquer)\nü  Wings manufactured using OEM original jigs (to ensure high performance)\nü  Blue tinted canopy\nü  Canopy rail flush lacquered\nü  Canopy rail special dim lacquer (Nextel B 34)\nü  Mount for O2-bottle (3 Liters) Ø 100 mm or bug wiper\nü  Mounting for trim weights\nü  Solar panels (4), on top of engine compartment (fully flush)\nü  Two batteries\nü  Parking brake\nü  Tie-down jacks at wingtips (removable)\nü  Steerable Tailwheel\nü  Water ballast system (140 Liters) \nü  Additional fresh-air-scoop\nü  Remote Control for Hohloch bug wiper \nü  Integrated electrical engine refueling pump\nü  Full leather cockpit interior\nü  Baggage co…",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162588_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64115",
+                title: "lxnav Nano4",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64115",
+                description: Some(
+                    "Verkaufe einen Nano 4 Logger mit IGC- Zulassung\n- Herstellungsdatum 21.05.2018, Seriennummer 06489\n- leichte Gebrauchsspuren, aber voll funktionsfähig\n- Certificate of calibration von 23.05.2018 \n- verschiedene Ladekabel enthalten\n- USB-Kabel enthalten \n- passender Schwanenhals enthalten\nWeitere Informationen zum Gerät unter http://www.lx-avionik.de/produkte/nano4/ verfügbar\nVersand Deutschland weit möglich, bei Kosten Übernahme.VB 650€\nPrivatverkauf, somit keine Rücknahme oder Garantieansprüche.",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162584_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64114",
+                title: "LX8000 FLARM",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64114",
+                description: Some(
+                    "Due to system upgrade I am selling my first generation LX8000 with integrated FLARM and V5 vario. All in good working condition.",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162578_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64112",
+                title: "Oudie IGC",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64112",
+                description: Some(
+                    "Zum Verkauf steht mein gut erhaltener Oudie IGC aus 2018.Das Gerät ist sehr gepflegt und hat gerade bei NavITer einen neuen Akku bekommen.Der Oudie arbeitet super zuverlässig und bietet eine absolut autarke Navigation zum mitnehmen in jedes Flugzeug, mit langer Akkulaufzeit (Bordnetzanschluss ist auch bei sehr langen Flügen nicht erforderlich).Mit dabei:-Ladegerät mit Ladekabel-Verbindungskabel-Saugnapfhalterung-Autoladegerät (Zigarettenanzünder-Buchse)Bei Fragen, einfach melden.",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162569_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64110",
+                title: "Suche MT-Propeller A-54B Zwischenflansch",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64110",
+                description: Some(
+                    "Moin!Wir benötigen für unseren Rotax-Falken den o.g. Zwischenflansch zum Anbau eines Festpropellers.Wenn jemand so einen rumliegen hat, bitte anbieten.",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64108",
+                title: "Suche MTV-1-A/175-05 Verstellpropeller",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64108",
+                description: Some(
+                    "Moin! Da sich die Reparatur unseres Propellers sehr in die Länge zieht, suchen wir für unseren Falken dringend einen Propeller des o.g. Musters.",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64107",
+                title: "Kestrel 17m zu verkaufen",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64107",
+                description: Some(
+                    "Wegen Hobbyaufgabe verkaufe ich meinen Kestrel 17m. Werknummer 47, Bj.71, 3079 h, 857 Starts.57mm Winterinstrumente, LX 7007 pro IGC mit integrierten Flarm und Voicemdul.Eberle Anhänger, TÜV 07.2024. Mertens Fallschirm. Allweather covers. Einmann Aufrüsthilfe. Zwei Flächenstützen. Gesamtpaket für 17500 Euro",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162537_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64106",
+                title: "Beautiful and competitive LS8-18/15 for sale",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64106",
+                description: Some(
+                    "Beautiful LS8, with both 15 and 18 meter tips, completely repainted last year at Novak in Slovenia to a beautiful finish. This glider is competition ready and highly competitive, and won the UK Standards Nationals in 2015 as well as a bronze medal in the WWGC in 2020. Selling as moving to 18 meter class.\n \nThe glider is available immediately after the WWGC in August and can be viewed during the competition at Husbos, UK. Will deliver to Calais if needed.\n \n€ 82,500 for the glider, trailer and accessories. Contact me on j34.business@gmail.com1500 hours, manufactured in 1997.\nMore photos here: https://photos.app.goo.gl/ryEUfHq5R4pwjsDB6\n \npanel:\nLX NAV S100 IGC logger, flight computer\nLX NAV control stick\nPower Flarm with dual antennas license\nFlarm display\nBecker AR 6201\nDual switches for each instrument\nWinter ASI, altimeter and compass\n2 LiFePO4 10Ah batteries\n \nTrailers and accessories:\nCobra trailer, including additional middle rail\nFull Vertigo covers in excellent condition (2 years old)\nFull towout gear\nFull water ballast gear\nLS8 rigging handle\n2 trestles\nMany spares",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162536_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64105",
+                title: "Suche ASW22BLE",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64105",
+                description: Some(
+                    "HelloCurrently searching Asw 22 BLE, both engine options.Price matching condition and options. All offers Welcome with list of equipment, pictures of glider, cockpit and trailer,to get a good overview of package.",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64104",
+                title: "Anschau Klappdachanhänger",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64104",
+                description: Some(
+                    "Verkaufe einen Anschau- Klappdachanhänger für Einsitzer, lang. ( Geeignet für 18m oder ähnlich)\n \nBaujahr 2003. \n \nNähere Info,s auf Anfrage per mail...",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64103",
+                title: "Christmas SPECIAL: Arcus 20 @Bitterwasser/Namibia",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64103",
+                description: Some(
+                    "Verchartere einen neuen Arcus M (20) in Bitterwasser, Namibia im Zeitraum vom 23.12.-30.12.2022.   Tolles Weihnachtsbuffet inclusive....   Nähere Info,s zum Preis und Bedingungen gerne per mail....",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162535_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64102",
+                title: "Suche LX NAV Remote Control Stick / Knüppelfernbedienung",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64102",
+                description: Some(
+                    "Suche LX NAV Remote Control Stick / Knüppelfernbedienung mit Innendurchmesser 19,3 mm (DG, Schempp-Hirth)",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162534_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64101",
+                title: "DYNAMIC WT 9 Schleppflugzeug  (115 PS)",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64101",
+                description: Some(
+                    "DYNAMIC WT 9 TT (115 PS) Festfahrwerk\nMTOM 472,5 kg\nBaujahr 2017\nca. 1.000 h/4000 Starts (+/-) - wird noch geflogen\n \nROTAX 914 UL\nWOODCOMP SR 3000-3N Verstellprop. mit Const.-Speed\n \nFLYMAP XL, Kanardia SALUS\nFunk + Transponder F.U.N.K.E.\nLEMO-Buchsen + Buchsen LN-Norm\nAIR Traffic AT-1 und AT-Display\nAnalog FM, HM, QM, MP-Anzeige\n \nWinglets mit Sonderlackierung\nLandeleuchte + Wingtip-LED\n125 L Kraftstofftanks\nAbschliessbare Tankverschlüsse\nBERINGER-Bremsanlage\nFlap-Booster\nTOST-Schleppkupplung\nFenster im Gepäckraum\nDoppelter Ladeboden\nAnschnallgurte mit Zentralschloss\n \nPU-Lackierung\nSonderfolierung \"Checker Flag\"\nBlau getönte Cockpitverglasung\nSonnenschutz-Jalousie\n \nDas Flugzeug befindet sich in sehr gepflegten Zustand - kein Wartungsstau.\n \nEUR 157.500,00 brutto\n(19% MwSt ausweisbar)\nEUR 132.352,29 netto\n \nFlugzeug wird im Kundenauftrag angeboten. Vertragsabwicklung direkt zwischen Käufer u. Verkäufer\nKontakt: ISS-AVIATION\ninfo@iss-aviation\nTel. 01716257876",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/641/162532_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64100",
+                title: "Verkaufe DG-600/18",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64100",
+                description: Some(
+                    "Zum Verkauf steht eine sehr gepflegte DG-600 mit Transponder:\n- DG-600/18, D-6898\n- Werknr.: 6-46\n- Baujahr 1990\n- Spannweiten: 15m, 17m, 18m WL\n- Starts: 561\n- Stunden: 2291- ARC bis 30.11.2022- Kupplung (nur SP-Kupplung) noch 1922 Starts offen (letzte GÜ 2014)- Gurte (Gadringer) bis 28.3.2026\n- Funkgerät KRT-2\n- geprüfter Transponder TRT-800\n- Rechner LX 7007C mit Logger Colibri\n- FLARM F6 mit Butterfly-Display\n- Winter Höhenmesser u. Vario in 57 mm\n- Wassertanks je 65 Liter funktionsfähig\n- Hänger Cobra mit GFK-Deckel, Baujahr 1991\n \nWeitere Info´s und Bilder auf Anfrage.\n \nPreis: 49.000 € VB",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64099",
+                title: "LS3 in very good condition",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64099",
+                description: Some(
+                    "translator\n \n\n\nAfrikaans\nAlbanian - shqipe\nArabic - \u{200e}\u{202b}العربية\u{202c}\u{200e}\nArmenian - Հայերէն\nAzerbaijani - azərbaycanca\nBasque - euskara\nBelarusian - беларуская\nBengali - ব\u{9be}ংল\u{9be}\nBulgarian - български\nCatalan - català\nChinese - 中文（简体中文）\nChinese - 中文 (繁體中文)\nCroatian - hrvatski\nCzech - čeština\nDanish - dansk\nDutch - Nederlands\nEnglish\nEsperanto - esperanto\nEstonian - eesti\nFilipino\nFinnish - suomi\nFrench - français\nGalician - galego\nGeorgian - ქართული\nGerman - Deutsch\nGreek - Ελληνικά\nGujarati - ગ\u{ac1}જરાતી\nHaitian Creole - kreyòl ayisyen\nHebrew - \u{200e}\u{202b}עברית\u{202c}\u{200e}\nHindi - हिन\u{94d}दी\nHungarian - magyar\nIcelandic - íslenska\nIndonesian - Bahasa Indonesia\nIrish - Gaeilge\nItalian - italiano\nJapanese - 日本語\nKannada - ಕನ\u{ccd}ನಡ\nKorean - 한국어\nLatin - Lingua Latina\nLatvian - latviešu\nLithuanian - lietuvių\nMacedonian - македонски\nMalay - Bahasa Melayu\nMaltese - Malti\nNorwegian - norsk\nPersian - \u{200e}\u{202b}فارسی\u{202c}\u{200e}\nPolish - polski\nPortuguese - português\nRomanian - română\nRussian - русский\nSerbian - Српски\nSlovak - slovenčina\nSlovenian - slovenščina\nSpanish - español\nSwahili - Kiswahili\nSwedish - svenska\nTamil - தமிழ\u{bcd}\nTelugu - త\u{c46}లుగు\nThai - ไทย\nTurkish - Türkçe\nUkrainian - українська\nUrdu - \u{200e}\u{202b}اردو\u{202c}\u{200e}\nVietnamese - Tiếng Việt\nWelsh - Cymraeg\nYiddish - יידיש\n\n\n\n\n \n\n Double-click \n Select to translate \n\n\nLS3 D-2810 in very nice condition. Serial number 3044 PU paint condition 9/10 New interior in 2021 2 Battery: LiPoFe4 15 ah + Lead 9 ah Weight in 2021 New pannel: Canopy perfect condition Lx NAv S100 with stick remote control + gear and Flaps sensor with alarm New Flarm: LxNav Powermouse new in 2021 + dipolo antenna Butterfly display USB charger with display Phone holder with magnetic joint All instruments (Flrm, LX NAv, radio) can be connected with a telephone on the front panel Trailer with LED illumination integrated with glider battery ARC 06-2023video and pictures: https://drive.google.com/drive/folders/1v1j43OfuCYSC4oNAIH_QPgTTDxiE3tBX?usp=sharing",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/640/162523_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64098",
+                title: "ACLcontrol für FLARM (Blitzer) ",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64098",
+                description: Some(
+                    "Biete ACLcontrol für FLARMhttps://shop.segelflugbedarf24.de/Flugzeugausstattung/FLARM-R-und-ADS-B/Zubehoer/ACLcontrol-fuer-FLARM::358.html?language=de150EUR + Versand",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/640/162522_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64097",
+                title: "LAK-12",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64097",
+                description: Some(
+                    "We are selling glider LAK-12, please make an offer.",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64096",
+                title: "Laminar (BWS) Flexi-Putzer",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64096",
+                description: Some(
+                    "Biete Laminar (BWS) Flexi-Putzer Links und Rechts.https://shop.streckenflug.at/bs_product_info.php?products_id=1423250EUR + Versand",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/640/162521_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64095",
+                title: "LX10k mit Joystick",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64095",
+                description: Some(
+                    "Biete LX10k mit Joystick (Vibrationswarnung), Lautsprecher, und Brücke zu KRT2. Ohne Vario Indicator (der kann als analoge oder digitale Variante nachgekauft werden).IGC Valide, Höhenkalibration 2018https://www.lxnavigation.com/de/segelfliegen/navigationssystem/lx-10k/https://www.lxnavigation.com/de/lx-10k/lx-10khttps://www.lxnavigation.com/de/Segelfliegen/Zubehoer/Joystick/2000EUR + Versand",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/640/162520_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64094",
+                title: "Winter Vario StVM 5",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64094",
+                description: Some(
+                    "Biete Winter Vario StVM 5 inkl. FormeOnehttps://shop.segelflugbedarf24.de/Flugzeugausstattung/Instrumente/Variometer/Stauscheiben-Variometer-5-StVM-5-57-mm::959.html?language=de450EUR + Versand",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/640/162519_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64093",
+                title: "Trig TT21 Transponder",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64093",
+                description: Some(
+                    "Biete Trig TT21 Transponder (Der kleinste Mode S Transponder für die allgemeine Luftfahrt) mit Bedinteil, Halterung, Handbüchern, und FormOne. https://www.trig-avionics.com/library/TT2xBrochureDE.pdfhttps://shop.segelflugbedarf24.de/Flugzeugausstattung/Transponder/Geraete/Mode-S-Transponder-TRIG-TT21-Klasse-2::1728.html1850EUR + Versand",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/640/162518_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64092",
+                title: "suche/wanted LS8 SC or E",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64092",
+                description: Some(
+                    "i want to buy for next season an LS8 E or SCmake me your offer.",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64091",
+                title: "Ventus cM, äußerer, linker Hauptflügel",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64091",
+                description: Some(
+                    "Biete den äußerel, linken Hauptflügel vom Ventus cM zum kauf an.Wie abgebildet.Die Ober- und Unterschale und   die Endrippe sind unbeschädigt und lassen sich z.B. für den Austausch von Schalenteilen verwenden.Leider nur Abholung.Preis VS",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/640/162515_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64089",
+                title: "Suche Ventus 2ax",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64089",
+                description: Some(
+                    "Ich suche einen (originaler) Ventus 2ax mit guter Lackierung und Gutem anhanger.I am looking for an (origanal) Ventus 2ax with good paint and trailer.",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64088",
+                title: "LX 5 PF Kabel",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64088",
+                description: Some(
+                    "Zum Anschluss von Flarm an LX 9000.Preis inkl Versand",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/640/162514_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64087",
+                title: "LifePo4 12V 10Ah Akku",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64087",
+                description: Some(
+                    "Jubatec aus Sammelbestellung(sehr bewährt / 3j Garantie!)10Ah 120€12Ah 150€(UL Zertifikat liegt vor)",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/640/162503_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64086",
+                title: "Robin R 1180 TD",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64086",
+                description: Some(
+                    "Schönes Familien- Reiseflugzeug mit bis zu 5 Sitzplätzen. Zuladung ges. 449 kg, 2. Sitzreihe bis max. 140 kg, Gepäckraum bis 60 kg. Flächentanks mit 2x 121 Liter, Reisegeschwindigkeit 200 km/h.\nEASA- Zulassung, JNP und Wartung in deutschem LTB, Propeller 2016 neu, Motor O360 10/2019 grundüberholt, lückenlose Dokumentation, hangeriert.\n \nRobin R 1180 TD Baujahr 1980 TTSN 3990h (wird noch geflogen)\nMotor O360 A3A 180 hp TTSO 77h 10/2019\nPropeller Sensenich 76EM8S5-0-58 06/2016\nCOM Becker AR 6201, VHF- NAV Collins VIR 351\nMKR Collins AMR 350, TXP Garrecht VT-02\nEncoder Garrecht VT-02, ELT Ameri King AK 451\nAir Traffic mit Display\nGraue Sitze, schwarzes Instrumentenbrett, weiß, blau, rot",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/640/162496_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64085",
+                title: "Suche Klappdachanhänger!!",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64085",
+                description: Some(
+                    "Suche Klappdachanhänger. Zustand und Herstellet ist ziemlich egal und Tüv auch.Einfach alles anbieten!!",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64084",
+                title: "Naviter Oudie 2",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64084",
+                description: Some(
+                    "Housing and internal battery replaced two years ago. Carrying case, original cables and chargers (never used), latest software version 9.37.001 installed, two suction cups. Cost of shipment at buyers expense.",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/640/162495_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64082",
+                title: "EASA certified JS1C 18m/21m Jet",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64082",
+                description: Some(
+                    "This is last JS1C Revelation built to date – S/N 126. It is EASA certified.It has no accident history and has been maintained by the owner/operator and M&amp;D Flugzeugbau.All applicable Service Bulletins to date have been applied, including SB-MD01-005.This allows you to fill the outboard 21m tips from above.Pitot-static instruments, compass and transponder verified in 2022. Next check in 2024.All avionics software is up to date, including the flarm 2022 obstacle database for the Alps.The glider currently has 411:29 hours flight time and 102 landings, the jet 6:28 hours run time and 86 cycles. The Airworthiness Review Certificate and annual inspections are valid through March 2023!This offer includes the following items:\nGeneral...JS1C Revelation 1C.MD.12618m EVO and 21m outboard tipsJet Sustainer SystemEASA type certificateAnti-collision LED strobes in finElectric bugwiper system (new retrieval cables 2022)Removable nose trip weightsO2 cylinder mountTOST nose and CG release hooksGreen tinted canopy with scoopDelux Gagula cockpit interiorPaint and Finish...2KPU finishViynl external registration/competition markings - RAL 7035 light greyAnti-collision paint nose, wingtips, tail - RAL 2005 luminescent orange\nInstruments...Winter 7 FMS 421 airspeed indicatorGroSkinsky ASI variable camber flap ringWinter 5451 57mm mechanical altimeterWinter 5m 57mm mechanical variometerPAI 700 magnetic compasLX9000 w/ Power Flarm GPS/glide calculator,LX V8 electronic variometerLX remote grip 24mmLX MOP required for competition flyingTrig TY91 8.33kHz VHFTrig TT22 Mode-S 250W class I transponderKannad 406AF compact ELT &amp; switchFlarm LED on instrument panel combingDolba DB-1 transponder antenna in the finStandard Flarm antenna through instrument coverLXNAV 232 bridgeRAM ball for X-Grip and PDA/GoProRS 232 5 pin connectorBatteries...12V LiFePO 7/10Ah two main batteries with jet and avionic breakers12V LiFePO 7/10 additional fixed installation with avionics breakerSmart charger and cables for LiFePO batteriesExternal charge plug under instrument panelGround Support...JS wing stands (three)JS wing lifting handles (two)JS tail dollyJS tow barIMI wing walkerCobra rigging aidCloud Dancer 18m/21m all weather coversPandora canopy coverInstrument panel coverFelt wingtip covers 18m &amp; 21mFueling kit (pump, hoses, jerry can)Rigging toolBallast cap &amp; drain toolExcentric pin &amp; wrenchTie-down shellMisc...Aircraft/Jet flight &amp; maintenance manualsMaintenance records &amp; logbooksWeight and balance calculatorRigging bagDocument bagTurbine shipping caseTrailer...Cobra 18/21m trailer with EU CoCFibreglass top/aluminum baseDouble gas struts with locking mechanismSpare wheel underneathStorage drawer underneathStrapVertical supportsJack &amp; wrenchSolar panel &amp; 2 chargersAnti-skid couplingAnti-theft lock &amp; ballWing holders for both 18/21mDrawbar New tires including spare – 2022.\nNota Bene...\nThe competition number in most of the photos is 4E but has now been changed to 4F.As 4E was my father's competition number, I consider it a sort of familly heirloom.This sailplane is registered in Switzerland where Swiss VAT and duties have already been paid. Non-Swiss customers can easily re-register the glider within the EASA zone.However, they may incur VAT and duties upon importing the glider into their customs jurisdiction.Please contact me in English or Frenchrian.monnahan@gmail.com",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/640/162490_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64081",
+                title: "JS3 JET serial number 74 in mint condition",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64081",
+                description: Some(
+                    "FOR SALE\nJS3 JET „74“\n \n·       Serial Number 03-074 (firs hand)\n·       Built November 2019 (delivery without the jet)\n·       NEW Jet installed May 2022before shipping to Europe and apart from ground testing has never been used\n·       300 hrs\n·       100 starts\n·       18m wing tips\n·       EASA Type Certification D-xxxx registration\nInstrumentation – (all new at 2019)\n·       LX 9070 with power flarm and v8 variometer\n·       LX nav s10\n·       Winter airspeed and mechanical vario (kph &amp; m/s)\n·       AIR AVIONIC combined radio, transponder, altimeter\nEquipment – (all new at 2019)\n·       Complete Jonker’s tow out gear (tail dolly, wing dolly, tow out bar)\n·       Cloud Dancer covers\n·       2 x wing stands\n·       Batteries and charger\nOptional\n·       NEW COBRA CLUBSTAR trailer\n·       15m wing tips can be arranged\n·       Mountain high oxygen system\n·       Parachute\n \nPrice\n175.000,- € excluding VAT\nGlider in mint condition, has always been in hangar inside, never outside.\nJohn Coutts flew a 1100 km at 177 km/h in February 2022 with it. Just look on WeGlide.",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/640/162486_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64080",
+                title: "Ka2B - vielleicht die Schönste",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64080",
+                description: Some(
+                    "Ka 2b - die vielleicht Schönste – steht zum Verkauf\n \nKa 2b, BJ 1961, WerkNr. 1012, D - 8552\numfangreich, gründlich und professionell grundüberholt, \nBaumwollbespannt, professionell lackiert,\nzugelassen und mit erneuerter Jahresnachprüfung,\nZustand: wunderbar, \nStarts: 6368,\nStunden: 2501,\nmit geschlossenem Hänger, (mit Tüv)\n8.33 kHz Funk, traditioneller Instrumentierung, elektro-akustisches Vario\nzwei abgelaufene Spekon-Fallschirme,\nStandort Laucha a.U.\n \nFliegt so schön, wie sie aussieht.\n \nKaufpreis im Paket VB 22.500,- € -  (Vollkasko-Versicherungssumme 35.000,-)",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de/osclass/oc-content/uploads/640/162485_thumbnail.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64079",
+                title: "Bohli 68-PVF-2",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64079",
+                description: Some(
+                    "Schönen guten Tag,aufgrund eines Instrumentenumbaus habe ich ein voll funktionsfähiges 57mm Bohli Drallbandvariometer 68-PVF-2 Variometer zu verkaufen, dieses ist ab KW34 verfügbar.Vielen Dank.Beste FliegergrüßeDa es sich um einen Privatverkauf handelt kann keine Gewährleistung gegeben werden.Der Preis inkludiert den Versand in die EU.",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64078",
+                title: "Super Dimona ab Herbst gesucht",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64078",
+                description: Some(
+                    "Suche Super Dimona, Baujahr 2008 oder jünger, vorzugsweise ohne Schleppkupplung.",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64077",
+                title: "Suche S100 Vario",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64077",
+                description: Some(
+                    "Bin auf der Suche nach einem S100 Variometer.Beste Dank.",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64076",
+                title: "Suche / Looking for ASH26E",
+                link: "https://www.segelflug.de/osclass/index.php?page=item&id=64076",
+                description: Some(
+                    "Looking for a ASh26E accident free. Price according status",
+                ),
+                image_url: None,
+            },
+        ),
+    ],
+)

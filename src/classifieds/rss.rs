@@ -74,7 +74,9 @@ fn sanitize_description(value: &str) -> String {
     if text.len() < LENGTH_LIMIT {
         text.to_string()
     } else {
-        format!("{}…", &text[..LENGTH_LIMIT - 1])
+        let mut string = text.chars().take(LENGTH_LIMIT).collect::<String>();
+        string.push('…');
+        string
     }
 }
 
