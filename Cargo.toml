@@ -30,7 +30,7 @@ tracing-futures = "=0.2.5"
 tracing-subscriber = "=0.3.15"
 
 [dev-dependencies]
-insta = { version = "=1.19.0", features = ["glob"] }
+insta = { version = "=1.19.1", features = ["glob"] }
 
 [build-dependencies]
 vergen = { version = "=7.4.2", default-features = false, features = ["git"] }
