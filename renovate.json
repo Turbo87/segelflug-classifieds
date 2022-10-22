@@ -16,5 +16,15 @@
       "depTypeList": ["devDependencies"],
       "automerge": true
     }
+  ],
+
+  "regexManagers": [
+    {
+      "fileMatch": ["^.github/workflows/[^\\.]+\\.ya?ml$"],
+      "matchStrings": ["CROSS_VERSION:\\s*(?<currentValue>.*?)\n"],
+      "depNameTemplate": "cross",
+      "datasourceTemplate": "crate",
+      "versioningTemplate": "semver"
+    }
   ]
 }

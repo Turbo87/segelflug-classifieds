@@ -1,0 +1,54 @@
+name: Build and Deploy
+
+on:
+  # run if manually triggered
+  workflow_dispatch:
+
+  # run if something on the `main` branch changes
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: run
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  CROSS_VERSION: 0.2.4
+  TARGET_ARCH: armv7-unknown-linux-musleabihf
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - uses: Swatinem/rust-cache@v2.0.1
+
+      - run: cargo install cross --vers ${{ env.CROSS_VERSION }}
+      - run: cross build --release --target=${TARGET_ARCH}
+
+      - run: |
+          mkdir -p ./dist/${TARGET_ARCH}/
+          cp ./target/${TARGET_ARCH}/release/segelflug-classifieds ./dist/${TARGET_ARCH}/segelflug-classifieds
+
+      - uses: actions/upload-pages-artifact@v1.0.4
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v1.2.2
