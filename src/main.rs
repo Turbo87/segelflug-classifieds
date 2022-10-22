@@ -10,7 +10,7 @@ use crate::app::App;
 use crate::classifieds::ClassifiedsApi;
 use crate::telegram::TelegramApi;
 use anyhow::Result;
-use clap::{IntoApp, Parser};
+use clap::{CommandFactory, Parser};
 use tokio::time::Duration;
 use tracing::Level;
 use tracing_subscriber::filter;
@@ -26,19 +26,19 @@ const FEED_URL: &str = "https://www.segelflug.de/osclass/index.php?page=search&s
 #[derive(clap::Parser, Debug)]
 struct Opts {
     /// Run continuously and poll the server in random intervals
-    #[clap(short, long)]
+    #[arg(short, long)]
     watch: bool,
 
     /// Minimum time to wait between server requests (in minutes)
-    #[clap(long, default_value = "10")]
+    #[arg(long, default_value = "10")]
     min_time: f32,
 
     /// Maximum time to wait between server requests (in minutes)
-    #[clap(long, default_value = "30")]
+    #[arg(long, default_value = "30")]
     max_time: f32,
 
     /// Telegram chat ID
-    #[clap(
+    #[arg(
         long,
         env = "TELEGRAM_CHAT_ID",
         default_value = "@segelflug_classifieds"
@@ -46,7 +46,7 @@ struct Opts {
     telegram_chat_id: String,
 
     /// Telegram bot token
-    #[clap(long, env = "TELEGRAM_TOKEN", hide_env_values = true)]
+    #[arg(long, env = "TELEGRAM_TOKEN", hide_env_values = true)]
     telegram_token: Option<String>,
 }
 
@@ -87,7 +87,7 @@ async fn main() -> Result<()> {
     if opts.min_time > opts.max_time {
         Opts::command()
             .error(
-                clap::ErrorKind::ValueValidation,
+                clap::error::ErrorKind::ValueValidation,
                 "--min-time must not be larger than --max-time",
             )
             .exit();
