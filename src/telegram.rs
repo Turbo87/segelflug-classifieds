@@ -2,7 +2,7 @@ use anyhow::{anyhow, Context};
 use reqwest::Client;
 use teloxide::prelude::*;
 use teloxide::requests::Output;
-use teloxide::types::{InputFile, ParseMode, Recipient};
+use teloxide::types::{InputFile, MessageId, ParseMode, Recipient};
 use teloxide::RequestError;
 use tokio::time::sleep;
 
@@ -25,7 +25,11 @@ impl TelegramApi {
     }
 
     #[instrument(skip(self))]
-    pub async fn send_message(&self, text: &str, reply_to: Option<i32>) -> anyhow::Result<Message> {
+    pub async fn send_message(
+        &self,
+        text: &str,
+        reply_to: Option<MessageId>,
+    ) -> anyhow::Result<Message> {
         let mut request = self
             .bot
             .send_message(self.recipient.clone(), text)
