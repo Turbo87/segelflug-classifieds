@@ -59,7 +59,6 @@ async fn main() -> Result<()> {
 
     let log_layer = tracing_subscriber::fmt::layer()
         .pretty()
-        .without_time()
         .with_filter(log_filter);
 
     let sentry_filter = filter::Targets::new().with_default(Level::INFO);
