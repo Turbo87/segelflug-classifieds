@@ -33,4 +33,4 @@ tracing-subscriber = "=0.3.16"
 insta = { version = "=1.21.2", features = ["glob"] }
 
 [build-dependencies]
-vergen = { version = "=7.4.2", default-features = false, features = ["git"] }
+vergen = { version = "=7.4.3", default-features = false, features = ["git"] }
