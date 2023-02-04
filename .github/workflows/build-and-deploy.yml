@@ -15,7 +15,7 @@ concurrency:
 
 env:
   CARGO_TERM_COLOR: always
-  CROSS_VERSION: 0.2.4
+  CROSS_VERSION: 0.2.5
   TARGET_ARCH: armv7-unknown-linux-musleabihf
 
 jobs:
