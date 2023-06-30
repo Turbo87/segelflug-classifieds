@@ -24,7 +24,7 @@ serde = "=1.0.164"
 serde_json = "=1.0.99"
 serde_urlencoded = "=0.7.1"
 teloxide = { version = "=0.12.2", default-features = false, features = ["rustls"] }
-tokio = { version = "=1.29.0", features = ["full"] }
+tokio = { version = "=1.29.1", features = ["full"] }
 tracing = "=0.1.38"
 tracing-futures = "=0.2.5"
 tracing-subscriber = "=0.3.17"
