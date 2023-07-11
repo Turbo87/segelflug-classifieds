@@ -33,7 +33,7 @@ jobs:
           mkdir -p ./dist/${TARGET_ARCH}/
           cp ./target/${TARGET_ARCH}/release/segelflug-classifieds ./dist/${TARGET_ARCH}/segelflug-classifieds
 
-      - uses: actions/upload-pages-artifact@v1.0.9
+      - uses: actions/upload-pages-artifact@v1.0.10
         with:
           path: ./dist
 
