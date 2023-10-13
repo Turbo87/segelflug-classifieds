@@ -21,7 +21,10 @@ mod classifieds;
 mod guids;
 mod telegram;
 
-const FEED_URL: &str = "https://www.segelflug.de/osclass/index.php?page=search&sFeed=rss";
+// Temporarily replaced until the segelflug.de server has been migrated:
+//
+// const FEED_URL: &str = "https://www.segelflug.de/osclass/index.php?page=search&sFeed=rss";
+const FEED_URL: &str = "https://soaring.de/osclass/index.php?page=search&sFeed=rss";
 
 #[derive(clap::Parser, Debug)]
 struct Opts {
