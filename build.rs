@@ -1,5 +1,8 @@
-use vergen::Config;
+use vergen::EmitBuilder;
 
 fn main() {
-    vergen::vergen(Config::default()).expect("Unable to generate the cargo keys!");
+    EmitBuilder::builder()
+        .git_sha(true)
+        .emit()
+        .expect("Unable to generate the cargo keys!");
 }
