@@ -1,6 +1,5 @@
 ---
 source: src/classifieds/rss.rs
-assertion_line: 103
 expression: items
 input_file: src/classifieds/test-input/umlaut-crash.xml
 ---

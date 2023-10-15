@@ -2,7 +2,6 @@
 source: src/classifieds/rss.rs
 expression: items
 input_file: src/classifieds/test-input/broken-script.xml
-
 ---
 Ok(
     [
