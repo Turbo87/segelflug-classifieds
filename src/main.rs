@@ -72,7 +72,7 @@ async fn main() -> Result<()> {
         .with(sentry_layer)
         .init();
 
-    let sha = &env!("VERGEN_GIT_SHA")[..7];
+    let sha = env!("VERGEN_GIT_SHA");
     event!(Level::INFO, sha = sha);
 
     let sentry_dsn = std::env::var("SENTRY_DSN");
