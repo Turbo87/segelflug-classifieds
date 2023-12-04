@@ -12,7 +12,7 @@ build = "build.rs"
 ammonia = "=3.3.0"
 anyhow = "=1.0.75"
 atomicwrites = "=0.4.2"
-clap = { version = "=4.4.10", features = ["derive", "env", "wrap_help"] }
+clap = { version = "=4.4.11", features = ["derive", "env", "wrap_help"] }
 lazy_static = "=1.4.0"
 rand = "=0.8.5"
 regex = "=1.10.2"
