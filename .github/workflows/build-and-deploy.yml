@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4.1.1
-      - uses: Swatinem/rust-cache@v2.7.1
+      - uses: Swatinem/rust-cache@v2.7.2
 
       - run: cargo install cross --vers ${{ env.CROSS_VERSION }}
       - run: cross build --release --target=${TARGET_ARCH}
