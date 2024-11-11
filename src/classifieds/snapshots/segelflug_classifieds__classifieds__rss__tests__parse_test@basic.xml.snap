@@ -2,6 +2,7 @@
 source: src/classifieds/rss.rs
 expression: items
 input_file: src/classifieds/test-input/basic.xml
+snapshot_kind: text
 ---
 Ok(
     [
@@ -99,7 +100,7 @@ Ok(
         Ok(
             ClassifiedsItem {
                 guid: "https://www.segelflug.de/osclass/index.php?page=item&id=50807",
-                title: "Wanted: &quot;Seat cushion + back&quot; style parachute  ",
+                title: "Wanted: &quot;Seat cushion + back&quot; style parachute",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50807",
                 description: Some(
                     "Mein Deutsch ist schrecklich :)  ..aber ich verstehe was ich verstehen muss! :)   También hablo Castellano (\"Espanyol\") y Catalá. Anche un po' di Italiano. Looking for \"seat cushion+ back\" style parachute, with a few years of remaining validity AND in truly good condition.  Possible types (see attached photos) : Security 350 or 150ThinbackSlimpack (ParachutesAustralia) GQ650 Silhouette STRONG Parachutes 305 Spekon RE-5L Serie 4 ... or similar.  Price (obviously) depending on remaining years.",
@@ -171,7 +172,7 @@ Ok(
         Ok(
             ClassifiedsItem {
                 guid: "https://www.segelflug.de/osclass/index.php?page=item&id=50799",
-                title: "DG 808B in Südafrika ",
+                title: "DG 808B in Südafrika",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50799",
                 description: Some(
                     "Motorstunden: Ca. 80 Motorstunden Anzahl Der Sitze: 1 E-Variometer: Cambridge Funk/Radio: Becker 4201 Flarm:  Baujahr/Year Of Construction: 2002 Hänger/Trailer: Spindelberger Cobra Aludeckel Spannweite/Wingspread: 18m Winglets Zuladung: 110kg ARC Bis/Until: Neu Werknummer/Serial Number: 8-249B162 DG 8008 B, ZU-KDP südafrikanisch zugelassen, komplettes System, ca. 2.600 Flugstunden, ehemals deutsch registriert, blau getönte Haube, ideal für jemand der sich ein einsitziges, eigenstartfähiges Klapptriebwerk  in Südafrika hinstellen möchte, kein Containerverladen mehr, 15m Flächenteilung vorhanden, Transponder, WhatsApp 00491743695878",
@@ -297,7 +298,7 @@ Ok(
         Ok(
             ClassifiedsItem {
                 guid: "https://www.segelflug.de/osclass/index.php?page=item&id=50766",
-                title: "LX8000F mit Flarm zu verkaufen ",
+                title: "LX8000F mit Flarm zu verkaufen",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50766",
                 description: Some(
                     "LX8000F mit integriertem Flarm zu verkaufen. Vollversion!Voll funktionsfähig, alle Kabel und Antennen liegen bei.",
@@ -523,7 +524,7 @@ Ok(
         Ok(
             ClassifiedsItem {
                 guid: "https://www.segelflug.de/osclass/index.php?page=item&id=50767",
-                title: "Propeller ",
+                title: "Propeller",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50767",
                 description: Some(
                     "Suche Ho-v 62 R/L 160 BT",

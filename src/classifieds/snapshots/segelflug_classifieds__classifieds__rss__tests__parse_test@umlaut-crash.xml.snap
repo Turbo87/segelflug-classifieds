@@ -2,6 +2,7 @@
 source: src/classifieds/rss.rs
 expression: items
 input_file: src/classifieds/test-input/umlaut-crash.xml
+snapshot_kind: text
 ---
 Ok(
     [
@@ -19,7 +20,7 @@ Ok(
         Ok(
             ClassifiedsItem {
                 guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64130",
-                title: "Taurus 503 Pipistrel ",
+                title: "Taurus 503 Pipistrel",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64130",
                 description: Some(
                     "Pipistrel Taurus 503, Bauj. 2008, ca. 300 Flugstunden, 115 Motorstunden, Rotax 503, Top Zustand, LX8000,Funk, Transponder, Deutsche Zulassung, Transportanhänger Spindelberger, nagelneuer Ersatzmotor,1 Man AufrüsthilfeGelebte Freiheit und Unabhängigkeit!MwSt. Nicht ausweisbar, Privatverkauf",
@@ -369,7 +370,7 @@ Ok(
         Ok(
             ClassifiedsItem {
                 guid: "https://www.segelflug.de/osclass/index.php?page=item&id=64098",
-                title: "ACLcontrol für FLARM (Blitzer) ",
+                title: "ACLcontrol für FLARM (Blitzer)",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64098",
                 description: Some(
                     "Biete ACLcontrol für FLARMhttps://shop.segelflugbedarf24.de/Flugzeugausstattung/FLARM-R-und-ADS-B/Zubehoer/ACLcontrol-fuer-FLARM::358.html?language=de150EUR + Versand",

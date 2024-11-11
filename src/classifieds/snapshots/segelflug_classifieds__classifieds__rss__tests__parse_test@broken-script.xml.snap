@@ -2,13 +2,14 @@
 source: src/classifieds/rss.rs
 expression: items
 input_file: src/classifieds/test-input/broken-script.xml
+snapshot_kind: text
 ---
 Ok(
     [
         Ok(
             ClassifiedsItem {
                 guid: "https://www.segelflug.de/osclass/index.php?page=item&id=51223",
-                title: "PAI-700 Kompass Beleuchtet 28Volt ",
+                title: "PAI-700 Kompass Beleuchtet 28Volt",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=51223",
                 description: Some(
                     "PAI-700 Kompass . Gebrauchter guter Zustand. Produktionsdatum 13.04.1993",
@@ -60,7 +61,7 @@ Ok(
         Ok(
             ClassifiedsItem {
                 guid: "https://www.segelflug.de/osclass/index.php?page=item&id=51219",
-                title: "Suche 16.6m Flächenende / looking for 16.6m wingtips ",
+                title: "Suche 16.6m Flächenende / looking for 16.6m wingtips",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=51219",
                 description: Some(
                     "Suche 16.6m Flächenenden für einen Ventus 1 oder 24.5m für Nimbus 3. Bitte alles anbieten, gerne auch mit Schaden. _____________Looking for 16.6m wingtips for Ventus 1 or 24.5m wingtips for Nimbus 3. Offers for any condition are welcome.",
@@ -71,7 +72,7 @@ Ok(
         Ok(
             ClassifiedsItem {
                 guid: "https://www.segelflug.de/osclass/index.php?page=item&id=51218",
-                title: "Taschenset, stehende Düse ",
+                title: "Taschenset, stehende Düse",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=51218",
                 description: Some(
                     "2 Taschen aus hochwertigem Kunstleder.Für Klebeband und Düse  bis max. 30cm Höhe Inclusive Versand innerhalb Deutschlands, ohne Düse und Klebeband",
@@ -520,7 +521,7 @@ Ok(
         Ok(
             ClassifiedsItem {
                 guid: "https://www.segelflug.de/osclass/index.php?page=item&id=51182",
-                title: "Suche Mückenputzer für LS4! ",
+                title: "Suche Mückenputzer für LS4!",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=51182",
                 description: Some(
                     "Hallo Zusammen!Ich bin nun schon seit längerer Zeit auf der Suche nach preiswerten Mückenputzerflügeln für die LS4!Da ich Schüler bin und das System von Pirker und Storka somit preislich leider nicht in Frage kommt, würde ich mich über ein faires und günstiges Angebot wirklich sehr freuen. Falls ihr günstige Handkurbeln im Angebot haben solltet meldet euch ebenfalls gerne :) Ich freue mich über jedes Angebot!Liebe Fliegergrüße!",
@@ -592,7 +593,7 @@ Ok(
         Ok(
             ClassifiedsItem {
                 guid: "https://www.segelflug.de/osclass/index.php?page=item&id=51176",
-                title: "Lx7007  Knüppelfernbedienung Gesucht ",
+                title: "Lx7007  Knüppelfernbedienung Gesucht",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=51176",
                 description: Some(
                     "Suche eine Knüppelfernbedienung für ein LX 7000/7007  bitte alles Anbieten",
