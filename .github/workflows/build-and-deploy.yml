@@ -24,8 +24,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4.1.7
-      - uses: Swatinem/rust-cache@v2.7.3
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: Swatinem/rust-cache@23bce251a8cd2ffc3c1075eaa2367cf899916d84 # v2.7.3
 
       - run: cargo install cross --vers ${{ env.CROSS_VERSION }}
       - run: cross build --release --target=${TARGET_ARCH}
@@ -34,7 +34,7 @@ jobs:
           mkdir -p ./dist/${TARGET_ARCH}/
           cp ./target/${TARGET_ARCH}/release/segelflug-classifieds ./dist/${TARGET_ARCH}/segelflug-classifieds
 
-      - uses: actions/upload-pages-artifact@v2.0.0
+      - uses: actions/upload-pages-artifact@a753861a5debcf57bf8b404356158c8e1e33150c # v2.0.0
         with:
           path: ./dist
 
@@ -52,4 +52,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v2.0.5
+        uses: actions/deploy-pages@de14547edc9944350dc0481aa5b7afb08e75f254 # v2.0.5
