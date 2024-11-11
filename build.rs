@@ -1,8 +1,7 @@
-use vergen::EmitBuilder;
+use vergen_gitcl::{Emitter, GitclBuilder};
 
-fn main() {
-    EmitBuilder::builder()
-        .git_sha(true)
-        .emit()
-        .expect("Unable to generate the cargo keys!");
+pub fn main() -> anyhow::Result<()> {
+    let gitcl = GitclBuilder::default().sha(true).build()?;
+    Emitter::default().add_instructions(&gitcl)?.emit()?;
+    Ok(())
 }
