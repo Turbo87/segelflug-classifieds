@@ -1,30 +1,16 @@
 {
   "extends": [
-    "config:base",
-    "github>Turbo87/renovate-config:automergeCaretConstraint",
+    "config:best-practices",
+    ":pinAllExceptPeerDependencies",
+    ":maintainLockFilesWeekly",
+    ":prConcurrentLimitNone",
+    ":prHourlyLimitNone",
+    ":semanticCommitsDisabled",
+    ":automergePatch",
+    ":automergeStableNonMajor",
     ":automergeLinters",
     ":automergeTesters",
-    ":dependencyDashboard",
-    ":maintainLockFilesWeekly",
-    ":pinAllExceptPeerDependencies",
-    ":semanticCommitsDisabled",
+    "customManagers:githubActionsVersions",
     "github>Turbo87/renovate-config//rust/updateToolchain"
-  ],
-
-  "packageRules": [
-    {
-      "depTypeList": ["devDependencies"],
-      "automerge": true
-    }
-  ],
-
-  "regexManagers": [
-    {
-      "fileMatch": ["^.github/workflows/[^\\.]+\\.ya?ml$"],
-      "matchStrings": ["CROSS_VERSION:\\s*(?<currentValue>.*?)\n"],
-      "depNameTemplate": "cross",
-      "datasourceTemplate": "crate",
-      "versioningTemplate": "semver"
-    }
   ]
 }
