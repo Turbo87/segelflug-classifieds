@@ -2,7 +2,9 @@ use anyhow::{anyhow, Context};
 use reqwest::Client;
 use teloxide::prelude::*;
 use teloxide::requests::Output;
-use teloxide::types::{InputFile, MessageId, ParseMode, Recipient};
+use teloxide::types::{
+    InputFile, LinkPreviewOptions, MessageId, ParseMode, Recipient, ReplyParameters,
+};
 use teloxide::RequestError;
 use tokio::time::sleep;
 
@@ -30,14 +32,27 @@ impl TelegramApi {
         text: &str,
         reply_to: Option<MessageId>,
     ) -> anyhow::Result<Message> {
+        let preview_options = LinkPreviewOptions {
+            is_disabled: true,
+            url: None,
+            prefer_small_media: false,
+            prefer_large_media: false,
+            show_above_text: false,
+        };
+
         let mut request = self
             .bot
             .send_message(self.recipient.clone(), text)
             .parse_mode(ParseMode::Html)
-            .disable_web_page_preview(true);
+            .link_preview_options(preview_options);
 
         if let Some(message_id) = reply_to {
-            request = request.reply_to_message_id(message_id)
+            let reply_parameters = ReplyParameters {
+                message_id,
+                ..Default::default()
+            };
+
+            request = request.reply_parameters(reply_parameters);
         }
 
         self.send_request(request).await
@@ -77,8 +92,8 @@ impl TelegramApi {
             match response {
                 Ok(response) => return Ok(response),
                 Err(RequestError::RetryAfter(retry_after)) => {
-                    debug!("retrying in {} seconds", retry_after.as_secs());
-                    sleep(retry_after).await;
+                    debug!("retrying in {} seconds", retry_after.seconds());
+                    sleep(retry_after.duration()).await;
                 }
                 Err(error) => {
                     return Err(error.into());
