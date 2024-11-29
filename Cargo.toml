@@ -27,7 +27,7 @@ teloxide = { version = "=0.13.0", default-features = false, features = ["rustls"
 tokio = { version = "=1.41.1", features = ["full"] }
 tracing = "=0.1.41"
 tracing-futures = "=0.2.5"
-tracing-subscriber = "=0.3.18"
+tracing-subscriber = "=0.3.19"
 
 [dev-dependencies]
 insta = { version = "=1.41.1", features = ["glob"] }
