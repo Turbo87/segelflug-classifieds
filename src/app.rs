@@ -202,7 +202,7 @@ struct ItemWithExtraData<'a> {
     user: Option<ClassifiedsUser>,
 }
 
-impl<'a> ItemWithExtraData<'a> {
+impl ItemWithExtraData<'_> {
     pub fn title(&self) -> &str {
         &self.item.title
     }
