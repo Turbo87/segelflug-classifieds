@@ -34,4 +34,4 @@ insta = { version = "=1.42.2", features = ["glob"] }
 
 [build-dependencies]
 anyhow = "=1.0.97"
-vergen-gitcl = "=1.0.5"
+vergen-gitcl = "=1.0.7"
