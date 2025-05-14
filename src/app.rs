@@ -187,7 +187,7 @@ impl App {
                 event!(Level::WARN, error = ?error);
             }
 
-            let mins = rand::thread_rng().gen_range(min_time..max_time);
+            let mins = rand::rng().random_range(min_time..max_time);
             println!("⏳  Running again in {:.1} minutes", mins);
             println!();
             let secs = mins * 60.;
