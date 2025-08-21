@@ -1,0 +1,27 @@
+name: "segelflug-classifieds"
+description: "Segelflug.de Kleinanzeigen Telegram Bot"
+version: "1.0.0"
+slug: "segelflug-classifieds"
+url: https://github.com/Turbo87/segelflug-classifieds
+
+init: false
+startup: system
+arch:
+  - aarch64
+  - armhf
+  - armv7
+
+hassio_api: true
+full_access: false
+host_network: false
+
+map:
+  - config:rw
+
+options:
+  telegram_token: ""
+  sentry_dsn: ""
+
+schema:
+  telegram_token: str
+  sentry_dsn: str

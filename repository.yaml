@@ -1,0 +1,9 @@
+name: "Segelflug Classifieds Repository"
+url: "https://github.com/Turbo87/segelflug-classifieds"
+maintainer: "Tobias Bieniek <tobias@bieniek.cloud>"
+
+addons:
+  segelflug-classifieds:
+    name: "Segelflug.de Kleinanzeigen Bot"
+    description: "Telegram bot for Segelflug.de classifieds"
+    url: "home-assistant-addon"
