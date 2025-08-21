@@ -5,11 +5,12 @@ Segelflug.de Kleinanzeigen Telegram Bot
 
 This project implements a basic [Telegram] bot that regularly polls the
 [Segelflug.de Kleinanzeigen] page for new items and sends them to a public
-Telegram channel. The bot is intended to run on a [Raspberry Pi], so ARM
-cross-compilation compatibility is a requirement for any changes.
+Telegram channel. The bot is available as a [Home Assistant] addon with 
+support for [Raspberry Pi] and other ARM devices.
 
 [Telegram]: https://telegram.org
 [Segelflug.de Kleinanzeigen]: https://www.segelflug.de/osclass/
+[Home Assistant]: https://www.home-assistant.io/
 [Raspberry Pi]: https://www.raspberrypi.org
 
 
@@ -54,15 +55,25 @@ to enable error reporting on [Sentry.io].
 Deployment
 -------------------------------------------------------------------------------
 
-As mentioned above, the intended deployment target is a Raspberry Pi. A
-`deploy.sh` shell script is included in this repository to simplify the
-deployment process. This script needs to be configured by setting the
-`TARGET_HOST` and `TARGET_PATH` environment variables.
+### Home Assistant Addon (Recommended)
 
-An example [systemd] service file is also provided in the `systemd` folder of
-this repository.
+The easiest way to run this bot is as a Home Assistant addon:
 
-[systemd]: https://systemd.io
+1. Add this repository to your Home Assistant addon store:
+   ```
+   https://github.com/Turbo87/segelflug-classifieds
+   ```
+
+2. Install the "Segelflug.de Kleinanzeigen Bot" addon
+
+3. Configure the addon with your Telegram bot token:
+   - Get a token from [@BotFather](https://t.me/BotFather) on Telegram
+   - Add the token to the addon configuration
+   - Optionally configure a Sentry DSN for error reporting
+
+4. Start the addon
+
+The addon will automatically download the latest binary on startup and handle updates.
 
 
 License
