@@ -1,3 +1,4 @@
+use super::Generator;
 use crate::classifieds::utils::strip_html;
 use scraper::{ElementRef, Html, Selector};
 
@@ -13,26 +14,14 @@ pub struct ClassifiedsUser {
 impl From<&str> for ClassifiedsUser {
     #[instrument(name = "ClassifiedsUser::from", skip(text))]
     fn from(text: &str) -> Self {
-        lazy_static! {
-            static ref GENERATOR_SELECTOR: Selector =
-                Selector::parse("meta[name=\"generator\"]").unwrap();
-        }
-
         let html = Html::parse_document(text);
         if !html.errors.is_empty() {
             debug!("found HTML parsing errors: {:?}", html.errors);
         }
 
-        let generator = html
-            .select(&GENERATOR_SELECTOR)
-            .next()
-            .and_then(|el| el.value().attr("content"))
-            .unwrap_or("");
-
-        if generator.starts_with("Osclass") {
-            parse_osclass(&html)
-        } else {
-            parse_dj_classifieds(&html)
+        match Generator::detect(&html) {
+            Some(Generator::Osclass) => parse_osclass(&html),
+            _ => parse_dj_classifieds(&html),
         }
     }
 }
