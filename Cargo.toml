@@ -30,7 +30,7 @@ tracing-futures = "=0.2.5"
 tracing-subscriber = "=0.3.22"
 
 [dev-dependencies]
-insta = { version = "=1.43.2", features = ["glob"] }
+insta = { version = "=1.45.1", features = ["glob"] }
 
 [build-dependencies]
 anyhow = "=1.0.100"
