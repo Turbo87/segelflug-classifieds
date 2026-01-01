@@ -1,9 +1,10 @@
 use super::Generator;
-use crate::classifieds::utils::strip_html;
-use scraper::{ElementRef, Html, Selector};
+use crate::classifieds::utils::{sanitize_description, strip_html};
+use scraper::{Element, ElementRef, Html, Selector};
 
 #[derive(Debug)]
 pub struct ClassifiedsDetails {
+    pub description: Option<String>,
     pub location: Option<String>,
     pub photo_urls: Vec<String>,
     pub price: Option<String>,
@@ -64,6 +65,7 @@ fn parse_osclass(html: &Html) -> ClassifiedsDetails {
         .map(|html| strip_html(&html).trim().to_string());
 
     ClassifiedsDetails {
+        description: None,
         location,
         photo_urls,
         price,
@@ -82,6 +84,7 @@ fn parse_dj_classifieds(html: &Html) -> ClassifiedsDetails {
         static ref LOCATION_ICON_SELECTOR: Selector =
             Selector::parse("span[uk-icon=\"icon: location;\"]").unwrap();
         static ref REGION_SELECTOR: Selector = Selector::parse(".reg_path").unwrap();
+        static ref HEADING_SELECTOR: Selector = Selector::parse("h2").unwrap();
     }
 
     let price = html.select(&PRICE_VAL_SELECTOR).next().map(|val_el| {
@@ -114,7 +117,15 @@ fn parse_dj_classifieds(html: &Html) -> ClassifiedsDetails {
 
     let location = extract_dj_location(html);
 
+    let description = html
+        .select(&HEADING_SELECTOR)
+        .find(|el| el.text().collect::<String>().trim() == "Beschreibung")
+        .and_then(|h2| h2.next_sibling_element())
+        .map(|el| sanitize_description(&el.inner_html()))
+        .filter(|s| !s.is_empty());
+
     ClassifiedsDetails {
+        description,
         location,
         photo_urls,
         price,

@@ -2,9 +2,9 @@
 source: src/classifieds/parse/item.rs
 expression: user
 input_file: src/classifieds/parse/test-input/item/basic.html
-snapshot_kind: text
 ---
 ClassifiedsDetails {
+    description: None,
     location: Some(
         "Aachen, Germany",
     ),

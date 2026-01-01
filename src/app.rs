@@ -217,7 +217,10 @@ impl ItemWithExtraData<'_> {
     }
 
     pub fn description(&self) -> Option<&str> {
-        self.item.description.as_deref()
+        self.details
+            .as_ref()
+            .and_then(|details| details.description.as_deref())
+            .or(self.item.description.as_deref())
     }
 
     pub fn photo_url(&self) -> Option<&str> {

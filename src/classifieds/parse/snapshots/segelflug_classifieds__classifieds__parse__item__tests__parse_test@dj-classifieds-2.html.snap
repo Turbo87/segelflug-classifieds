@@ -4,6 +4,9 @@ expression: user
 input_file: src/classifieds/parse/test-input/item/dj-classifieds-2.html
 ---
 ClassifiedsDetails {
+    description: Some(
+        "Landings: 6581Flight hours: 2284:51Engine hours: 0\nZuladung: 184,9kg\n \n \nEquipment:2 X Altimeter Winter 4 FGH 202 X Speedindicator Winter 7 FMS 42 X Variometer Winter 5StVM5Radio Becker AR 6201 with second double seater deviceTransponder Garrecht VT-012 X Compass Airpath 2300 LX 7007 pro IGC with external FlarmdeviceSOTECC ACLInterior new in leather (2024)Gadringer harness (2023)Photovoltaic cells New avionic batteries \n \nOptional new Cobra trailer: \nCobra Trailer fully equiped (2023)Self launch glider can be rigged with two persons only. \n \nAdditional Informations: \nOriginal coat in good conditionsCallsign with adhesives Large overhaul performed in 2023 at\nAlexander Schleicher",
+    ),
     location: Some(
         "Europa",
     ),
