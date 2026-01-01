@@ -21,10 +21,8 @@ mod classifieds;
 mod guids;
 mod telegram;
 
-// Temporarily replaced until the segelflug.de server has been migrated:
-//
-// const FEED_URL: &str = "https://www.segelflug.de/osclass/index.php?page=search&sFeed=rss";
-const FEED_URL: &str = "https://soaring.de/osclass/index.php?page=search&sFeed=rss";
+const SOARING_DE_FEED_URL: &str = "https://soaring.de/osclass/index.php?page=search&sFeed=rss";
+const SEGELFLUG_DE_FEED_URL: &str = "https://www.segelflug.de/index.php/de/?option=com_djclassifieds&view=items&format=feed&type=rss";
 
 #[derive(clap::Parser, Debug)]
 struct Opts {
@@ -99,7 +97,8 @@ async fn main() -> Result<()> {
         .timeout(Duration::from_secs(10))
         .build()?;
 
-    let classifieds = ClassifiedsApi::new(FEED_URL, client.clone());
+    let feed_urls = vec![SOARING_DE_FEED_URL, SEGELFLUG_DE_FEED_URL];
+    let classifieds = ClassifiedsApi::new(feed_urls, client.clone());
 
     let cwd = std::env::current_dir()?;
     event!(Level::INFO, cwd = ?cwd);
