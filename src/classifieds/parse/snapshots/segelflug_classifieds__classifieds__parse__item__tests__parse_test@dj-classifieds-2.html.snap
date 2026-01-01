@@ -1,0 +1,24 @@
+---
+source: src/classifieds/parse/item.rs
+expression: user
+input_file: src/classifieds/parse/test-input/item/dj-classifieds-2.html
+---
+ClassifiedsDetails {
+    location: Some(
+        "Europa",
+    ),
+    photo_urls: [
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252258_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252259_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252260_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252261_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252262_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252263_thb.jpg",
+    ],
+    price: Some(
+        "149.000 €",
+    ),
+    user_link: Some(
+        "https://www.segelflug.de/index.php/de/component/djclassifieds/profile/senner-dominik,22893",
+    ),
+}

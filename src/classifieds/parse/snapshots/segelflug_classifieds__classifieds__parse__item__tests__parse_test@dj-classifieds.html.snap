@@ -1,0 +1,22 @@
+---
+source: src/classifieds/parse/item.rs
+expression: user
+input_file: src/classifieds/parse/test-input/item/dj-classifieds.html
+---
+ClassifiedsDetails {
+    location: Some(
+        "Bamberg-Breitenau, Deutschland",
+    ),
+    photo_urls: [
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252503_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252504_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252505_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252506_thb.jpg",
+    ],
+    price: Some(
+        "165.700 €",
+    ),
+    user_link: Some(
+        "https://www.segelflug.de/index.php/de/component/djclassifieds/profile/ruehr-matthias,22903",
+    ),
+}
