@@ -2,7 +2,6 @@
 source: src/classifieds/rss.rs
 expression: items
 input_file: src/classifieds/test-input/umlaut-crash.xml
-snapshot_kind: text
 ---
 Ok(
     [
@@ -12,7 +11,7 @@ Ok(
                 title: "Suche Astir CS",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64131",
                 description: Some(
-                    "Hallo,Suche einen Astir CS.Freue mich auf Angebote",
+                    "Hallo,\nSuche einen Astir CS.\nFreue mich auf Angebote",
                 ),
                 image_url: None,
             },
@@ -23,7 +22,7 @@ Ok(
                 title: "Taurus 503 Pipistrel",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64130",
                 description: Some(
-                    "Pipistrel Taurus 503, Bauj. 2008, ca. 300 Flugstunden, 115 Motorstunden, Rotax 503, Top Zustand, LX8000,Funk, Transponder, Deutsche Zulassung, Transportanhänger Spindelberger, nagelneuer Ersatzmotor,1 Man AufrüsthilfeGelebte Freiheit und Unabhängigkeit!MwSt. Nicht ausweisbar, Privatverkauf",
+                    "Pipistrel Taurus 503, Bauj. 2008, ca. 300 Flugstunden, \n115 Motorstunden, Rotax 503, Top Zustand, LX8000,\nFunk, Transponder, Deutsche Zulassung, \nTransportanhänger Spindelberger, nagelneuer Ersatzmotor,\n1 Man Aufrüsthilfe\n\nGelebte Freiheit und Unabhängigkeit!\n\nMwSt. Nicht ausweisbar, Privatverkauf",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/641/162662_thumbnail.jpg",
@@ -47,7 +46,7 @@ Ok(
                 title: "DG 808b",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64128",
                 description: Some(
-                    "Baujahr 2005, Starts: 283, Flugstunden ca. 1300, SOLO 2625, Zähler ca.46St.FlügelteilungWinglets 18mgetönte HaubeMückenputzer Pirker/Storka, elektrisch, Bügel im Rumpf integriert, fixiertLiFePo-Board-Aku 14Ah, LadegerätHauptbatterien mit Stecker für externen Rumpfanschluss, schaltbarSchwerpunktkupplungelektrische Propellerbremse, EinfahrautomatikSolarzellen auf RumpfrückenInstrumentenbrett (neu2014)Grundinstrumentierung WinterFunk Becker AR6201Kopfhörer (neu 2020)DEIE-Vario V7Transponder Garrecht VT-01Logger NanoOudie IGC (neu 2019)Flarm mit IGC Logger und ENL-SensorButterfly 57mmADS-B Empfänger TRX 1090, Anzeige über ButterflyESA TotalenergiedüseCobra 15 m, Gfk-Deckel, Baujahr 2005, 100km/h Zulassunggroße Unterflur-Schubladehydraulische RampeRentnerschieneAntischlingerkupplungSpornkuller,2x Alu FlächenstützeFlächenrad IMIAlu Schleppstange4x BenzinkanisterEinmann-Aufrüsthilfe CobraAllwetterbezüge Jaxida uncutabletel: +491722865677",
+                    "Baujahr 2005, Starts: 283, Flugstunden ca. 1300, SOLO 2625, Zähler ca.46St.\nFlügelteilung\nWinglets 18m\ngetönte Haube\nMückenputzer Pirker/Storka, elektrisch, Bügel im Rumpf integriert, fixiertLiFePo-Board-Aku 14Ah, Ladegerät\nHauptbatterien mit Stecker für externen Rumpfanschluss, schaltbar\nSchwerpunktkupplung\nelektrische Propellerbremse, Einfahrautomatik\nSolarzellen auf Rumpfrücken\n\nInstrumentenbrett (neu2014)\nGrundinstrumentierung Winter\nFunk Becker AR6201\nKopfhörer (neu 2020)\nDEI\nE-Vario V7\nTransponder Garrecht VT-01\nLogger Nano\nOudie IGC (neu 2019)\nFlarm mit IGC Logger und ENL-Sensor\nButterfly 57mm\nADS-B Empfänger TRX 1090, Anzeige über Butterfly\nESA Totalenergiedüse\n\nCobra 15 m, Gfk-Deckel, Baujahr 2005, 100km/h Zulassung\ngroße Unterflur-Schublade\nhydraulische Rampe\nRentnerschiene\nAntischlingerkupplung\n\nSpornkuller,\n2x Alu Flächenstütze\nFlächenrad IMI\nAlu Schleppstange\n4x Benzinkanister\nEinmann-Aufrüsthilfe Cobra\n\nAllwetterbezüge Jaxida uncutable\n\ntel: +491722865677",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/641/162661_thumbnail.jpg",
@@ -60,7 +59,7 @@ Ok(
                 title: "Brand new JS3 for sale",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64127",
                 description: Some(
-                    "Type:                                 JS-MD 3\nSpan:                                  15m und 18m\nEngine:                              MD-TJ42 (Turbine)\nFHRS ca.:                           \n \nSN. :                                   3.MD152\nProduction year:              2022\n \nEquipment\n\nLX9000 with V8\n\nWifi, Touch, Remote Stick, MOP, Flap-Sensor\n\nFlarm Power Mouse\n\nIncl. RFB + ADSB\n\nFlarm View\nTransponder TRiG TT-21 \nRadio TRiG TY-91\nWinter Airspeed\n\nGroßkinsky Ring\n\nWinter Altmeter\nWinter Variometer\nAirpath Kompass\nSotecc Canopy Strobe\nBug-Wiper-System JS\nParkbrake\nRetractable Tail-wheel\nPitot &amp; Statik for Elevator\nLeather Interieur\nCockpit Handles Leather\nTail-Dolly\n2x LiFePo4 12V 10Ah\nDual-Charger for Battery\nFuel-Filling adapter\n\n \nPainting Cockpit and Outside:\n\nPainted at M&amp;D in Friedeburg\n\nRAL 9003 Standox\n\nRegistration and Competition marking\n\nSticker\n\n\n Price 180000 EUR ex. VAT (z.B. EUSt. für Deutschland: 34.200€)For more info please contact Zoran Frenc at:zoran.frenc@gmail.com+381691210710 Wapp/Viber",
+                    "Type:                                 JS-MD 3\nSpan:                                  15m und 18m\nEngine:                              MD-TJ42 (Turbine)\nFHRS ca.:                           \n \nSN. :                                   3.MD152\nProduction year:              2022\n \nEquipment\n\nLX9000 with V8\n\nWifi, Touch, Remote Stick, MOP, Flap-Sensor\n\nFlarm Power Mouse\n\nIncl. RFB + ADSB\n\nFlarm View\nTransponder TRiG TT-21 \nRadio TRiG TY-91\nWinter Airspeed\n\nGroßkinsky Ring\n\nWinter Altmeter\nWinter Variometer\nAirpath Kompass\nSotecc Canopy Strobe\nBug-Wiper-System JS\nParkbrake\nRetractable Tail-wheel\nPitot &amp; Statik for Elevator\nLeather Interieur\nCockpit Handles Leather\nTail-Dolly\n2x LiFePo4 12V 10Ah\nDual-Charger for Battery\nFuel-Filling adapter\n\n \nPainting Cockpit and Outside:\n\nPainted at M&amp;D in Friedeburg\n\nRAL 9003 Standox\n\nRegistration and Competition marking\n\nSticker\n\n\n \nPrice 180000 EUR ex. VAT (z.B. EUSt. für Deutschland: 34.200€)\n\nFor more info please contact Zoran Frenc at:\n\nzoran.frenc@gmail.com\n+381691210710 Wapp/Viber",
                 ),
                 image_url: None,
             },
@@ -71,7 +70,7 @@ Ok(
                 title: "SkyButler Einbauhalterung für Apple iPad mini 4 & 5",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64126",
                 description: Some(
-                    "Angeboten wird eine SkyButler Einbauhalterung für Apple iPad mini 4 &amp; 5.\nSie ist neu und unbenutzt.\n \nProduktbeschreibung\nEinbauhalterung für das Instrumentenbrett eines Ultraleichtflugzeuges.Ausschließlich kompatibel mit dem Apple iPad mini der 4. und 5. Generation.• Integriertes Lightning-Ladekabel: Das Gerät wird automatisch beim Einstecken in die Halterung mit Strom versorgt.2• Aktive Belüftung: Ein elektrischer Lüfter (12V) sorgt besonders an heißen Sommertagen für die Kühlung des Geräts. Das Risiko einer Abschaltung durch Überhitzung wird somit deutlich minimiert.• Einfaches Click-System zum Ein- und Ausbau des iPad oder iPhone: Das Gerät wird durch ein einfaches und sicheres Click-System in der Halterung fixiert. Diese bietet sicheren Halt während des Fluges - auch bei starken Turbulenzen - und eine leichte Demontage nach dem Flug.• Flexible Gestaltung der Montage: Einfacher Einbau im Instrumentenbrett durch die optionale Verwendung eines Aluminiumrahmens1 oder direkte passgenaue Integration in das Panel. Bei der Verwendung des mitgelieferten Rahmens genügt es, die Kontur im Instrumentenbrett grob auszuschneiden. Schnittkanten werden vom Rahmen verdeckt. Haben Sie die Möglichkeit ein passgenauen Ausschnitt im Instrumentenbrett herzustellen, so können Sie auf den Aluminiumrahmen verzichten und sparen Platz.• Hochwertige Materialen: Die Halterung wird aus widerstandsfähigen Polyamid hergestellt. Der Rahmen wird aus Aluminium im Laserschnittverfahren passgenau gefertigt und anschließend im Eloxalverfahren behandelt und schwarz eingefärbt.• Nützliche Unterstützung und schickes Design: Das iPad liefert Ihnen in Verbindung mit den gängigen Navigations-Apps alle notwendigen Informationen für Ihren Flug. In Verbindung mit einer SkyButler-Halterung können Sie Ihr bereits vorhandenes EFIS ergänzen oder sogar komplett ersetzen. Durch das intelligente Design der SkyButler-Halterung schließt die Oberfläche Ihres Gerätes mit der des Instrumentenbretts ab und alles erscheint wie aus einem Guss.Lieferumfang: - Halterung aus Polyamid- Aluminiumrahmen, schwarz eloxiert- Lüfter ( bereits vormontiert )- Lightning-Ladekabel ( bereits vormontiert )- Spannungswandler zum Anschluß an das 12V-Bordnetz- Schrauben und Muttern- Bedienungsanleitung mit SchabloneEin Tablet-PC ist im Lieferumfang nicht enthalten!Da die Produkte individuell gefertigt werden, können die Abbildungen von der Realität abweichen. Wichtiger Hinweis:Die SkyButler-Produkte wurden speziell für den Einbau in das Instrumentenbrett eines Ultraleichtflugzeuges entwickelt. So soll die übliche Einbindung eines Tablet-Computers zur Flugnavigation erleichtert werden. Der Einbau erfolgt eigenverantwortlich vom Endanwender, unter Beachtung der jeweils gültigen, gesetzlichen Bestimmungen. Insbesondere ist darauf zu achten, dass die rechtlichen Vorgaben eines sicheren Flugbetriebs eingehalten werden und der Einbau in das Luftfahrzeug gesetzlich erlaubt ist. Wir weisen darauf hin, dass dies bei bestimmten Luftfahrzeugklassen verboten sein kann oder einer Abnahme durch die zuständige Behörde bedarf. Beachten Sie auch unbedingt die Vorgaben des Luftfahrzeug- bzw. Luftsportgeräteherstellers.",
+                    "Angeboten wird eine SkyButler Einbauhalterung für Apple iPad mini 4 &amp; 5.\nSie ist neu und unbenutzt.\n \nProduktbeschreibung\nEinbauhalterung für das Instrumentenbrett eines Ultraleichtflugzeuges.\nAusschließlich kompatibel mit dem Apple iPad mini der 4. und 5. Generation.\n\n• Integriertes Lightning-Ladekabel: Das Gerät wird automatisch beim Einstecken in die Halterung mit Strom versorgt.2\n• Aktive Belüftung: Ein elektrischer Lüfter (12V) sorgt besonders an heißen Sommertagen für die Kühlung des Geräts. Das Risiko einer Abschaltung durch Überhitzung wird somit deutlich minimiert.\n• Einfaches Click-System zum Ein- und Ausbau des iPad oder iPhone: Das Gerät wird durch ein einfaches und sicheres Click-System in der Halterung fixiert. Diese bietet sicheren Halt während des Fluges - auch bei starken Turbulenzen - und eine leichte Demontage nach dem Flug.\n• Flexible Gestaltung der Montage: Einfacher Einbau im Instrumentenbrett durch die optionale Verwendung eines Aluminiumrahmens1 oder direkte passgenaue Integration in das Panel. Bei der Verwendung des mitgelieferten Rahmens genügt es, die Kontur im Instrumentenbrett grob auszuschneiden. Schnittkanten werden vom Rahmen verdeckt. Haben Sie die Möglichkeit ein passgenauen Ausschnitt im Instrumentenbrett herzustellen, so können Sie auf den Aluminiumrahmen verzichten und sparen Platz.\n• Hochwertige Materialen: Die Halterung wird aus widerstandsfähigen Polyamid hergestellt. Der Rahmen wird aus Aluminium im Laserschnittverfahren passgenau gefertigt und anschließend im Eloxalverfahren behandelt und schwarz eingefärbt.\n• Nützliche Unterstützung und schickes Design: Das iPad liefert Ihnen in Verbindung mit den gängigen Navigations-Apps alle notwendigen Informationen für Ihren Flug. In Verbindung mit einer SkyButler-Halterung können Sie Ihr bereits vorhandenes EFIS ergänzen oder sogar komplett ersetzen. Durch das intelligente Design der SkyButler-Halterung schließt die Oberfläche Ihres Gerätes mit der des Instrumentenbretts ab und alles erscheint wie aus einem Guss.\n\nLieferumfang: \n- Halterung aus Polyamid\n- Aluminiumrahmen, schwarz eloxiert\n- Lüfter ( bereits vormontiert )\n- Lightning-Ladekabel ( bereits vormontiert )\n- Spannungswandler zum Anschluß an das 12V-Bordnetz\n- Schrauben und Muttern\n- Bedienungsanleitung mit Schablone\n\nEin Tablet-PC ist im Lieferumfang nicht enthalten!\nDa die Produkte individuell gefertigt werden, können die Abbildungen von der Realität abweichen.\n \nWichtiger Hinweis:\nDie SkyButler-Produkte wurden speziell für den Einbau in das Instrumentenbrett eines Ultraleichtflugzeuges entwickelt. So soll die übliche Einbindung eines Tablet-Computers zur Flugnavigation erleichtert werden. Der Einbau erfolgt eigenverantwortlich vom Endanwender, unter Beachtung der jeweils gültigen, gesetzlichen Bestimmungen. Insbesondere ist darauf zu achten, dass die rechtlichen Vorgaben eines sicheren Flugbetriebs eingehalten werden und der Einbau in das Luftfahrzeug gesetzlich erlaubt ist. Wir weisen darauf hin, dass dies bei bestimmten Luftfahrzeugklassen verboten sein kann oder einer Abnahme durch die zuständige Behörde bedarf. Beachten Sie auch unbedingt die Vorgaben des Luftfahrzeug- bzw. Luftsportgeräteherstellers.",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/641/162655_thumbnail.jpg",
@@ -84,7 +83,7 @@ Ok(
                 title: "JS1 - JS3 fuselage lifting support",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64125",
                 description: Some(
-                    "New fuselage lifting support for JS1 and JS3.\n \n \nThe base material is fiberglass resin - or carbon fiber - or carbon/kevlar.The lifting point can be designed as required for a manual or hydraulic lift, or for a transport trolley, also with screw fixing.\nThe contact surface can be industrial foam or wool felt.\nPrice from 290 euros\n \nContact:\n \nAndrea Weiland\n \n0036307378220\nglidercover@outlook.com",
+                    "New fuselage lifting support for JS1 and JS3.\n \n \nThe base material is fiberglass resin - or carbon fiber - or carbon/kevlar.\nThe lifting point can be designed as required for a manual or hydraulic lift, or for a transport trolley, also with screw fixing.\nThe contact surface can be industrial foam or wool felt.\nPrice from 290 euros\n \nContact:\n \nAndrea Weiland\n \n0036307378220\nglidercover@outlook.com",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/641/162647_thumbnail.jpg",
@@ -123,7 +122,7 @@ Ok(
                 title: "Compaq IPAQ 3950",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64122",
                 description: Some(
-                    "leider ist der Akku defekt aber in der Bucht läßt sich bestimmt etwas passendes finden.Für die Fotos habe ich das Gerät mit seinem Netzteil unter Strom gesetzt.SeeYou Mobile lief einwandfrei auf diesem Gerät, ist aber aus Lizenzgründen nicht dabei.Das transreflektive Display läßt sich auch im direkten Sonnenlicht noch bestens ablesen.Umfang:- IPAQ 3950 mit Stift (Touchscreen, Rücksteller, Kugelschreiber)- Originalverpackung- Kunststoff-Case- Gürteltasche- Cradel (Ladestation)- Netzteil30 EURO  zzgl. Versand",
+                    "leider ist der Akku defekt aber in der Bucht läßt sich bestimmt etwas passendes finden.\nFür die Fotos habe ich das Gerät mit seinem Netzteil unter Strom gesetzt.\nSeeYou Mobile lief einwandfrei auf diesem Gerät, ist aber aus Lizenzgründen nicht dabei.\nDas transreflektive Display läßt sich auch im direkten Sonnenlicht noch bestens ablesen.\nUmfang:\n- IPAQ 3950 mit Stift (Touchscreen, Rücksteller, Kugelschreiber)\n- Originalverpackung\n- Kunststoff-Case\n- Gürteltasche\n- Cradel (Ladestation)\n- Netzteil\n\n30 EURO  zzgl. Versand",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/641/162635_thumbnail.jpg",
@@ -162,7 +161,7 @@ Ok(
                 title: "LiteFlite MK-4; Top Zustand, nur ein Benutzer",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64118",
                 description: Some(
-                    "Nur im Privatflieger genutzt. Nur ich habe den benutzt. (Kein Vereinsfallshirm).\nHerstellungsjahr 2014.\nGewicht 6,7 Kg.\nBei Nichtgebrauch immer in der Transporttasche verstaut.Im Winter immer drinnen im warmen Haus gelagert.\n \nEiner der kleinsten Rettungsschirme auf dem Markt.\nhttps://www.cahoma.aero/slimfit-mk-4?lang=en\nhttps://www.cahoma.aero/_files/ugd/057121_27e99329fe324f1bb77c576e8c17f28f.pdf",
+                    "Nur im Privatflieger genutzt. Nur ich habe den benutzt. (Kein Vereinsfallshirm).\nHerstellungsjahr 2014.\nGewicht 6,7 Kg.\nBei Nichtgebrauch immer in der Transporttasche verstaut.\nIm Winter immer drinnen im warmen Haus gelagert.\n \nEiner der kleinsten Rettungsschirme auf dem Markt.\nhttps://www.cahoma.aero/slimfit-mk-4?lang=en\nhttps://www.cahoma.aero/_files/ugd/057121_27e99329fe324f1bb77c576e8c17f28f.pdf",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/641/162590_thumbnail.jpg",
@@ -175,7 +174,7 @@ Ok(
                 title: "Wing stands for sale",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64117",
                 description: Some(
-                    "Wing stands for sale - 50 Euro\nVery light (2.8kg), made of anodized hardened aluminium, steel profiles and special \"fat\" foam on top\nWing support  for standard class and heavy twoseater, open class gliders. The height is smoothly adjustable. The legs fold for convenient storage.\nThe main center part is welded from steel and covered by yellow/orange or red paint. \nHighlights:\n    Extreme \"Fat\" foam\nWing-stand:\n Weight: 2.800 gr\n    Height: min 65ъп – max 145 cm\nFoam:\nWidth: 50 cm\n Thickness: 5 cm",
+                    "Wing stands for sale - 50 Euro\n\nVery light (2.8kg), made of anodized hardened aluminium, steel profiles and special \"fat\" foam on top\nWing support  for standard class and heavy twoseater, open class gliders. The height is smoothly adjustable. The legs fold for convenient storage.\nThe main center part is welded from steel and covered by yellow/orange or red paint. \nHighlights:\n    Extreme \"Fat\" foam\nWing-stand:\n Weight: 2.800 gr\n    Height: min 65ъп – max 145 cm\nFoam:\nWidth: 50 cm\n Thickness: 5 cm",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/641/162658_thumbnail.jpg",
@@ -201,7 +200,7 @@ Ok(
                 title: "lxnav Nano4",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64115",
                 description: Some(
-                    "Verkaufe einen Nano 4 Logger mit IGC- Zulassung\n- Herstellungsdatum 21.05.2018, Seriennummer 06489\n- leichte Gebrauchsspuren, aber voll funktionsfähig\n- Certificate of calibration von 23.05.2018 \n- verschiedene Ladekabel enthalten\n- USB-Kabel enthalten \n- passender Schwanenhals enthalten\nWeitere Informationen zum Gerät unter http://www.lx-avionik.de/produkte/nano4/ verfügbar\nVersand Deutschland weit möglich, bei Kosten Übernahme.VB 650€\nPrivatverkauf, somit keine Rücknahme oder Garantieansprüche.",
+                    "Verkaufe einen Nano 4 Logger mit IGC- Zulassung\n- Herstellungsdatum 21.05.2018, Seriennummer 06489\n\n- leichte Gebrauchsspuren, aber voll funktionsfähig\n- Certificate of calibration von 23.05.2018 \n- verschiedene Ladekabel enthalten\n- USB-Kabel enthalten \n- passender Schwanenhals enthalten\n\nWeitere Informationen zum Gerät unter http://www.lx-avionik.de/produkte/nano4/ verfügbar\n\nVersand Deutschland weit möglich, bei Kosten Übernahme.\n\nVB 650€\n\nPrivatverkauf, somit keine Rücknahme oder Garantieansprüche.",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/641/162584_thumbnail.jpg",
@@ -227,7 +226,7 @@ Ok(
                 title: "Oudie IGC",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64112",
                 description: Some(
-                    "Zum Verkauf steht mein gut erhaltener Oudie IGC aus 2018.Das Gerät ist sehr gepflegt und hat gerade bei NavITer einen neuen Akku bekommen.Der Oudie arbeitet super zuverlässig und bietet eine absolut autarke Navigation zum mitnehmen in jedes Flugzeug, mit langer Akkulaufzeit (Bordnetzanschluss ist auch bei sehr langen Flügen nicht erforderlich).Mit dabei:-Ladegerät mit Ladekabel-Verbindungskabel-Saugnapfhalterung-Autoladegerät (Zigarettenanzünder-Buchse)Bei Fragen, einfach melden.",
+                    "Zum Verkauf steht mein gut erhaltener Oudie IGC aus 2018.\nDas Gerät ist sehr gepflegt und hat gerade bei NavITer einen neuen Akku bekommen.\nDer Oudie arbeitet super zuverlässig und bietet eine absolut autarke Navigation zum mitnehmen in jedes Flugzeug, mit langer Akkulaufzeit (Bordnetzanschluss ist auch bei sehr langen Flügen nicht erforderlich).\n\nMit dabei:\n-Ladegerät mit Ladekabel\n-Verbindungskabel\n-Saugnapfhalterung\n-Autoladegerät (Zigarettenanzünder-Buchse)\n\nBei Fragen, einfach melden.",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/641/162569_thumbnail.jpg",
@@ -240,7 +239,7 @@ Ok(
                 title: "Suche MT-Propeller A-54B Zwischenflansch",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64110",
                 description: Some(
-                    "Moin!Wir benötigen für unseren Rotax-Falken den o.g. Zwischenflansch zum Anbau eines Festpropellers.Wenn jemand so einen rumliegen hat, bitte anbieten.",
+                    "Moin!\nWir benötigen für unseren Rotax-Falken den o.g. Zwischenflansch zum Anbau eines Festpropellers.\nWenn jemand so einen rumliegen hat, bitte anbieten.",
                 ),
                 image_url: None,
             },
@@ -251,7 +250,7 @@ Ok(
                 title: "Suche MTV-1-A/175-05 Verstellpropeller",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64108",
                 description: Some(
-                    "Moin! Da sich die Reparatur unseres Propellers sehr in die Länge zieht, suchen wir für unseren Falken dringend einen Propeller des o.g. Musters.",
+                    "Moin! \nDa sich die Reparatur unseres Propellers sehr in die Länge zieht, suchen wir für unseren Falken dringend einen Propeller des o.g. Musters.",
                 ),
                 image_url: None,
             },
@@ -262,7 +261,7 @@ Ok(
                 title: "Kestrel 17m zu verkaufen",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64107",
                 description: Some(
-                    "Wegen Hobbyaufgabe verkaufe ich meinen Kestrel 17m. Werknummer 47, Bj.71, 3079 h, 857 Starts.57mm Winterinstrumente, LX 7007 pro IGC mit integrierten Flarm und Voicemdul.Eberle Anhänger, TÜV 07.2024. Mertens Fallschirm. Allweather covers. Einmann Aufrüsthilfe. Zwei Flächenstützen. Gesamtpaket für 17500 Euro",
+                    "Wegen Hobbyaufgabe verkaufe ich meinen Kestrel 17m. Werknummer 47, Bj.71, 3079 h, 857 Starts.\n57mm Winterinstrumente, LX 7007 pro IGC mit integrierten Flarm und Voicemdul.\nEberle Anhänger, TÜV 07.2024. Mertens Fallschirm. Allweather covers. Einmann Aufrüsthilfe. \nZwei Flächenstützen. Gesamtpaket für 17500 Euro",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/641/162537_thumbnail.jpg",
@@ -275,7 +274,7 @@ Ok(
                 title: "Beautiful and competitive LS8-18/15 for sale",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64106",
                 description: Some(
-                    "Beautiful LS8, with both 15 and 18 meter tips, completely repainted last year at Novak in Slovenia to a beautiful finish. This glider is competition ready and highly competitive, and won the UK Standards Nationals in 2015 as well as a bronze medal in the WWGC in 2020. Selling as moving to 18 meter class.\n \nThe glider is available immediately after the WWGC in August and can be viewed during the competition at Husbos, UK. Will deliver to Calais if needed.\n \n€ 82,500 for the glider, trailer and accessories. Contact me on j34.business@gmail.com1500 hours, manufactured in 1997.\nMore photos here: https://photos.app.goo.gl/ryEUfHq5R4pwjsDB6\n \npanel:\nLX NAV S100 IGC logger, flight computer\nLX NAV control stick\nPower Flarm with dual antennas license\nFlarm display\nBecker AR 6201\nDual switches for each instrument\nWinter ASI, altimeter and compass\n2 LiFePO4 10Ah batteries\n \nTrailers and accessories:\nCobra trailer, including additional middle rail\nFull Vertigo covers in excellent condition (2 years old)\nFull towout gear\nFull water ballast gear\nLS8 rigging handle\n2 trestles\nMany spares",
+                    "Beautiful LS8, with both 15 and 18 meter tips, completely repainted last year at Novak in Slovenia to a beautiful finish. This glider is competition ready and highly competitive, and won the UK Standards Nationals in 2015 as well as a bronze medal in the WWGC in 2020. Selling as moving to 18 meter class.\n \nThe glider is available immediately after the WWGC in August and can be viewed during the competition at Husbos, UK. Will deliver to Calais if needed.\n \n€ 82,500 for the glider, trailer and accessories.\n \nContact me on j34.business@gmail.com\n1500 hours, manufactured in 1997.\n\nMore photos here: https://photos.app.goo.gl/ryEUfHq5R4pwjsDB6\n \npanel:\nLX NAV S100 IGC logger, flight computer\nLX NAV control stick\nPower Flarm with dual antennas license\nFlarm display\nBecker AR 6201\nDual switches for each instrument\nWinter ASI, altimeter and compass\n2 LiFePO4 10Ah batteries\n \nTrailers and accessories:\nCobra trailer, including additional middle rail\nFull Vertigo covers in excellent condition (2 years old)\nFull towout gear\nFull water ballast gear\nLS8 rigging handle\n2 trestles\nMany spares",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/641/162536_thumbnail.jpg",
@@ -349,7 +348,7 @@ Ok(
                 title: "Verkaufe DG-600/18",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64100",
                 description: Some(
-                    "Zum Verkauf steht eine sehr gepflegte DG-600 mit Transponder:\n- DG-600/18, D-6898\n- Werknr.: 6-46\n- Baujahr 1990\n- Spannweiten: 15m, 17m, 18m WL\n- Starts: 561\n- Stunden: 2291- ARC bis 30.11.2022- Kupplung (nur SP-Kupplung) noch 1922 Starts offen (letzte GÜ 2014)- Gurte (Gadringer) bis 28.3.2026\n- Funkgerät KRT-2\n- geprüfter Transponder TRT-800\n- Rechner LX 7007C mit Logger Colibri\n- FLARM F6 mit Butterfly-Display\n- Winter Höhenmesser u. Vario in 57 mm\n- Wassertanks je 65 Liter funktionsfähig\n- Hänger Cobra mit GFK-Deckel, Baujahr 1991\n \nWeitere Info´s und Bilder auf Anfrage.\n \nPreis: 49.000 € VB",
+                    "Zum Verkauf steht eine sehr gepflegte DG-600 mit Transponder:\n- DG-600/18, D-6898\n- Werknr.: 6-46\n- Baujahr 1990\n- Spannweiten: 15m, 17m, 18m WL\n- Starts: 561\n- Stunden: 2291\n- ARC bis 30.11.2022\n- Kupplung (nur SP-Kupplung) noch 1922 Starts offen (letzte GÜ 2014)\n- Gurte (Gadringer) bis 28.3.2026\n- Funkgerät KRT-2\n- geprüfter Transponder TRT-800\n- Rechner LX 7007C mit Logger Colibri\n- FLARM F6 mit Butterfly-Display\n- Winter Höhenmesser u. Vario in 57 mm\n- Wassertanks je 65 Liter funktionsfähig\n- Hänger Cobra mit GFK-Deckel, Baujahr 1991\n \nWeitere Info´s und Bilder auf Anfrage.\n \nPreis: 49.000 € VB",
                 ),
                 image_url: None,
             },
@@ -373,7 +372,7 @@ Ok(
                 title: "ACLcontrol für FLARM (Blitzer)",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64098",
                 description: Some(
-                    "Biete ACLcontrol für FLARMhttps://shop.segelflugbedarf24.de/Flugzeugausstattung/FLARM-R-und-ADS-B/Zubehoer/ACLcontrol-fuer-FLARM::358.html?language=de150EUR + Versand",
+                    "Biete ACLcontrol für FLARM\n\nhttps://shop.segelflugbedarf24.de/Flugzeugausstattung/FLARM-R-und-ADS-B/Zubehoer/ACLcontrol-fuer-FLARM::358.html?language=de\n\n150EUR + Versand",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/640/162522_thumbnail.jpg",
@@ -410,7 +409,7 @@ Ok(
                 title: "LX10k mit Joystick",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64095",
                 description: Some(
-                    "Biete LX10k mit Joystick (Vibrationswarnung), Lautsprecher, und Brücke zu KRT2. Ohne Vario Indicator (der kann als analoge oder digitale Variante nachgekauft werden).IGC Valide, Höhenkalibration 2018https://www.lxnavigation.com/de/segelfliegen/navigationssystem/lx-10k/https://www.lxnavigation.com/de/lx-10k/lx-10khttps://www.lxnavigation.com/de/Segelfliegen/Zubehoer/Joystick/2000EUR + Versand",
+                    "Biete LX10k mit Joystick (Vibrationswarnung), Lautsprecher, und Brücke zu KRT2. \n\nOhne Vario Indicator (der kann als analoge oder digitale Variante nachgekauft werden).\n\nIGC Valide, Höhenkalibration 2018\n\nhttps://www.lxnavigation.com/de/segelfliegen/navigationssystem/lx-10k/\nhttps://www.lxnavigation.com/de/lx-10k/lx-10k\nhttps://www.lxnavigation.com/de/Segelfliegen/Zubehoer/Joystick/\n\n2000EUR + Versand",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/640/162520_thumbnail.jpg",
@@ -423,7 +422,7 @@ Ok(
                 title: "Winter Vario StVM 5",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64094",
                 description: Some(
-                    "Biete Winter Vario StVM 5 inkl. FormeOnehttps://shop.segelflugbedarf24.de/Flugzeugausstattung/Instrumente/Variometer/Stauscheiben-Variometer-5-StVM-5-57-mm::959.html?language=de450EUR + Versand",
+                    "Biete Winter Vario StVM 5 inkl. FormeOne\n\nhttps://shop.segelflugbedarf24.de/Flugzeugausstattung/Instrumente/Variometer/Stauscheiben-Variometer-5-StVM-5-57-mm::959.html?language=de\n\n450EUR + Versand",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/640/162519_thumbnail.jpg",
@@ -436,7 +435,7 @@ Ok(
                 title: "Trig TT21 Transponder",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64093",
                 description: Some(
-                    "Biete Trig TT21 Transponder (Der kleinste Mode S Transponder für die allgemeine Luftfahrt) mit Bedinteil, Halterung, Handbüchern, und FormOne. https://www.trig-avionics.com/library/TT2xBrochureDE.pdfhttps://shop.segelflugbedarf24.de/Flugzeugausstattung/Transponder/Geraete/Mode-S-Transponder-TRIG-TT21-Klasse-2::1728.html1850EUR + Versand",
+                    "Biete Trig TT21 Transponder (Der kleinste Mode S Transponder für die allgemeine Luftfahrt) mit Bedinteil, Halterung, Handbüchern, und FormOne. \n\nhttps://www.trig-avionics.com/library/TT2xBrochureDE.pdf\nhttps://shop.segelflugbedarf24.de/Flugzeugausstattung/Transponder/Geraete/Mode-S-Transponder-TRIG-TT21-Klasse-2::1728.html\n\n1850EUR + Versand",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/640/162518_thumbnail.jpg",
@@ -449,7 +448,7 @@ Ok(
                 title: "suche/wanted LS8 SC or E",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64092",
                 description: Some(
-                    "i want to buy for next season an LS8 E or SCmake me your offer.",
+                    "i want to buy for next season an LS8 E or SC\nmake me your offer.",
                 ),
                 image_url: None,
             },
@@ -460,7 +459,7 @@ Ok(
                 title: "Ventus cM, äußerer, linker Hauptflügel",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64091",
                 description: Some(
-                    "Biete den äußerel, linken Hauptflügel vom Ventus cM zum kauf an.Wie abgebildet.Die Ober- und Unterschale und   die Endrippe sind unbeschädigt und lassen sich z.B. für den Austausch von Schalenteilen verwenden.Leider nur Abholung.Preis VS",
+                    "Biete den äußerel, linken Hauptflügel vom Ventus cM zum kauf an.\n\nWie abgebildet.\n\nDie Ober- und Unterschale und   die Endrippe sind unbeschädigt und lassen sich z.B. für den Austausch von Schalenteilen verwenden.\n\nLeider nur Abholung.\n\nPreis VS",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/640/162515_thumbnail.jpg",
@@ -473,7 +472,7 @@ Ok(
                 title: "Suche Ventus 2ax",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64089",
                 description: Some(
-                    "Ich suche einen (originaler) Ventus 2ax mit guter Lackierung und Gutem anhanger.I am looking for an (origanal) Ventus 2ax with good paint and trailer.",
+                    "Ich suche einen (originaler) Ventus 2ax mit guter Lackierung und Gutem anhanger.\n\nI am looking for an (origanal) Ventus 2ax with good paint and trailer.",
                 ),
                 image_url: None,
             },
@@ -484,7 +483,7 @@ Ok(
                 title: "LX 5 PF Kabel",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64088",
                 description: Some(
-                    "Zum Anschluss von Flarm an LX 9000.Preis inkl Versand",
+                    "Zum Anschluss von Flarm an LX 9000.\nPreis inkl Versand",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/640/162514_thumbnail.jpg",
@@ -497,7 +496,7 @@ Ok(
                 title: "LifePo4 12V 10Ah Akku",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64087",
                 description: Some(
-                    "Jubatec aus Sammelbestellung(sehr bewährt / 3j Garantie!)10Ah 120€12Ah 150€(UL Zertifikat liegt vor)",
+                    "Jubatec aus Sammelbestellung\n(sehr bewährt / 3j Garantie!)\n10Ah 120€\n12Ah 150€\n(UL Zertifikat liegt vor)",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/640/162503_thumbnail.jpg",
@@ -523,7 +522,7 @@ Ok(
                 title: "Suche Klappdachanhänger!!",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64085",
                 description: Some(
-                    "Suche Klappdachanhänger. Zustand und Herstellet ist ziemlich egal und Tüv auch.Einfach alles anbieten!!",
+                    "Suche Klappdachanhänger. Zustand und Herstellet ist ziemlich egal und Tüv auch.\nEinfach alles anbieten!!",
                 ),
                 image_url: None,
             },
@@ -547,7 +546,7 @@ Ok(
                 title: "EASA certified JS1C 18m/21m Jet",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64082",
                 description: Some(
-                    "This is last JS1C Revelation built to date – S/N 126. It is EASA certified.It has no accident history and has been maintained by the owner/operator and M&amp;D Flugzeugbau.All applicable Service Bulletins to date have been applied, including SB-MD01-005.This allows you to fill the outboard 21m tips from above.Pitot-static instruments, compass and transponder verified in 2022. Next check in 2024.All avionics software is up to date, including the flarm 2022 obstacle database for the Alps.The glider currently has 411:29 hours flight time and 102 landings, the jet 6:28 hours run time and 86 cycles. The Airworthiness Review Certificate and annual inspections are valid through March 2023!This offer includes the following items:\nGeneral...JS1C Revelation 1C.MD.12618m EVO and 21m outboard tipsJet Sustainer SystemEASA type certificateAnti-collision LED strobes in finElectric bugwiper system (new retrieval cables 2022)Removable nose trip weightsO2 cylinder mountTOST nose and CG release hooksGreen tinted canopy with scoopDelux Gagula cockpit interiorPaint and Finish...2KPU finishViynl external registration/competition markings - RAL 7035 light greyAnti-collision paint nose, wingtips, tail - RAL 2005 luminescent orange\nInstruments...Winter 7 FMS 421 airspeed indicatorGroSkinsky ASI variable camber flap ringWinter 5451 57mm mechanical altimeterWinter 5m 57mm mechanical variometerPAI 700 magnetic compasLX9000 w/ Power Flarm GPS/glide calculator,LX V8 electronic variometerLX remote grip 24mmLX MOP required for competition flyingTrig TY91 8.33kHz VHFTrig TT22 Mode-S 250W class I transponderKannad 406AF compact ELT &amp; switchFlarm LED on instrument panel combingDolba DB-1 transponder antenna in the finStandard Flarm antenna through instrument coverLXNAV 232 bridgeRAM ball for X-Grip and PDA/GoProRS 232 5 pin connectorBatteries...12V LiFePO 7/10Ah two main batteries with jet and avionic breakers12V LiFePO 7/10 additional fixed installation with avionics breakerSmart charger and cables for LiFePO batteriesExternal charge plug under instrument panelGround Support...JS wing stands (three)JS wing lifting handles (two)JS tail dollyJS tow barIMI wing walkerCobra rigging aidCloud Dancer 18m/21m all weather coversPandora canopy coverInstrument panel coverFelt wingtip covers 18m &amp; 21mFueling kit (pump, hoses, jerry can)Rigging toolBallast cap &amp; drain toolExcentric pin &amp; wrenchTie-down shellMisc...Aircraft/Jet flight &amp; maintenance manualsMaintenance records &amp; logbooksWeight and balance calculatorRigging bagDocument bagTurbine shipping caseTrailer...Cobra 18/21m trailer with EU CoCFibreglass top/aluminum baseDouble gas struts with locking mechanismSpare wheel underneathStorage drawer underneathStrapVertical supportsJack &amp; wrenchSolar panel &amp; 2 chargersAnti-skid couplingAnti-theft lock &amp; ballWing holders for both 18/21mDrawbar New tires including spare – 2022.\nNota Bene...\nThe competition number in most of the photos is 4E but has now been changed to 4F.As 4E was my father's competition number, I consider it a sort of familly heirloom.This sailplane is registered in Switzerland where Swiss VAT and duties have already been paid. Non-Swiss customers can easily re-register the glider within the EASA zone.However, they may incur VAT and duties upon importing the glider into their customs jurisdiction.Please contact me in English or Frenchrian.monnahan@gmail.com",
+                    "This is last JS1C Revelation built to date – S/N 126. It is EASA certified.\nIt has no accident history and has been maintained by the owner/operator and M&amp;D Flugzeugbau.\nAll applicable Service Bulletins to date have been applied, including SB-MD01-005.\nThis allows you to fill the outboard 21m tips from above.\nPitot-static instruments, compass and transponder verified in 2022. Next check in 2024.\nAll avionics software is up to date, including the flarm 2022 obstacle database for the Alps.\nThe glider currently has 411:29 hours flight time and 102 landings, the jet 6:28 hours run time and 86 cycles. \nThe Airworthiness Review Certificate and annual inspections are valid through March 2023!\n\nThis offer includes the following items:\nGeneral...\nJS1C Revelation 1C.MD.126\n18m EVO and 21m outboard tips\nJet Sustainer System\nEASA type certificate\nAnti-collision LED strobes in fin\nElectric bugwiper system (new retrieval cables 2022)\nRemovable nose trip weights\nO2 cylinder mount\nTOST nose and CG release hooks\nGreen tinted canopy with scoop\nDelux Gagula cockpit interior\n\nPaint and Finish...\n2KPU finish\nViynl external registration/competition markings - RAL 7035 light grey\nAnti-collision paint nose, wingtips, tail - RAL 2005 luminescent orange\nInstruments...\nWinter 7 FMS 421 airspeed indicator\nGroSkinsky ASI variable camber flap ring\nWinter 5451 57mm mechanical altimeter\nWinter 5m 57mm mechanical variometer\nPAI 700 magnetic compas\nLX9000 w/ Power Flarm GPS/glide calculator,\nLX V8 electronic variometer\nLX remote grip 24mm\nLX MOP required for competition flying\nTrig TY91 8.33kHz VHF\nTrig TT22 Mode-S 250W class I transponder\nKannad 406AF compact ELT &amp; switch\nFlarm LED on instrument panel combing\nDolba DB-1 transponder antenna in the fin\nStandard Flarm antenna through instrument cover\nLXNAV 232 bridge\nRAM ball for X-Grip and PDA/GoPro\nRS 232 5 pin connector\n\nBatteries...\n12V LiFePO 7/10Ah two main batteries with jet and avionic breakers\n12V LiFePO 7/10 additional fixed installation with avionics breaker\nSmart charger and cables for LiFePO batteries\nExternal charge plug under instrument panel\n\nGround Support...\nJS wing stands (three)\nJS wing lifting handles (two)\nJS tail dolly\nJS tow bar\nIMI wing walker\nCobra rigging aid\nCloud Dancer 18m/21m all weather covers\nPandora canopy cover\nInstrument panel cover\nFelt wingtip covers 18m &amp; 21m\nFueling kit (pump, hoses, jerry can)\nRigging tool\nBallast cap &amp; drain tool\nExcentric pin &amp; wrench\nTie-down shell\n\nMisc...\nAircraft/Jet flight &amp; maintenance manuals\nMaintenance records &amp; logbooks\nWeight and balance calculator\nRigging bag\nDocument bag\nTurbine shipping case\n\nTrailer...\nCobra 18/21m trailer with EU CoC\nFibreglass top/aluminum base\nDouble gas struts with locking mechanism\nSpare wheel underneath\nStorage drawer underneath\nStrap\nVertical supports\nJack &amp; wrench\nSolar panel &amp; 2 chargers\nAnti-skid coupling\nAnti-theft lock &amp; ball\nWing holders for both 18/21m\nDrawbar \nNew tires including spare – 2022.\nNota Bene...\nThe competition number in most of the photos is 4E but has now been changed to 4F.\nAs 4E was my father's competition number, I consider it a sort of familly heirloom.\n\nThis sailplane is registered in Switzerland where Swiss VAT and duties have already been paid. \nNon-Swiss customers can easily re-register the glider within the EASA zone.\nHowever, they may incur VAT and duties upon importing the glider into their customs jurisdiction.\n\nPlease contact me in English or French\nri…",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/640/162490_thumbnail.jpg",
@@ -560,7 +559,7 @@ Ok(
                 title: "JS3 JET serial number 74 in mint condition",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64081",
                 description: Some(
-                    "FOR SALE\nJS3 JET „74“\n \n·       Serial Number 03-074 (firs hand)\n·       Built November 2019 (delivery without the jet)\n·       NEW Jet installed May 2022before shipping to Europe and apart from ground testing has never been used\n·       300 hrs\n·       100 starts\n·       18m wing tips\n·       EASA Type Certification D-xxxx registration\nInstrumentation – (all new at 2019)\n·       LX 9070 with power flarm and v8 variometer\n·       LX nav s10\n·       Winter airspeed and mechanical vario (kph &amp; m/s)\n·       AIR AVIONIC combined radio, transponder, altimeter\nEquipment – (all new at 2019)\n·       Complete Jonker’s tow out gear (tail dolly, wing dolly, tow out bar)\n·       Cloud Dancer covers\n·       2 x wing stands\n·       Batteries and charger\nOptional\n·       NEW COBRA CLUBSTAR trailer\n·       15m wing tips can be arranged\n·       Mountain high oxygen system\n·       Parachute\n \nPrice\n175.000,- € excluding VAT\nGlider in mint condition, has always been in hangar inside, never outside.\nJohn Coutts flew a 1100 km at 177 km/h in February 2022 with it. Just look on WeGlide.",
+                    "FOR SALE\nJS3 JET „74“\n \n·       Serial Number 03-074 (firs hand)\n·       Built November 2019 (delivery without the jet)\n·       NEW Jet installed May 2022\nbefore shipping to Europe and apart from ground testing has never been used\n·       300 hrs\n·       100 starts\n·       18m wing tips\n·       EASA Type Certification D-xxxx registration\nInstrumentation – (all new at 2019)\n·       LX 9070 with power flarm and v8 variometer\n·       LX nav s10\n·       Winter airspeed and mechanical vario (kph &amp; m/s)\n·       AIR AVIONIC combined radio, transponder, altimeter\nEquipment – (all new at 2019)\n·       Complete Jonker’s tow out gear (tail dolly, wing dolly, tow out bar)\n·       Cloud Dancer covers\n·       2 x wing stands\n·       Batteries and charger\nOptional\n·       NEW COBRA CLUBSTAR trailer\n·       15m wing tips can be arranged\n·       Mountain high oxygen system\n·       Parachute\n \nPrice\n175.000,- € excluding VAT\nGlider in mint condition, has always been in hangar inside, never outside.\nJohn Coutts flew a 1100 km at 177 km/h in February 2022 with it. Just look on WeGlide.",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/640/162486_thumbnail.jpg",
@@ -586,7 +585,7 @@ Ok(
                 title: "Bohli 68-PVF-2",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64079",
                 description: Some(
-                    "Schönen guten Tag,aufgrund eines Instrumentenumbaus habe ich ein voll funktionsfähiges 57mm Bohli Drallbandvariometer 68-PVF-2 Variometer zu verkaufen, dieses ist ab KW34 verfügbar.Vielen Dank.Beste FliegergrüßeDa es sich um einen Privatverkauf handelt kann keine Gewährleistung gegeben werden.Der Preis inkludiert den Versand in die EU.",
+                    "Schönen guten Tag,\n\naufgrund eines Instrumentenumbaus habe ich ein voll funktionsfähiges 57mm Bohli Drallbandvariometer 68-PVF-2 Variometer zu verkaufen, dieses ist ab KW34 verfügbar.\n\nVielen Dank.\n\nBeste Fliegergrüße\n\nDa es sich um einen Privatverkauf handelt kann keine Gewährleistung gegeben werden.\nDer Preis inkludiert den Versand in die EU.",
                 ),
                 image_url: None,
             },
@@ -608,7 +607,7 @@ Ok(
                 title: "Suche S100 Vario",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64077",
                 description: Some(
-                    "Bin auf der Suche nach einem S100 Variometer.Beste Dank.",
+                    "Bin auf der Suche nach einem S100 Variometer.\n\nBeste Dank.",
                 ),
                 image_url: None,
             },
@@ -619,7 +618,7 @@ Ok(
                 title: "Suche / Looking for ASH26E",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=64076",
                 description: Some(
-                    "Looking for a ASh26E accident free. Price according status",
+                    "Looking for a ASh26E accident free. \n\nPrice according status",
                 ),
                 image_url: None,
             },

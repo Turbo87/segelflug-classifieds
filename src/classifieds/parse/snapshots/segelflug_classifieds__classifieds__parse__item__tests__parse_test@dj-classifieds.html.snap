@@ -5,7 +5,7 @@ input_file: src/classifieds/parse/test-input/item/dj-classifieds.html
 ---
 ClassifiedsDetails {
     description: Some(
-        "Komplette ASG 29e2050h15m und 18m SpannweitePU Lackierung / getönte Haube MückenputzerHecktank5 Jahreskontrolle Motor in 11/25 durchgeführtLX 8000 4. GenWölbklappensensorPower FLARM LX Knüppelfernbedienung Cobra Anhänger100 km/h Zulassung/ Reifen 1 Jahr altKurbelstützenFlügelstütze / Flächenrad / Zugstange / KullerWeiteres ZubehörHaubenblitzer (noch nicht eingebaut) IMI Aufrüsthilfe",
+        "Komplette ASG 29e\n\n2050h\n15m und 18m Spannweite\nPU Lackierung / getönte Haube \nMückenputzer\nHecktank\n5 Jahreskontrolle Motor in 11/25 durchgeführt\n\nLX 8000 4. Gen\nWölbklappensensor\nPower FLARM \nLX Knüppelfernbedienung \n\nCobra Anhänger\n100 km/h Zulassung/ Reifen 1 Jahr alt\nKurbelstützen\nFlügelstütze / Flächenrad / Zugstange / Kuller\n\nWeiteres Zubehör\nHaubenblitzer (noch nicht eingebaut) IMI Aufrüsthilfe",
     ),
     location: Some(
         "Bamberg-Breitenau, Deutschland",

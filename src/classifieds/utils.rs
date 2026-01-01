@@ -10,8 +10,14 @@ pub fn strip_html(value: &str) -> String {
 pub fn sanitize_description(value: &str) -> String {
     const LENGTH_LIMIT: usize = 3500;
 
+    // replace explicit line breaks
+    let value = value
+        .replace("<br>", "\n")
+        .replace("<br/>", "\n")
+        .replace("<br />", "\n");
+
     // strip HTML tags
-    let text = strip_html(value);
+    let text = strip_html(&value);
 
     // replace HTML entities (only &nbsp; for now...)
     let text = text.replace("&nbsp;", " ");
