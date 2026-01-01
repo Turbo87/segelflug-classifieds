@@ -1,0 +1,864 @@
+---
+source: src/classifieds/rss.rs
+expression: items
+input_file: src/classifieds/test-input/dj-classifieds.xml
+---
+Ok(
+    [
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-motorplanes,11/sf25c-limbach-1700,473",
+                title: "SF25C Limbach 1700",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-motorplanes,11/sf25c-limbach-1700,473",
+                description: Some(
+                    "Wegen mangelnder Auslastung verkaufen wir unseren SF25C",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/473_screenshot_2026-01-01_145542_thm.png",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-radio-833,25/becker-ar-6201-002,469",
+                title: "Becker AR 6201-(002)",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-radio-833,25/becker-ar-6201-002,469",
+                description: Some(
+                    "geprüftes Becker Funkgerät AR6201-002 mit Form 1",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/469_img_0154_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-motorplanes,11/vans-rv-10,462",
+                title: "Vans RV-10",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-motorplanes,11/vans-rv-10,462",
+                description: Some(
+                    "fertig zugelassen Vans RV-10",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/462_img_1146_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-miscellaneous,47/iss-outdoor-ueberzuege-v2c,458",
+                title: "ISS Outdoor Überzüge V2c",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-miscellaneous,47/iss-outdoor-ueberzuege-v2c,458",
+                description: Some(
+                    "ISS Flugzeugüberzüge Ventus 2c",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/458_img_4533_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-radio-833,25/becker-ar6201-022,457",
+                title: "Becker AR6201-(022)",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-radio-833,25/becker-ar6201-022,457",
+                description: Some(
+                    "Becker AR6201-(022) in like-new condition",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/457_tempimageqlejyj_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/dg400-17mt-based-in-italy,433",
+                title: "DG400 17mt based in Italy",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/dg400-17mt-based-in-italy,433",
+                description: Some(
+                    "The glider has been overhauled in 2021/22, with fully new electrical plant by Cantorair and fully serviced engine by Binder",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/433_20250928_115415_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/stemme-s10,423",
+                title: "Stemme S10",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/stemme-s10,423",
+                description: Some(
+                    "Stemme S10 for sale, well maintained, extensive history from new, Limbach engine, own trailer",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/423_barry______________miles_-_copy_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/mittelschiene-cobra,414",
+                title: "Mittelschiene Cobra",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/mittelschiene-cobra,414",
+                description: Some(
+                    "Mittelschiene Cobra",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/414_mittelschiene_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/spornradfalle,413",
+                title: "Spornradfalle",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/spornradfalle,413",
+                description: Some(
+                    "Spornradfalle Ventus 2",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/413_spornradfalle_klein_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-motorplanes,11/pipistrel-sinus-for-sale,412",
+                title: "pipistrel sinus for sale",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-motorplanes,11/pipistrel-sinus-for-sale,412",
+                description: Some(
+                    "SINUS PIPISTREL FOR SALE",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/412_pxl_20250830_102616807_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/spornfalle-einziehsporn,411",
+                title: "Spornfalle Einziehsporn",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/spornfalle-einziehsporn,411",
+                description: Some(
+                    "Spornradfalle Cobra für Einziehfahrwerk",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/411_spornradfalle_as33_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/flaechenwagenauflage-cobra,410",
+                title: "Flächenwagenauflage Cobra",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/flaechenwagenauflage-cobra,410",
+                description: Some(
+                    "Flächenwagenauflage Cobra für Ventus 2",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/410_flaechenwagenauflagen_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/flaechenniederhalter-cobra,409",
+                title: "Flächenniederhalter Cobra",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/flaechenniederhalter-cobra,409",
+                description: Some(
+                    "Flächenniederhalter Cobra",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/409_flaechenniederhalter_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/abschlussblech-cobra,408",
+                title: "Abschlussblech Cobra",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/abschlussblech-cobra,408",
+                description: Some(
+                    "Blech für Cobra Anhänger",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/408_blech_vorne_2_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/aussenfluegelhalter,407",
+                title: "Außenflügelhalter",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/aussenfluegelhalter,407",
+                description: Some(
+                    "Ein Satz Außenflügelhalterungen für Cobra Anhänger, Passen für Ventus 2",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/407_aussenfluegehalter_4_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-motorplanes,11/robin-dr400-180-remo,366",
+                title: "Robin DR400/180 Remo",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-motorplanes,11/robin-dr400-180-remo,366",
+                description: Some(
+                    "Der Sportfliegerclub Fürstenfeld verkauft diese Robin DR400/180 Remo aufgrund Umstrukturierung des Flugzeugparks und zu geringer Auslastung.",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/366_img_4169_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/dg400-d-kflo,356",
+                title: "DG400 D-KFLO",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/dg400-d-kflo,356",
+                description: Some(
+                    "Suche Eigner DG400 D-KFLO.",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/356_img_2262_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/glasfluegel-205-club-libel,317",
+                title: "Glasflügel 205 Club Libel",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/glasfluegel-205-club-libel,317",
+                description: Some(
+                    "Excellent condition Glasflügel Club Libelle 205 from 1974.",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/317_libelle_2_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/dg400-for-sale,297",
+                title: "DG400 for sale",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/dg400-for-sale,297",
+                description: Some(
+                    "DG 400 for sale with trailer",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/297_20220918_152315_-_copie_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-mechanical-instruments,24/kompass-schanz,253",
+                title: "Kompass, Schanz",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-mechanical-instruments,24/kompass-schanz,253",
+                description: Some(
+                    "Kompass, Schanz",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/253_img_3231_thm.jpeg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-mechanical-instruments,24/libelle,252",
+                title: "Libelle",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-mechanical-instruments,24/libelle,252",
+                description: Some(
+                    "Libelle",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/252_img_2715_thm.jpeg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-flarm,27/butterfly57displaykabel,441",
+                title: "Butterfly 57 Display",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-flarm,27/butterfly57displaykabel,441",
+                description: Some(
+                    "Butterfly 57 Display mit Kabel",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/252586_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-radio-833,25/dynamischeseinbaumikrofoneinstellbar,440",
+                title: "Einbaumikro für Panel",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-radio-833,25/dynamischeseinbaumikrofoneinstellbar,440",
+                description: Some(
+                    "Einbaumikrofon fürs Instrumentenbrett",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/252581_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/suchecapaanhngerschutzbezugfreinsitzer,392",
+                title: "Suche CAPA Anhänger-Schut",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/suchecapaanhngerschutzbezugfreinsitzer,392",
+                description: Some(
+                    "Suche CAPA Anhänger-Schutzbezug Für Einsitzer",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/clublibelle205,248",
+                title: "Club Libelle 205",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/clublibelle205,248",
+                description: None,
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/topasg29e1815mspannweite,308",
+                title: "Top ASG 29 e 18/15m",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/topasg29e1815mspannweite,308",
+                description: Some(
+                    "Biete ASG 29e - mit komplettem Zubehör",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/252503_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/discus2ct1518m,292",
+                title: "Discus-2cT 15/18m",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/discus2ct1518m,292",
+                description: Some(
+                    "Discus-2cT in top condition",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/252448_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/sehrschnelo100zuverkaufen,437",
+                title: "Sehr schöne Lo 100",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/sehrschnelo100zuverkaufen,437",
+                description: Some(
+                    "Biete eine schöne Lo100 mit geschlossenem Anhänger",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/252425_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-flarm,27/flarmigcenlf7,378",
+                title: "FLARM IGC, ENL, F7",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-flarm,27/flarmigcenlf7,378",
+                description: Some(
+                    "FLARM F7, IGC, ENL",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/252424_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-navigationssystems,30/lxnavigationklappensensor,290",
+                title: "LXNavigation_Klappensenso",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-navigationssystems,30/lxnavigationklappensensor,290",
+                description: Some(
+                    "Wölbklappensensor",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/252321_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-flarm,27/lxnavigationflarmsplitterkabel,289",
+                title: "LXNavigation_Flarm Splitt",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-flarm,27/lxnavigationflarmsplitterkabel,289",
+                description: Some(
+                    "Verbindungskabel LXNavigation",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/252318_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/duodiscusxt,467",
+                title: "Duo Discus XT",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/duodiscusxt,467",
+                description: Some(
+                    "Siehe unter Anzeigen(alt).",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/252280_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-planeparts-sailplane,53/jantar2bfahrwerksgabelgesucht,299",
+                title: "Jantar 2B -  Fahrwerksgab",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-planeparts-sailplane,53/jantar2bfahrwerksgabelgesucht,299",
+                description: Some(
+                    "JANTAR 2B Fahrwerksschwinge gesucht",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/252279_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-miscellaneous,47/lemostecker,430",
+                title: "Lemo Stecker",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-miscellaneous,47/lemostecker,430",
+                description: Some(
+                    "Lemo Stecker",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/252108_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-miscellaneous,47/sicherungsschaltereta2a,429",
+                title: "Sicherungsschalter ETA 2A",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-miscellaneous,47/sicherungsschaltereta2a,429",
+                description: Some(
+                    "Sicherungsschalter ETA 2A",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/252123_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-miscellaneous,31/bluetoothadapterfunk,391",
+                title: "Bluetooth Adapter Funk",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-miscellaneous,31/bluetoothadapterfunk,391",
+                description: Some(
+                    "Bluetooth Adapter zur Steuerung fürs Funkgerät",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/251786_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-flarm,27/topabgestimmteaerodynamischeflarmauenantenne,287",
+                title: "Top abgestimmte aerodynam",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-flarm,27/topabgestimmteaerodynamischeflarmauenantenne,287",
+                description: Some(
+                    "Aerodynamische Außenantenne",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/251787_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/ash256vollausstattungreadytofly,326",
+                title: "ASH-25,6 „Vollausstattung",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/ash256vollausstattungreadytofly,326",
+                description: Some(
+                    "ASH-25,6 in top Zustand und neuer Instrumentierung zu Verkaufen",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/251688_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-miscellaneous,31/5mrg400bncantennenkabeltransponderoderfunk,285",
+                title: "5\u{202f}m RG400 BNC Antennenkab",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-miscellaneous,31/5mrg400bncantennenkabeltransponderoderfunk,285",
+                description: Some(
+                    "Funk/Transponderkabel",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/251212_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-miscellaneous,31/3mrg400bnctransponderoderantennenkabeldoppeltgeschirmt,284",
+                title: "3m RG 400 BNC Transponder",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-miscellaneous,31/3mrg400bnctransponderoderantennenkabeldoppeltgeschirmt,284",
+                description: Some(
+                    "Funk/Transponderkabel",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/251211_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-flarm,27/neuedipolantenneflarm,283",
+                title: "Neue Dipol Antenne_ Flarm",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-flarm,27/neuedipolantenneflarm,283",
+                description: Some(
+                    "Flarm Fant Antenne",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/251209_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-planeparts-sailplane,53/transponderauenantenne,388",
+                title: "Transponder Außenantenne",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-planeparts-sailplane,53/transponderauenantenne,388",
+                description: Some(
+                    "Transponder Außenantene",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/251195_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/mininimbusc,424",
+                title: "Mini Nimbus C",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/mininimbusc,424",
+                description: Some(
+                    "",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/244875_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/janusc,350",
+                title: "Janus C",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/janusc,350",
+                description: Some(
+                    "Wir verkaufen unseren Janus C.",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/251049_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-motorplane-miscellaneous,41/garrechtvt01steuerungunit,278",
+                title: "Garrecht VT-01 Steuerung",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-motorplane-miscellaneous,41/garrechtvt01steuerungunit,278",
+                description: Some(
+                    "VT-01 Steuerungseinheit",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/250725_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-miscellaneous,31/frlarusgnssantennengroundplatealuminiummattschwarzeloxiert,277",
+                title: "Für Larus GNSS Antennen,",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-miscellaneous,31/frlarusgnssantennengroundplatealuminiummattschwarzeloxiert,277",
+                description: Some(
+                    "Groundplate Aluminium, mattschwarz eloxiert",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/250651_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-miscellaneous,31/transponderauenantennemitgroundplate,276",
+                title: "Transponder Außenantenne",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-miscellaneous,31/transponderauenantennemitgroundplate,276",
+                description: Some(
+                    "Transponderantenne Non TSO",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/250647_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-miscellaneous,47/tekdsenverschluss,275",
+                title: "TEK-Düsen Verschluss",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-miscellaneous,47/tekdsenverschluss,275",
+                description: Some(
+                    "TEK-Düsenverschluss",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/250069_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-flarm,27/flarmauenantenne,438",
+                title: "Flarm Außenantenne",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-flarm,27/flarmauenantenne,438",
+                description: Some(
+                    "Flarm Außenantenne",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/249423_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/schnesf27azuverkaufenmitgeschlossenemanhnger,262",
+                title: "Schöne SF27A zu verkaufen",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/schnesf27azuverkaufenmitgeschlossenemanhnger,262",
+                description: Some(
+                    "Eine von nur 3 in Österreich gebauten SF27A steht zum Verkauf, sie unterscheidet sich wie folgt: Fast ausschließlich beplankter Flügel &amp; Schiebehaube.",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/249396_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-miscellaneous,47/cockpitentlftunghandlochdeckel,274",
+                title: "Cockpit Entlüftung_Handlo",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-miscellaneous,47/cockpitentlftunghandlochdeckel,274",
+                description: Some(
+                    "Handlochdeckel Entlüftung",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/249264_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-planeparts-motorplane,54/suchewingtip3in1ledlichter,456",
+                title: "suche Wingtip 3-in-1 LED-",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-planeparts-motorplane,54/suchewingtip3in1ledlichter,456",
+                description: Some(
+                    "ich suche Wingtip 3-in-1 LED-Lichter mit Navigation, Position und Strobe",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-expiredparachutes,46/mertens128223rbj1993,396",
+                title: "Mertens 12-82/23 R BJ 199",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-expiredparachutes,46/mertens128223rbj1993,396",
+                description: Some(
+                    "Zum Verkauf steht ein Mertens 12-82/23 R von 1993 für Dekozwecke zum Verkauf.\nPreis VB, zuzüglich Porto/Versand",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/249167_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-motorplanes,11/hk36ttcdimona,426",
+                title: "HK 36 TTC „Dimona“",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-motorplanes,11/hk36ttcdimona,426",
+                description: Some(
+                    "HK 36 TTC „Dimona“ 115 PS Bj 1999",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/249022_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/kestrel17meinteiligehaube,311",
+                title: "Kestrel 17m - einteilige",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/kestrel17meinteiligehaube,311",
+                description: Some(
+                    "Kestrel mit einteiliger Haube, Top ausgestattet, super Hänger.",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/249070_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/mininimbusczuvermietensaison2026,425",
+                title: "Mini Nimbus C zu vermieten saison 2026",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/mininimbusczuvermietensaison2026,425",
+                description: None,
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-miscellaneous,47/stoffberzgefreinenventus2c,454",
+                title: "Stoffüberzüge Ventus 2c",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-miscellaneous,47/stoffberzgefreinenventus2c,454",
+                description: Some(
+                    "Stoffüberzüge für einen Ventus 2c.",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/250033_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-motorplanes,11/moranems893commodorea,371",
+                title: "Morane MS-893 Commodore A",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-motorplanes,11/moranems893commodorea,371",
+                description: Some(
+                    "MORANE SAULNIER MS.893A D-EGYX\n(SOCATA RALLYE COMMODORE)\n\nYEAR OF CONSTRUCTION: 1966\nSERIAL NUMBER: 10625\nMTOW: 1050kg\nARC valid tll: 23/10/2026",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/371_img_0252_thm.jpeg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-miscellaneous,47/haubenbezugask21b,245",
+                title: "Haubenbezug ASK21 (B)",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-miscellaneous,47/haubenbezugask21b,245",
+                description: Some(
+                    "Überzähliger Haubenbezug ASK21 top Zustand",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-motorplane-miscellaneous,41/verkaufepointerelt,260",
+                title: "Verkaufe Pointer ELT",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-motorplane-miscellaneous,41/verkaufepointerelt,260",
+                description: Some(
+                    "Pointer ELT zum Verkauf",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/248072_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-vario,32/verkaufevw3sgevario,259",
+                title: "Verkaufe VW3SG E Vario",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-vario,32/verkaufevw3sgevario,259",
+                description: Some(
+                    "VW3SG E Vario zum Verkauf",
+                ),
+                image_url: None,
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-mechanical-instruments,24/defekterelekwendezeigerzuverkaufen,258",
+                title: "Defekter elek. Wendezeige",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-mechanical-instruments,24/defekterelekwendezeigerzuverkaufen,258",
+                description: Some(
+                    "Verkaufe einen defekten 12V Wendezeiger",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/248050_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-motorplane-mechanical-instruments,39/defekterknstlicherhorizontalsdekozuverkaufen,257",
+                title: "Defekter künstlicher Hori",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-motorplane-mechanical-instruments,39/defekterknstlicherhorizontalsdekozuverkaufen,257",
+                description: Some(
+                    "Verkaufe einen defekten pneumatischen Horizont",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/248049_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-radio-833,25/peikerdynamischesmikrofontm168schwarzmitschwanenhals,419",
+                title: "PEIKER Dynamisches Mikrof",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-instruments-sailplane-radio-833,25/peikerdynamischesmikrofontm168schwarzmitschwanenhals,419",
+                description: Some(
+                    "Fast neues Dynamisches Mikro",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/247943_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/cobraumbaukitarcus10aufarcus20,348",
+                title: "Cobra Umbaukit  Arcus 1.0 auf Arcus 2.0",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-planeaccessory-trailerparts,43/cobraumbaukitarcus10aufarcus20,348",
+                description: Some(
+                    "",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/247334_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/js318m15mincleumwstundimport,269",
+                title: "JS3 18m/15m incl. EU-MwSt und Import",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/js318m15mincleumwstundimport,269",
+                description: Some(
+                    "",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/247098_thm.jpg",
+                ),
+            },
+        ),
+        Ok(
+            ClassifiedsItem {
+                guid: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/clublibelle205,270",
+                title: "Club Libelle 205",
+                link: "https://www.segelflug.de/index.php/de/kleinanzeigen/filterseite-de/ad/com-djclassifieds-cat-sailplanes,5/clublibelle205,270",
+                description: Some(
+                    "Schöne gepflegte Club Libelle zu einem günstigen Preis in gute Hände abzugeben.",
+                ),
+                image_url: Some(
+                    "https://www.segelflug.de//components/com_djclassifieds/images/item/0/246254_thm.jpg",
+                ),
+            },
+        ),
+    ],
+)
