@@ -1,16 +1,15 @@
 ---
 source: src/classifieds/parse/user.rs
 expression: user
-input_file: src/classifieds/parse/test-input/user/basic.html
-snapshot_kind: text
+input_file: src/classifieds/parse/test-input/user/dj-classifieds.html
 ---
 ClassifiedsUser {
     name: Some(
-        "Raatz",
+        "Bieniek, Tobias",
     ),
     address: None,
     location: Some(
-        "Germany",
+        "Aachen-Merzbrück, Deutschland",
     ),
     website: None,
 }

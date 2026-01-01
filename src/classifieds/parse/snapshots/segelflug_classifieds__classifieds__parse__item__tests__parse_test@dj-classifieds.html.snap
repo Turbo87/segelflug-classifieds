@@ -1,0 +1,25 @@
+---
+source: src/classifieds/parse/item.rs
+expression: user
+input_file: src/classifieds/parse/test-input/item/dj-classifieds.html
+---
+ClassifiedsDetails {
+    description: Some(
+        "Komplette ASG 29e\n\n2050h\n15m und 18m Spannweite\nPU Lackierung / getönte Haube \nMückenputzer\nHecktank\n5 Jahreskontrolle Motor in 11/25 durchgeführt\n\nLX 8000 4. Gen\nWölbklappensensor\nPower FLARM \nLX Knüppelfernbedienung \n\nCobra Anhänger\n100 km/h Zulassung/ Reifen 1 Jahr alt\nKurbelstützen\nFlügelstütze / Flächenrad / Zugstange / Kuller\n\nWeiteres Zubehör\nHaubenblitzer (noch nicht eingebaut) IMI Aufrüsthilfe",
+    ),
+    location: Some(
+        "Bamberg-Breitenau, Deutschland",
+    ),
+    photo_urls: [
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252503_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252504_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252505_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252506_thb.jpg",
+    ],
+    price: Some(
+        "165.700 €",
+    ),
+    user_link: Some(
+        "https://www.segelflug.de/index.php/de/component/djclassifieds/profile/ruehr-matthias,22903",
+    ),
+}

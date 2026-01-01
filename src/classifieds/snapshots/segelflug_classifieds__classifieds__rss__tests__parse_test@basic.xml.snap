@@ -2,7 +2,6 @@
 source: src/classifieds/rss.rs
 expression: items
 input_file: src/classifieds/test-input/basic.xml
-snapshot_kind: text
 ---
 Ok(
     [
@@ -12,7 +11,7 @@ Ok(
                 title: "Wing tip wheels for DISCUS - DISCUS 2",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50814",
                 description: Some(
-                    "I'm selling two wing tip wheels For DISCUS - DISCUS 2Specially adapted to the wing of the DISCUS - DISCUS 2 • Wheel: diameter 54 mm.• Support: length 187 mm, width 42 mm.• Axis: diameter 6 mm.• Total height: 60 mm.• Weight: 280 g per pair. Price 90 €Shipping :  France 8 €, EU : 15 €\\______( )______/Je vends deux roues de bout d'aile pour DISCUS - DISCUS 2Spécialement adapté à l'aile du DISCUS - DISCUS 2 - Roue : diamètre 54 mm.- Support : longueur 187 mm, largeur 42 mm.- Axe : diamètre 6 mm.- Hauteur totale : 60 mm.- Poids : 280 g par paire. Prix 90 €.Frais de port : France 8 €, UE : 15 €.",
+                    "I'm selling two wing tip wheels For DISCUS - DISCUS 2\n\nSpecially adapted to the wing of the DISCUS - DISCUS 2\n \n• Wheel: diameter 54 mm.\n• Support: length 187 mm, width 42 mm.\n• Axis: diameter 6 mm.\n• Total height: 60 mm.\n• Weight: 280 g per pair. \n\nPrice 90 €\n\nShipping :  France 8 €, EU : 15 €\n\n\\______( )______/\n\nJe vends deux roues de bout d'aile pour DISCUS - DISCUS 2\n\nSpécialement adapté à l'aile du DISCUS - DISCUS 2\n \n- Roue : diamètre 54 mm.\n- Support : longueur 187 mm, largeur 42 mm.\n- Axe : diamètre 6 mm.\n- Hauteur totale : 60 mm.\n- Poids : 280 g par paire. \n\nPrix 90 €.\n\nFrais de port : France 8 €, UE : 15 €.",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/508/125770_thumbnail.jpg",
@@ -25,7 +24,7 @@ Ok(
                 title: "Looking for LS4 fuselage",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50813",
                 description: Some(
-                    "Looking for a LS-4 fuselage.Can be damaged.Information wanted:- State (damaged or not) ?- Administrative documents available ?- Pictures- Asking price",
+                    "Looking for a LS-4 fuselage.\nCan be damaged.\n\nInformation wanted:\n- State (damaged or not) ?\n- Administrative documents available ?\n- Pictures\n- Asking price",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/508/125769_thumbnail.jpg",
@@ -64,7 +63,7 @@ Ok(
                 title: "ATR 720 Nr. 2",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50810",
                 description: Some(
-                    "Installation rack included.Transceiver removed in serviceable condition.",
+                    "Installation rack included.\n\nTransceiver removed in serviceable condition.",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/508/125764_thumbnail.jpg",
@@ -77,7 +76,7 @@ Ok(
                 title: "ATR 720 Nr. 1",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50809",
                 description: Some(
-                    "Installation rack included.Transceiver removed in serviceable condition.",
+                    "Installation rack included.\n\nTransceiver removed in serviceable condition.",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/508/125762_thumbnail.jpg",
@@ -103,7 +102,7 @@ Ok(
                 title: "Wanted: &quot;Seat cushion + back&quot; style parachute",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50807",
                 description: Some(
-                    "Mein Deutsch ist schrecklich :)  ..aber ich verstehe was ich verstehen muss! :)   También hablo Castellano (\"Espanyol\") y Catalá. Anche un po' di Italiano. Looking for \"seat cushion+ back\" style parachute, with a few years of remaining validity AND in truly good condition.  Possible types (see attached photos) : Security 350 or 150ThinbackSlimpack (ParachutesAustralia) GQ650 Silhouette STRONG Parachutes 305 Spekon RE-5L Serie 4 ... or similar.  Price (obviously) depending on remaining years.",
+                    "Mein Deutsch ist schrecklich :)  ..aber ich verstehe was ich verstehen muss! :)   \nTambién hablo Castellano (\"Espanyol\") y Catalá. \nAnche un po' di Italiano. \n\nLooking for \"seat cushion+ back\" style parachute, \nwith a few years of remaining validity AND in truly good condition.  \nPossible types (see attached photos) : \n\nSecurity 350 or 150\nThinback\nSlimpack (ParachutesAustralia) \nGQ650 Silhouette \nSTRONG Parachutes 305 \nSpekon RE-5L Serie 4 \n... or similar.  \n\nPrice (obviously) depending on remaining years.",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/508/125754_thumbnail.jpg",
@@ -127,7 +126,7 @@ Ok(
                 title: "Suche Flarm V3 Display",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50803",
                 description: Some(
-                    "Mit oder ohne Kabel.Bitte nur funktionierEnde Displays anbieten.",
+                    "Mit oder ohne Kabel.\n\nBitte nur funktionierEnde Displays anbieten.",
                 ),
                 image_url: None,
             },
@@ -199,7 +198,7 @@ Ok(
                 title: "Turn and slip indicator",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50797",
                 description: Some(
-                    "Turn and slip indicator.no form 1, but nice works",
+                    "Turn and slip indicator.\nno form 1, but nice works",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/507/125727_thumbnail.jpg",
@@ -212,7 +211,7 @@ Ok(
                 title: "Suche Sauerstoffhalterung ASW19/ASW20",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50796",
                 description: Some(
-                    "Ich suche nach einer Sauerstoffhalterung für eine ASW20 oder ASW19.bitte alles anbieten und wenn möglich mit Foto.Danke!",
+                    "Ich suche nach einer Sauerstoffhalterung für eine ASW20 oder ASW19.\n\nbitte alles anbieten und wenn möglich mit Foto.\nDanke!",
                 ),
                 image_url: None,
             },
@@ -223,7 +222,7 @@ Ok(
                 title: "LX 8080 Club 3. Gen",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50794",
                 description: Some(
-                    "Zu verkaufen ein LX 8080 3. GenMit V9  mit Sprachoptionund Kartenoptionmit der neuesten Firmware 8.01Rechner auf Werkseinstellung zurückgesetztdies ist erst mit der Firmware 8.01 möglichalle KabelGPS Antenneneuer  unbenutzter LautsprecherAlter des Rechners knapp 5 Jahrewird verkauft, weil ein LX 9000 gekauft wurdeim Alter muss alles ein bischen größer seindie Vorteile des 8080 sind bekannt.....alter Rechnung im 80ziger Format raus ....LX 8080 rein...wenige Kabel .... keine Problem beim Anschließen...alles an einem Nachmittag erledigt...und als Zugabe gibt es noch ein richtig fettes aktuelles Handbuch 7.00 in Farbe dazu...da bleiben keine Wünsche mehr offenGrüße aus Bayern",
+                    "Zu verkaufen ein LX 8080 3. Gen\nMit V9\n  \nmit Sprachoption\nund Kartenoption\nmit der neuesten Firmware 8.01\nRechner auf Werkseinstellung zurückgesetzt\ndies ist erst mit der Firmware 8.01 möglich\nalle Kabel\nGPS Antenne\nneuer  unbenutzter Lautsprecher\nAlter des Rechners knapp 5 Jahre\n\nwird verkauft, weil ein LX 9000 gekauft wurde\nim Alter muss alles ein bischen größer sein\n\ndie Vorteile des 8080 sind bekannt.....alter Rechnung im 80ziger Format raus ....LX 8080 rein...\nwenige Kabel .... keine Problem beim Anschließen...alles an einem Nachmittag erledigt...\nund als Zugabe gibt es noch ein richtig fettes aktuelles Handbuch 7.00 in Farbe dazu...da bleiben keine Wünsche mehr offen\n\nGrüße aus Bayern",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/507/125720_thumbnail.jpg",
@@ -301,7 +300,7 @@ Ok(
                 title: "LX8000F mit Flarm zu verkaufen",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50766",
                 description: Some(
-                    "LX8000F mit integriertem Flarm zu verkaufen. Vollversion!Voll funktionsfähig, alle Kabel und Antennen liegen bei.",
+                    "LX8000F mit integriertem Flarm zu verkaufen. \nVollversion!\n\nVoll funktionsfähig, alle Kabel und Antennen liegen bei.",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/507/125648_thumbnail.jpg",
@@ -314,7 +313,7 @@ Ok(
                 title: "EDIATec ECW100 Flarm mit IGC",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50708",
                 description: Some(
-                    "Verkaufe ein ECW Flarm mit neuste Software draufwar 2018 beim ServiceIGC zulassungAntenne usw dabeiPreis €550 inkl versand",
+                    "Verkaufe ein ECW Flarm mit neuste Software drauf\nwar 2018 beim Service\nIGC zulassung\nAntenne usw dabei\n\nPreis €550 inkl versand",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/507/125471_thumbnail.jpg",
@@ -353,7 +352,7 @@ Ok(
                 title: "AS-33Es For Rent",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50784",
                 description: Some(
-                    "AS-33Es for RentAll information on our website:https://www.a-glider-for-renting.com/Jean-Luc COLSONLouis DRESSE",
+                    "AS-33Es for Rent\n\nAll information on our website:\n\nhttps://www.a-glider-for-renting.com/\n\nJean-Luc COLSON\nLouis DRESSE",
                 ),
                 image_url: None,
             },
@@ -386,7 +385,7 @@ Ok(
                 title: "Nimbus 4DM",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50781",
                 description: Some(
-                    "Inseriert wird ein Nimbus 4DM in top Zustand.\n\nDer Flieger wurde im Jahr 1996 gebaut und hat den Vorteil eines großen Motorkastens, sodass eine Umrüstung auf Solo möglich war. Dies ist nicht bei jeder \"Rotax\"-Baureihe möglich.\n\nDer Solomotor hat insgesamt 79 h und wurde 2020 bei 70 h von Schempp-Hirth grundüberholt.\n\nEine neue Rutschkupplung verbaut, eine neue Propellerbremse eingesetzt, ein neuer Anlasser verbaut, neue Zündkerzen eingesetzt, Kabel und Schläuche wurden erneuert, sowie der Motorraum neu lackiert und Hitze isoliert. Darüber hinaus wurden die Flächentanks erneuert und ersetzt (kein Treibsoff ausgelaufen, sondern Lebensdauer erreicht), sowie neue Benzinschläuche verpresst.\n\nCockpit neu - neue Panels.\n\nDie Lakierung ist noch nicht erneuert worden, da nicht notwendig. Es wurden keine Höhenflüge gemacht und weiterhin war der Flieger niemals in Namibia.\n\nDer Flieger ist immer stets hangariert oder im Anhänger aufbewahrt.\n\nAn markanten Stellen wurden Warnfolien aufgebracht, welche nach Verbleichen ausgetauscht werden können. (keine eingeschliffene Lackierung)\n\nStarts: 425\n\nStunden: 1401\n\nBlaue getönte Haube\n\nRumpf- und zwei Flächentanks (Tankvolumen 48L)\n\nSchwerpunktkupplung und Bugkupplung\n\nSitzbezüge aus Stoff\n\nLx 9000 in Doppelsitzerausführung und Knüppelverbedienung vorn (mit Zündung am Knüppel)\n\nFlarm mit Außenantenne (abschraubbar)\n\nFunk Becker 8,33\n\nADS-B Empfänger\n\nTransponder Garrecht\n\n2 Fallschirme\n\nCobra Hänger in sehr gutem Zustand mit Tandemachse\n\nAnhängerbaujahr: 1997\n\nEinzugsvorrichtung für den Rumpf\n\n1 Mann Aufbauhilfe,\n\nFlügelrad\n\nSchleppstange\n\nHallenbezüge\n\nJaxida Bezüge\n\nKuller",
+                    "Inseriert wird ein Nimbus 4DM in top Zustand.\n\n\nDer Flieger wurde im Jahr 1996 gebaut und hat den Vorteil eines großen Motorkastens, sodass eine Umrüstung auf Solo möglich war. Dies ist nicht bei jeder \"Rotax\"-Baureihe möglich.\n\n\nDer Solomotor hat insgesamt 79 h und wurde 2020 bei 70 h von Schempp-Hirth grundüberholt.\n\n\nEine neue Rutschkupplung verbaut, eine neue Propellerbremse eingesetzt, ein neuer Anlasser verbaut, neue Zündkerzen eingesetzt, Kabel und Schläuche wurden erneuert, sowie der Motorraum neu lackiert und Hitze isoliert. Darüber hinaus wurden die Flächentanks erneuert und ersetzt (kein Treibsoff ausgelaufen, sondern Lebensdauer erreicht), sowie neue Benzinschläuche verpresst.\n\n\nCockpit neu - neue Panels.\n\n\nDie Lakierung ist noch nicht erneuert worden, da nicht notwendig. Es wurden keine Höhenflüge gemacht und weiterhin war der Flieger niemals in Namibia.\n\n\nDer Flieger ist immer stets hangariert oder im Anhänger aufbewahrt.\n\n\nAn markanten Stellen wurden Warnfolien aufgebracht, welche nach Verbleichen ausgetauscht werden können. (keine eingeschliffene Lackierung)\n\n\nStarts: 425\n\n\nStunden: 1401\n\n\nBlaue getönte Haube\n\n\nRumpf- und zwei Flächentanks (Tankvolumen 48L)\n\n\nSchwerpunktkupplung und Bugkupplung\n\n\nSitzbezüge aus Stoff\n\n\nLx 9000 in Doppelsitzerausführung und Knüppelverbedienung vorn (mit Zündung am Knüppel)\n\n\nFlarm mit Außenantenne (abschraubbar)\n\n\nFunk Becker 8,33\n\n\nADS-B Empfänger\n\n\nTransponder Garrecht\n\n\n2 Fallschirme\n\n\nCobra Hänger in sehr gutem Zustand mit Tandemachse\n\n\nAnhängerbaujahr: 1997\n\n\nEinzugsvorrichtung für den Rumpf\n\n\n1 Mann Aufbauhilfe,\n\n\nFlügelrad\n\n\nSchleppstange\n\n\nHallenbezüge\n\n\nJaxida Bezüge\n\n\nKuller",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/507/125695_thumbnail.jpg",
@@ -399,7 +398,7 @@ Ok(
                 title: "Discus, LS-7, LS-6, DG300, ASW20, Ventus",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50779",
                 description: Some(
-                    "I'm looking for a courant glider such as: Discus, LS-7, LS-6, DG300, ASW20, Ventus.In good condition, preferably with new PU coating, (almost) ready to fly.Pro's:- In good shape- Modern cockpit: nav, Flarm, - 3000h inspection done, included or not in the near future- Trailer in good shape- Privately owned (Club owned only when taken good care of)- WingletsPrice range: 20-35kIf it has a Turbo, price range: 40-60k",
+                    "I'm looking for a courant glider such as: Discus, LS-7, LS-6, DG300, ASW20, Ventus.\nIn good condition, preferably with new PU coating, (almost) ready to fly.\n\nPro's:\n- In good shape\n- Modern cockpit: nav, Flarm, \n- 3000h inspection done, included or not in the near future\n- Trailer in good shape\n- Privately owned (Club owned only when taken good care of)\n- Winglets\n\nPrice range: 20-35k\n\nIf it has a Turbo, price range: 40-60k",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/507/125690_thumbnail.jpg",
@@ -412,7 +411,7 @@ Ok(
                 title: "Colibri II - Halterung",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50777",
                 description: Some(
-                    "Gesucht wird eine Colibri II - Halterung mit Schnapp-In Effekt.Hat jemand so etwas noch rumliegen und möchte es verkaufen?Thomas GerberAkaflieg Frankfurt",
+                    "Gesucht wird eine Colibri II - Halterung mit Schnapp-In Effekt.\nHat jemand so etwas noch rumliegen und möchte es verkaufen?\n\nThomas Gerber\nAkaflieg Frankfurt",
                 ),
                 image_url: None,
             },
@@ -462,7 +461,7 @@ Ok(
                 title: "Intercom ATC-2 von Soft Comm International",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50773",
                 description: Some(
-                    "Nach Panelumbau ist das Intercom zu verkaufen. Zu den eigentlichen 2 Headsetanschlüssen ist ein zusätzlicher dritter Anschluss vorhanden. Das Intercom verfügt ebenfalls über einen Recorder IN und OUT Anschluss, einen AUX Eingang, sowie einen eigenen PTT Knopf für den CoPi.Bei Fragen gerne melden",
+                    "Nach Panelumbau ist das Intercom zu verkaufen. Zu den eigentlichen 2 Headsetanschlüssen ist ein zusätzlicher dritter Anschluss vorhanden. Das Intercom verfügt ebenfalls über einen Recorder IN und OUT Anschluss, einen AUX Eingang, sowie einen eigenen PTT Knopf für den CoPi.\n\nBei Fragen gerne melden",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/507/125676_thumbnail.jpg",
@@ -475,7 +474,7 @@ Ok(
                 title: "GPS Navigationssystem LX400 von Filser Electronics",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50772",
                 description: Some(
-                    "Nach Panelumbau ist das LX400 zu verkaufen.Es funktionierte bis zum Ausbau. Stecker, Antenne und Antennenkabel werden mit abgegeben.Bei Fragen gerne melden",
+                    "Nach Panelumbau ist das LX400 zu verkaufen.\nEs funktionierte bis zum Ausbau. Stecker, Antenne und Antennenkabel werden mit abgegeben.\n\nBei Fragen gerne melden",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/507/125673_thumbnail.jpg",
@@ -575,7 +574,7 @@ Ok(
                 title: "Bluetooth module for S7/S8/S80",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50761",
                 description: Some(
-                    "I am selling Bluetooth module for S7/S8/S80 variometers. Used for 2 years, not needed anymore due to change of variometers. New price at 90Eur, this one only 75 including shipping in Europe.",
+                    "I am selling Bluetooth module for S7/S8/S80 variometers. \nUsed for 2 years, not needed anymore due to change of variometers. \n\n\nNew price at 90Eur, this one only 75 including shipping in Europe.",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/507/125641_thumbnail.jpg",
@@ -601,7 +600,7 @@ Ok(
                 title: "ASW22 BLE 26.58 - NEW PRICE",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=45452",
                 description: Some(
-                    "Engine Rotax 505A\nFlight hours: 2475\nFlights: 545\nEngine hours: 72\nPU finish in very good condition\nYear of construction 1986\nSerial number 22045\nVery light damage history\n1033km flight in Greece\n \nNew panel in 2017\n2017 LX-9000 IGC with Flarm, V9, FlarmView2, compass, remote stick and attitude indicator\nTrig TT21 transponder\nTRX-1090\nRadio Becker 3201 (will need to be changed for almost any other country)\nOudie 2 with swan neck cradle\nMountain High O2D2 with high altitude masks, and 2 * 2lt bottles\nELT ACK Technologies E-01\nMcMurdo FastFind 220 Personal Locator Beacon\nBruegemann parachute\n \nEngine battery (nose) Odyssey 25Ah\nAvionics battery (fuselage) LiFePO4 20Ah\nSolar cells\nDucati ignitionNew safety harness\n \n3 wing stands\nTow out gear\nWolf trailer (heavy duty tunnel type)\nNew Clouddancers covers\n2 battery chargers\nRefueling pump",
+                    "Engine Rotax 505A\nFlight hours: 2475\nFlights: 545\nEngine hours: 72\nPU finish in very good condition\nYear of construction 1986\nSerial number 22045\nVery light damage history\n1033km flight in Greece\n \nNew panel in 2017\n2017 LX-9000 IGC with Flarm, V9, FlarmView2, compass, remote stick and attitude indicator\nTrig TT21 transponder\nTRX-1090\nRadio Becker 3201 (will need to be changed for almost any other country)\nOudie 2 with swan neck cradle\nMountain High O2D2 with high altitude masks, and 2 * 2lt bottles\nELT ACK Technologies E-01\nMcMurdo FastFind 220 Personal Locator Beacon\nBruegemann parachute\n \nEngine battery (nose) Odyssey 25Ah\nAvionics battery (fuselage) LiFePO4 20Ah\nSolar cells\nDucati ignition\n\nNew safety harness\n \n3 wing stands\nTow out gear\nWolf trailer (heavy duty tunnel type)\nNew Clouddancers covers\n2 battery chargers\nRefueling pump",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/454/110427_thumbnail.jpg",
@@ -614,7 +613,7 @@ Ok(
                 title: "Stemme S10-VT",
                 link: "https://www.segelflug.de/osclass/index.php?page=item&id=50758",
                 description: Some(
-                    "Suchen altersbedingt 2 bis 3 neue Mitglieder für Haltergemeinschaft (max. 5 Mitglieder)\nBasis 150000€ anteilig. Eventuell auch Verkauf.\n\nStemme S10-VT\nBaujahr 4/200\nStunden ca. 3800h\nStarts 995\nMotor Rotax 914F, ca. 990h\nMotor TBO  1200h\nARC 12/2020\n\nNähere Infos und Bilder unter https://www.dropbox.com/sh/walei1yfnucqiwl/AACOUfSr01xxQgfgZHConkhVa?dl=0\n\ndkcum@gmx.de",
+                    "Suchen altersbedingt 2 bis 3 neue Mitglieder für Haltergemeinschaft (max. 5 Mitglieder)\nBasis 150000€ anteilig. Eventuell auch Verkauf.\n\n\nStemme S10-VT\nBaujahr 4/200\nStunden ca. 3800h\nStarts 995\n\nMotor Rotax 914F, ca. 990h\nMotor TBO  1200h\nARC 12/2020\n\n\nNähere Infos und Bilder unter https://www.dropbox.com/sh/walei1yfnucqiwl/AACOUfSr01xxQgfgZHConkhVa?dl=0\n\n\ndkcum@gmx.de",
                 ),
                 image_url: Some(
                     "https://www.segelflug.de/osclass/oc-content/uploads/507/125632_thumbnail.jpg",

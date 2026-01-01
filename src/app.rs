@@ -33,8 +33,7 @@ impl App {
         let mut guids = guids::read_guids_file(&self.guids_path).unwrap_or_default();
         event!(Level::TRACE, guids = ?guids);
 
-        let items = self.classifieds.load_feed().await?;
-        let items: Vec<_> = items.into_iter().filter_map(|result| result.ok()).collect();
+        let items = self.classifieds.load_feeds().await;
         event!(Level::DEBUG, num_items = items.len());
 
         let new_items: Vec<_> = items
@@ -218,7 +217,10 @@ impl ItemWithExtraData<'_> {
     }
 
     pub fn description(&self) -> Option<&str> {
-        self.item.description.as_deref()
+        self.details
+            .as_ref()
+            .and_then(|details| details.description.as_deref())
+            .or(self.item.description.as_deref())
     }
 
     pub fn photo_url(&self) -> Option<&str> {

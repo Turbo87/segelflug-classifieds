@@ -1,0 +1,27 @@
+---
+source: src/classifieds/parse/item.rs
+expression: user
+input_file: src/classifieds/parse/test-input/item/dj-classifieds-2.html
+---
+ClassifiedsDetails {
+    description: Some(
+        "Landings: 6581\nFlight hours: 2284:51\nEngine hours: 0\nZuladung: 184,9kg\n \n \nEquipment:\n2 X Altimeter Winter 4 FGH 20\n2 X Speedindicator Winter 7 FMS 4\n2 X Variometer Winter 5StVM5\nRadio Becker AR 6201 with second double seater device\nTransponder Garrecht VT-01\n2 X Compass Airpath 2300 \nLX 7007 pro IGC with external Flarmdevice\nSOTECC ACL\nInterior new in leather (2024)\nGadringer harness (2023)\nPhotovoltaic cells \nNew avionic batteries \n \nOptional new Cobra trailer: \nCobra Trailer fully equiped (2023)\nSelf launch glider can be rigged with two persons only. \n \nAdditional Informations: \nOriginal coat in good conditions\nCallsign with adhesives \nLarge overhaul performed in 2023 at\nAlexander Schleicher",
+    ),
+    location: Some(
+        "Europa",
+    ),
+    photo_urls: [
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252258_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252259_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252260_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252261_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252262_thb.jpg",
+        "https://www.segelflug.de/components/com_djclassifieds/images/item/0/252263_thb.jpg",
+    ],
+    price: Some(
+        "149.000 €",
+    ),
+    user_link: Some(
+        "https://www.segelflug.de/index.php/de/component/djclassifieds/profile/senner-dominik,22893",
+    ),
+}

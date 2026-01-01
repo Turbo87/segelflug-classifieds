@@ -1,0 +1,13 @@
+---
+source: src/classifieds/parse/user.rs
+expression: user
+input_file: src/classifieds/parse/test-input/user/dj-classifieds-2.html
+---
+ClassifiedsUser {
+    name: Some(
+        "Senner, Dominik",
+    ),
+    address: None,
+    location: None,
+    website: None,
+}

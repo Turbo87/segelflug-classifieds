@@ -7,21 +7,39 @@ use tracing::Level;
 
 pub struct ClassifiedsApi {
     client: Client,
-    feed_url: String,
+    feed_urls: Vec<&'static str>,
 }
 
 impl ClassifiedsApi {
-    pub fn new<S: Into<String>>(feed_url: S, client: Client) -> Self {
-        ClassifiedsApi {
-            client,
-            feed_url: feed_url.into(),
-        }
+    pub fn new(feed_urls: Vec<&'static str>, client: Client) -> Self {
+        ClassifiedsApi { client, feed_urls }
     }
 
     #[instrument(skip(self))]
-    pub async fn load_feed(&self) -> anyhow::Result<Vec<anyhow::Result<ClassifiedsItem>>> {
-        debug!("downloading RSS feed from {}", self.feed_url);
-        let response = self.client.get(&self.feed_url).send().await;
+    pub async fn load_feeds(&self) -> Vec<ClassifiedsItem> {
+        let mut items = Vec::new();
+        for feed_url in &self.feed_urls {
+            let feed_items = match self.load_feed(feed_url).await {
+                Ok(items) => items,
+                Err(error) => {
+                    event!(Level::WARN, "Failed to load feed: {error}");
+                    continue;
+                }
+            };
+
+            items.extend(feed_items.into_iter().filter_map(|result| result.ok()));
+        }
+
+        items
+    }
+
+    #[instrument(skip(self))]
+    async fn load_feed(
+        &self,
+        feed_url: &str,
+    ) -> anyhow::Result<Vec<anyhow::Result<ClassifiedsItem>>> {
+        debug!("downloading RSS feed from {feed_url}");
+        let response = self.client.get(feed_url).send().await;
         let response = response
             .context("Failed to download RSS feed")?
             .error_for_status()
