@@ -16,7 +16,7 @@ clap = { version = "=4.5.56", features = ["derive", "env", "wrap_help"] }
 lazy_static = "=1.5.0"
 rand = "=0.9.2"
 regex = "=1.12.2"
-reqwest = { version = "=0.12.23", default-features = false, features = ["rustls-tls"] }
+reqwest = { version = "=0.12.28", default-features = false, features = ["rustls-tls"] }
 rss = { version = "=2.0.12", default-features = false }
 scraper = { version = "=0.24.0", default-features = false, features = ["errors"] }
 sentry = { version = "=0.42.0", default-features = false, features = ["anyhow", "backtrace", "contexts", "panic", "reqwest", "rustls", "tracing"] }
