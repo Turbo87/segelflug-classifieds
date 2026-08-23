@@ -95,17 +95,14 @@ impl App {
     ) -> Result<ItemWithExtraData<'a>> {
         let link = &item.link;
 
-        let details = match self.classifieds.load_details(link).await {
-            Ok(details) => Some(details),
-            Err(error) => {
-                event!(Level::WARN, error = ?error, "Failed to load details");
-                None
-            }
-        };
+        // If the details page cannot be loaded we bail out instead of continuing with
+        // incomplete data. `run()` only records the GUID for items that were handled
+        // successfully, so the item is picked up again on the next run. Otherwise a
+        // temporary outage of the website would permanently announce items without
+        // their price, photos, location and user information.
+        let details = self.classifieds.load_details(link).await?;
 
-        let user_link = details
-            .as_ref()
-            .and_then(|details| details.user_link.as_ref());
+        let user_link = details.user_link.as_ref();
         let user = match user_link.as_ref() {
             Some(user_link) => match self.classifieds.load_user(user_link).await {
                 Ok(details) => Some(details),
@@ -197,7 +194,7 @@ impl App {
 
 struct ItemWithExtraData<'a> {
     item: &'a ClassifiedsItem,
-    details: Option<ClassifiedsDetails>,
+    details: ClassifiedsDetails,
     user: Option<ClassifiedsUser>,
 }
 
@@ -211,23 +208,18 @@ impl ItemWithExtraData<'_> {
     }
 
     pub fn price(&self) -> Option<&str> {
-        self.details
-            .as_ref()
-            .and_then(|details| details.price.as_deref())
+        self.details.price.as_deref()
     }
 
     pub fn description(&self) -> Option<&str> {
         self.details
-            .as_ref()
-            .and_then(|details| details.description.as_deref())
+            .description
+            .as_deref()
             .or(self.item.description.as_deref())
     }
 
     pub fn photo_url(&self) -> Option<&str> {
-        self.details
-            .as_ref()
-            .and_then(|details| details.photo_urls.first())
-            .map(|it| it.as_str())
+        self.details.photo_urls.first().map(|it| it.as_str())
     }
 
     pub fn thumbnail_url(&self) -> Option<&str> {
@@ -239,9 +231,7 @@ impl ItemWithExtraData<'_> {
     }
 
     pub fn item_location(&self) -> Option<&str> {
-        self.details
-            .as_ref()
-            .and_then(|details| details.location.as_deref())
+        self.details.location.as_deref()
     }
 
     pub fn user_name(&self) -> Option<&str> {
@@ -253,9 +243,7 @@ impl ItemWithExtraData<'_> {
     }
 
     pub fn user_link(&self) -> Option<&str> {
-        self.details
-            .as_ref()
-            .and_then(|details| details.user_link.as_deref())
+        self.details.user_link.as_deref()
     }
     pub fn user_description(&self) -> Option<String> {
         match (self.user_name(), self.location()) {

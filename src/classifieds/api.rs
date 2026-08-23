@@ -65,7 +65,10 @@ impl ClassifiedsApi {
     pub async fn load_details(&self, url: &str) -> anyhow::Result<ClassifiedsDetails> {
         debug!("loading item details");
         let response = self.client.get(url).send().await;
-        let response = response.context("Failed to load item details")?;
+        let response = response
+            .context("Failed to load item details")?
+            .error_for_status()
+            .context("Failed to load item details")?;
 
         let text = response.text().await;
         let text = text.context("Failed to read response text")?;
@@ -81,7 +84,10 @@ impl ClassifiedsApi {
     pub async fn load_user(&self, url: &str) -> anyhow::Result<ClassifiedsUser> {
         debug!("loading user details");
         let response = self.client.get(url).send().await;
-        let response = response.context("Failed to download HTML file")?;
+        let response = response
+            .context("Failed to download HTML file")?
+            .error_for_status()
+            .context("Failed to download HTML file")?;
 
         let text = response.text().await;
         let text = text.context("Failed to read response text")?;
