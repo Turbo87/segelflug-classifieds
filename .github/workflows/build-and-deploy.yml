@@ -17,7 +17,7 @@ env:
   CARGO_TERM_COLOR: always
   # renovate: datasource=crate depName=cross versioning=semver
   CROSS_VERSION: 0.2.5
-  TARGET_ARCH: armv7-unknown-linux-musleabihf
+  TARGETS: armv7-unknown-linux-musleabihf x86_64-unknown-linux-musl
 
 jobs:
   build:
@@ -28,11 +28,13 @@ jobs:
       - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
 
       - run: cargo install cross --vers ${{ env.CROSS_VERSION }}
-      - run: cross build --release --target=${TARGET_ARCH}
 
       - run: |
-          mkdir -p ./dist/${TARGET_ARCH}/
-          cp ./target/${TARGET_ARCH}/release/segelflug-classifieds ./dist/${TARGET_ARCH}/segelflug-classifieds
+          for target in ${TARGETS}; do
+            cross build --release --target=${target}
+            mkdir -p ./dist/${target}/
+            cp ./target/${target}/release/segelflug-classifieds ./dist/${target}/segelflug-classifieds
+          done
 
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
         with:

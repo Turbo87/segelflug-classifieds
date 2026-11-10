@@ -12,8 +12,8 @@ RUN chmod a+x /run.sh
 LABEL \
     io.hass.name="segelflug-classifieds" \
     io.hass.description="Segelflug.de Kleinanzeigen Telegram Bot" \
-    io.hass.arch="armhf|aarch64|armv7" \
+    io.hass.arch="armhf|aarch64|amd64|armv7" \
     io.hass.type="addon" \
-    io.hass.version="1.0.0"
+    io.hass.version="1.1.0"
 
 CMD [ "/run.sh" ]
