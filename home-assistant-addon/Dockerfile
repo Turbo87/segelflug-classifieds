@@ -1,5 +1,4 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ghcr.io/home-assistant/base:latest
 
 # Install curl for downloading the binary
 RUN apk add --no-cache curl
@@ -12,7 +11,7 @@ RUN chmod a+x /run.sh
 LABEL \
     io.hass.name="segelflug-classifieds" \
     io.hass.description="Segelflug.de Kleinanzeigen Telegram Bot" \
-    io.hass.arch="armhf|aarch64|amd64|armv7" \
+    io.hass.arch="aarch64|amd64" \
     io.hass.type="addon" \
     io.hass.version="1.1.0"
 
