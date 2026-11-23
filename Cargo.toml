@@ -10,7 +10,7 @@ build = "build.rs"
 
 [dependencies]
 ammonia = "=4.2.5"
-anyhow = "=1.0.104"
+anyhow = "=1.0.105"
 atomicwrites = "=0.4.4"
 clap = { version = "=4.6.9", features = ["derive", "env", "wrap_help"] }
 lazy_static = "=1.5.1"
@@ -33,5 +33,5 @@ tracing-subscriber = "=0.3.23"
 insta = { version = "=1.49.0", features = ["glob"] }
 
 [build-dependencies]
-anyhow = "=1.0.104"
+anyhow = "=1.0.105"
 vergen-gitcl = "=1.0.8"
